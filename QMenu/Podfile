@@ -5,7 +5,6 @@ target 'QMenu' do
   use_frameworks!
   
   pod 'HandyJSON', '~> 5.0.2'
-  pod 'PermissionsKit-macOS', '~> 1.0.1'
   
 end
 
@@ -13,6 +12,5 @@ target 'QMenuTarget' do
   use_frameworks!
   
   pod 'HandyJSON', '~> 5.0.2'
-  pod 'PermissionsKit-macOS', '~> 1.0.1'
   
 end
