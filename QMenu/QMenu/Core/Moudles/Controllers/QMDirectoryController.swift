@@ -70,7 +70,11 @@ extension QMDirectoryController: NSTableViewDelegate, NSTableViewDataSource {
             return cell
         } else if tableColumn == tableView.tableColumns[1] {
             let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "feature.desc.identifier"), owner: nil) as? QMTextCellView
-            cell?.textLabel.stringValue = model.title + "(\(model.path)"
+            var path = model.path
+            if path.contains("{{username}}") {
+                path = model.path.replacingOccurrences(of: "{{username}}", with: QMDataManager.shared.userName)
+            }
+            cell?.textLabel.stringValue = model.title + "(\(path))"
             return cell
         }
         return nil

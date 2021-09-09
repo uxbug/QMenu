@@ -75,10 +75,10 @@ extension QMDataManager {
     
     func addDirectory(_ path: String) {
         let directory = QMFeatureModel.init()
-        directory.desc = path
+        directory.path = path
         directory.id = Date.timestamp
         directory.state = .on
-        directory.title = (path as NSString).lastPathComponent
+        directory.title = path.lastPathComponent
         config?.directory.append(directory)
         saveConfig()
     }
@@ -110,7 +110,6 @@ extension QMDataManager {
         file.state = .on
         file.title = path.lastPathComponent.deletingPathExtension
         file.desc = path.pathExtension
-//        file.image = NSWorkspace.shared.icon(forFile: path)
         file.id = Date.timestamp
         let tempPath = fileTempletePath() + "/" + file.title + ".\(file.desc)"
         do {
