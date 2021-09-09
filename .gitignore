@@ -1,0 +1,11 @@
+
+Pods/
+
+*.xcworkspace
+
+Carthage/Checkouts
+
+Carthage/Build/
+
+Podfile.lock
+.DS_Store

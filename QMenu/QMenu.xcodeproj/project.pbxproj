@@ -1,0 +1,923 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8C4049C026E6ED4900AF764F /* pages.pages in Resources */ = {isa = PBXBuildFile; fileRef = 8C4049BD26E6ED4900AF764F /* pages.pages */; };
+		8C4049C126E6ED4900AF764F /* keynote.key in Resources */ = {isa = PBXBuildFile; fileRef = 8C4049BE26E6ED4900AF764F /* keynote.key */; };
+		8C4049C226E6ED4900AF764F /* numbers.numbers in Resources */ = {isa = PBXBuildFile; fileRef = 8C4049BF26E6ED4900AF764F /* numbers.numbers */; };
+		8C4049C326E6ED5200AF764F /* numbers.numbers in Resources */ = {isa = PBXBuildFile; fileRef = 8C4049BF26E6ED4900AF764F /* numbers.numbers */; };
+		8C4049C426E6ED5200AF764F /* pages.pages in Resources */ = {isa = PBXBuildFile; fileRef = 8C4049BD26E6ED4900AF764F /* pages.pages */; };
+		8C4049C526E6ED5200AF764F /* keynote.key in Resources */ = {isa = PBXBuildFile; fileRef = 8C4049BE26E6ED4900AF764F /* keynote.key */; };
+		8C4049C726E6EE1B00AF764F /* xmind.xmind in Resources */ = {isa = PBXBuildFile; fileRef = 8C4049C626E6EE1B00AF764F /* xmind.xmind */; };
+		8C4049C826E6EE1B00AF764F /* xmind.xmind in Resources */ = {isa = PBXBuildFile; fileRef = 8C4049C626E6EE1B00AF764F /* xmind.xmind */; };
+		8C4049CA26E7491300AF764F /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = 8C4049C926E7491300AF764F /* config.json */; };
+		8C4049CB26E7491300AF764F /* config.json in Resources */ = {isa = PBXBuildFile; fileRef = 8C4049C926E7491300AF764F /* config.json */; };
+		8C4049CC26E7664300AF764F /* QMDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8370B226E5F6A700683BCF /* QMDataManager.swift */; };
+		8C65734126E8B77200F619B3 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C65734026E8B77200F619B3 /* String.swift */; };
+		8C65734226E8B77200F619B3 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C65734026E8B77200F619B3 /* String.swift */; };
+		8C7602D826E1BEC6009A9864 /* QMBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7602D726E1BEC6009A9864 /* QMBaseController.swift */; };
+		8C7602DF26E1C53E009A9864 /* QMOpenCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7602DE26E1C53E009A9864 /* QMOpenCellView.swift */; };
+		8C7602E126E1C54C009A9864 /* QMIconCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7602E026E1C54C009A9864 /* QMIconCellView.swift */; };
+		8C7602E326E1C559009A9864 /* QMTextCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7602E226E1C559009A9864 /* QMTextCellView.swift */; };
+		8C7602E526E1C57C009A9864 /* QMOpenHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7602E426E1C57C009A9864 /* QMOpenHeaderCell.swift */; };
+		8C7602E726E1C58B009A9864 /* QMTextHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7602E626E1C58B009A9864 /* QMTextHeaderCell.swift */; };
+		8C7602EA26E1C899009A9864 /* QMFeatureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7602E926E1C899009A9864 /* QMFeatureModel.swift */; };
+		8C7602EC26E20CEB009A9864 /* QMTableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7602EB26E20CEB009A9864 /* QMTableRowView.swift */; };
+		8C7602EE26E20D8D009A9864 /* QMTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7602ED26E20D8D009A9864 /* QMTableCellView.swift */; };
+		8C7602F026E20E4E009A9864 /* NSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7602EF26E20E4E009A9864 /* NSView.swift */; };
+		8C7602F226E20E5E009A9864 /* NSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7602F126E20E5E009A9864 /* NSViewController.swift */; };
+		8C7602F426E21195009A9864 /* NSColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7602F326E21195009A9864 /* NSColor.swift */; };
+		8C7602F626E22728009A9864 /* QMTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7602F526E22728009A9864 /* QMTextFieldCell.swift */; };
+		8C7B642C26DE29CC00C025C8 /* QMTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7B642B26DE29CC00C025C8 /* QMTabViewController.swift */; };
+		8C7B642F26DE2D3200C025C8 /* QMFeatureController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7B642D26DE2D3200C025C8 /* QMFeatureController.swift */; };
+		8C7B643026DE2D3200C025C8 /* QMFeatureController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C7B642E26DE2D3200C025C8 /* QMFeatureController.xib */; };
+		8C8005A826E9A31900370FD9 /* QMShell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C95B7BB26E0A429008DA2FD /* QMShell.swift */; };
+		8C8005AD26E9CDEC00370FD9 /* runner.scpt in Resources */ = {isa = PBXBuildFile; fileRef = 8C8005AA26E9CDEC00370FD9 /* runner.scpt */; };
+		8C8005AE26E9CDEC00370FD9 /* runner.scpt in Resources */ = {isa = PBXBuildFile; fileRef = 8C8005AA26E9CDEC00370FD9 /* runner.scpt */; };
+		8C8005B926E9D77A00370FD9 /* QMRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8005B826E9D77900370FD9 /* QMRunner.swift */; };
+		8C82A43426CE29E700C83E1D /* QMAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C82A43326CE29E700C83E1D /* QMAppDelegate.swift */; };
+		8C82A43626CE29E700C83E1D /* QMRootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C82A43526CE29E700C83E1D /* QMRootController.swift */; };
+		8C82A43826CE29EA00C83E1D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C82A43726CE29EA00C83E1D /* Assets.xcassets */; };
+		8C82A43B26CE29EA00C83E1D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8C82A43926CE29EA00C83E1D /* Main.storyboard */; };
+		8C8370A426E5AC2200683BCF /* QMOpenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8370A226E5AC2200683BCF /* QMOpenController.swift */; };
+		8C8370A526E5AC2200683BCF /* QMOpenController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C8370A326E5AC2200683BCF /* QMOpenController.xib */; };
+		8C8370A826E5ACFD00683BCF /* QMDescController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8370A626E5ACFD00683BCF /* QMDescController.swift */; };
+		8C8370A926E5ACFD00683BCF /* QMDescController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C8370A726E5ACFD00683BCF /* QMDescController.xib */; };
+		8C8370AC26E5B8CB00683BCF /* QMLogController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8370AA26E5B8CB00683BCF /* QMLogController.swift */; };
+		8C8370AD26E5B8CB00683BCF /* QMLogController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C8370AB26E5B8CB00683BCF /* QMLogController.xib */; };
+		8C8370B026E5BDF100683BCF /* QMLogItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8370AE26E5BDF100683BCF /* QMLogItem.swift */; };
+		8C8370B126E5BDF100683BCF /* QMLogItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C8370AF26E5BDF100683BCF /* QMLogItem.xib */; };
+		8C8370B326E5F6A700683BCF /* QMDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8370B226E5F6A700683BCF /* QMDataManager.swift */; };
+		8C8370BB26E6045600683BCF /* text.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8C8370B626E6045500683BCF /* text.txt */; };
+		8C8370BC26E6045600683BCF /* text.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8C8370B626E6045500683BCF /* text.txt */; };
+		8C8370BD26E6045600683BCF /* doc.docx in Resources */ = {isa = PBXBuildFile; fileRef = 8C8370B726E6045500683BCF /* doc.docx */; };
+		8C8370BE26E6045600683BCF /* doc.docx in Resources */ = {isa = PBXBuildFile; fileRef = 8C8370B726E6045500683BCF /* doc.docx */; };
+		8C8370BF26E6045600683BCF /* markdown.md in Resources */ = {isa = PBXBuildFile; fileRef = 8C8370B826E6045500683BCF /* markdown.md */; };
+		8C8370C026E6045600683BCF /* markdown.md in Resources */ = {isa = PBXBuildFile; fileRef = 8C8370B826E6045500683BCF /* markdown.md */; };
+		8C8370C126E6045600683BCF /* excel.xltx in Resources */ = {isa = PBXBuildFile; fileRef = 8C8370B926E6045500683BCF /* excel.xltx */; };
+		8C8370C226E6045600683BCF /* excel.xltx in Resources */ = {isa = PBXBuildFile; fileRef = 8C8370B926E6045500683BCF /* excel.xltx */; };
+		8C8370C326E6045600683BCF /* ppt.pptx in Resources */ = {isa = PBXBuildFile; fileRef = 8C8370BA26E6045600683BCF /* ppt.pptx */; };
+		8C8370C426E6045600683BCF /* ppt.pptx in Resources */ = {isa = PBXBuildFile; fileRef = 8C8370BA26E6045600683BCF /* ppt.pptx */; };
+		8C8370C626E608D600683BCF /* QMConfigModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8370C526E608D600683BCF /* QMConfigModel.swift */; };
+		8C8370C726E608D600683BCF /* QMConfigModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8370C526E608D600683BCF /* QMConfigModel.swift */; };
+		8C8370CB26E617E900683BCF /* QMFeatureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7602E926E1C899009A9864 /* QMFeatureModel.swift */; };
+		8C86FCFB26DCAA3800E71F72 /* QMFinderSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C86FCFA26DCAA3800E71F72 /* QMFinderSync.swift */; };
+		8C86FD0026DCAA3800E71F72 /* QMenuTarget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8C86FCF826DCAA3800E71F72 /* QMenuTarget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8C86FD1D26DCAD9E00E71F72 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C86FD1A26DCAD9E00E71F72 /* Date.swift */; };
+		8C86FD1E26DCAD9E00E71F72 /* QMLoger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C86FD1C26DCAD9E00E71F72 /* QMLoger.swift */; };
+		8C86FD1F26DCADA400E71F72 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C86FD1A26DCAD9E00E71F72 /* Date.swift */; };
+		8C86FD2026DCADA700E71F72 /* QMLoger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C86FD1C26DCAD9E00E71F72 /* QMLoger.swift */; };
+		8C95B7BA26E0A234008DA2FD /* cartool in Resources */ = {isa = PBXBuildFile; fileRef = 8C95B7B926E0A234008DA2FD /* cartool */; };
+		8C95B7BC26E0A429008DA2FD /* QMShell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C95B7BB26E0A429008DA2FD /* QMShell.swift */; };
+		8C95B7BF26E0B49C008DA2FD /* QMDirectoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C95B7BD26E0B49C008DA2FD /* QMDirectoryController.swift */; };
+		8C95B7C026E0B49C008DA2FD /* QMDirectoryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C95B7BE26E0B49C008DA2FD /* QMDirectoryController.xib */; };
+		8C95B7C326E0B4B5008DA2FD /* QMNewFileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C95B7C126E0B4B5008DA2FD /* QMNewFileController.swift */; };
+		8C95B7C426E0B4B5008DA2FD /* QMNewFileController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C95B7C226E0B4B5008DA2FD /* QMNewFileController.xib */; };
+		8C95B7C726E0B4C9008DA2FD /* QMAboutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C95B7C526E0B4C9008DA2FD /* QMAboutController.swift */; };
+		8C95B7C826E0B4C9008DA2FD /* QMAboutController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C95B7C626E0B4C9008DA2FD /* QMAboutController.xib */; };
+		8C95B7CB26E0BCF5008DA2FD /* QMMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C95B7C926E0BCF5008DA2FD /* QMMenuItem.swift */; };
+		8C95B7CC26E0BCF5008DA2FD /* QMMenuItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C95B7CA26E0BCF5008DA2FD /* QMMenuItem.xib */; };
+		8CC019D3498782985BFA107C /* Pods_QMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F49E0BC9CE58856B1D850B06 /* Pods_QMenu.framework */; };
+		E661DE1AC7669CC2EEEF7608 /* Pods_QMenuTarget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 866BC2E8B41FE5EFBCA3E07F /* Pods_QMenuTarget.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8C86FCFE26DCAA3800E71F72 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8C82A42826CE29E700C83E1D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8C86FCF726DCAA3800E71F72;
+			remoteInfo = RightMenuTarget;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8C86FD0126DCAA3800E71F72 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				8C86FD0026DCAA3800E71F72 /* QMenuTarget.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		69A2304B61675EB88C53E974 /* Pods-QMenu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QMenu.debug.xcconfig"; path = "Target Support Files/Pods-QMenu/Pods-QMenu.debug.xcconfig"; sourceTree = "<group>"; };
+		866BC2E8B41FE5EFBCA3E07F /* Pods_QMenuTarget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QMenuTarget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C4049BD26E6ED4900AF764F /* pages.pages */ = {isa = PBXFileReference; lastKnownFileType = file; path = pages.pages; sourceTree = "<group>"; };
+		8C4049BE26E6ED4900AF764F /* keynote.key */ = {isa = PBXFileReference; lastKnownFileType = file; path = keynote.key; sourceTree = "<group>"; };
+		8C4049BF26E6ED4900AF764F /* numbers.numbers */ = {isa = PBXFileReference; lastKnownFileType = file; path = numbers.numbers; sourceTree = "<group>"; };
+		8C4049C626E6EE1B00AF764F /* xmind.xmind */ = {isa = PBXFileReference; lastKnownFileType = file; path = xmind.xmind; sourceTree = "<group>"; };
+		8C4049C926E7491300AF764F /* config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
+		8C65734026E8B77200F619B3 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		8C7602D726E1BEC6009A9864 /* QMBaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMBaseController.swift; sourceTree = "<group>"; };
+		8C7602DE26E1C53E009A9864 /* QMOpenCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMOpenCellView.swift; sourceTree = "<group>"; };
+		8C7602E026E1C54C009A9864 /* QMIconCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMIconCellView.swift; sourceTree = "<group>"; };
+		8C7602E226E1C559009A9864 /* QMTextCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMTextCellView.swift; sourceTree = "<group>"; };
+		8C7602E426E1C57C009A9864 /* QMOpenHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMOpenHeaderCell.swift; sourceTree = "<group>"; };
+		8C7602E626E1C58B009A9864 /* QMTextHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMTextHeaderCell.swift; sourceTree = "<group>"; };
+		8C7602E926E1C899009A9864 /* QMFeatureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMFeatureModel.swift; sourceTree = "<group>"; };
+		8C7602EB26E20CEB009A9864 /* QMTableRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMTableRowView.swift; sourceTree = "<group>"; };
+		8C7602ED26E20D8D009A9864 /* QMTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMTableCellView.swift; sourceTree = "<group>"; };
+		8C7602EF26E20E4E009A9864 /* NSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSView.swift; sourceTree = "<group>"; };
+		8C7602F126E20E5E009A9864 /* NSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSViewController.swift; sourceTree = "<group>"; };
+		8C7602F326E21195009A9864 /* NSColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSColor.swift; sourceTree = "<group>"; };
+		8C7602F526E22728009A9864 /* QMTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMTextFieldCell.swift; sourceTree = "<group>"; };
+		8C7B642B26DE29CC00C025C8 /* QMTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMTabViewController.swift; sourceTree = "<group>"; };
+		8C7B642D26DE2D3200C025C8 /* QMFeatureController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMFeatureController.swift; sourceTree = "<group>"; };
+		8C7B642E26DE2D3200C025C8 /* QMFeatureController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QMFeatureController.xib; sourceTree = "<group>"; };
+		8C8005AA26E9CDEC00370FD9 /* runner.scpt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = runner.scpt; sourceTree = "<group>"; };
+		8C8005B826E9D77900370FD9 /* QMRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMRunner.swift; sourceTree = "<group>"; };
+		8C82A43026CE29E700C83E1D /* QMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C82A43326CE29E700C83E1D /* QMAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMAppDelegate.swift; sourceTree = "<group>"; };
+		8C82A43526CE29E700C83E1D /* QMRootController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMRootController.swift; sourceTree = "<group>"; };
+		8C82A43726CE29EA00C83E1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8C82A43A26CE29EA00C83E1D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8C82A43C26CE29EA00C83E1D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C82A43D26CE29EA00C83E1D /* QMenu.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QMenu.entitlements; sourceTree = "<group>"; };
+		8C8370A226E5AC2200683BCF /* QMOpenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMOpenController.swift; sourceTree = "<group>"; };
+		8C8370A326E5AC2200683BCF /* QMOpenController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QMOpenController.xib; sourceTree = "<group>"; };
+		8C8370A626E5ACFD00683BCF /* QMDescController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMDescController.swift; sourceTree = "<group>"; };
+		8C8370A726E5ACFD00683BCF /* QMDescController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QMDescController.xib; sourceTree = "<group>"; };
+		8C8370AA26E5B8CB00683BCF /* QMLogController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMLogController.swift; sourceTree = "<group>"; };
+		8C8370AB26E5B8CB00683BCF /* QMLogController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QMLogController.xib; sourceTree = "<group>"; };
+		8C8370AE26E5BDF100683BCF /* QMLogItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMLogItem.swift; sourceTree = "<group>"; };
+		8C8370AF26E5BDF100683BCF /* QMLogItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QMLogItem.xib; sourceTree = "<group>"; };
+		8C8370B226E5F6A700683BCF /* QMDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMDataManager.swift; sourceTree = "<group>"; };
+		8C8370B626E6045500683BCF /* text.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = text.txt; sourceTree = "<group>"; };
+		8C8370B726E6045500683BCF /* doc.docx */ = {isa = PBXFileReference; lastKnownFileType = file; path = doc.docx; sourceTree = "<group>"; };
+		8C8370B826E6045500683BCF /* markdown.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = markdown.md; sourceTree = "<group>"; };
+		8C8370B926E6045500683BCF /* excel.xltx */ = {isa = PBXFileReference; lastKnownFileType = file; path = excel.xltx; sourceTree = "<group>"; };
+		8C8370BA26E6045600683BCF /* ppt.pptx */ = {isa = PBXFileReference; lastKnownFileType = file; path = ppt.pptx; sourceTree = "<group>"; };
+		8C8370C526E608D600683BCF /* QMConfigModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMConfigModel.swift; sourceTree = "<group>"; };
+		8C86FCF826DCAA3800E71F72 /* QMenuTarget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = QMenuTarget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C86FCFA26DCAA3800E71F72 /* QMFinderSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMFinderSync.swift; sourceTree = "<group>"; };
+		8C86FCFC26DCAA3800E71F72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8C86FCFD26DCAA3800E71F72 /* QMenuTarget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QMenuTarget.entitlements; sourceTree = "<group>"; };
+		8C86FD1A26DCAD9E00E71F72 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		8C86FD1C26DCAD9E00E71F72 /* QMLoger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QMLoger.swift; sourceTree = "<group>"; };
+		8C95B7B926E0A234008DA2FD /* cartool */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = cartool; sourceTree = "<group>"; };
+		8C95B7BB26E0A429008DA2FD /* QMShell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMShell.swift; sourceTree = "<group>"; };
+		8C95B7BD26E0B49C008DA2FD /* QMDirectoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMDirectoryController.swift; sourceTree = "<group>"; };
+		8C95B7BE26E0B49C008DA2FD /* QMDirectoryController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QMDirectoryController.xib; sourceTree = "<group>"; };
+		8C95B7C126E0B4B5008DA2FD /* QMNewFileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMNewFileController.swift; sourceTree = "<group>"; };
+		8C95B7C226E0B4B5008DA2FD /* QMNewFileController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QMNewFileController.xib; sourceTree = "<group>"; };
+		8C95B7C526E0B4C9008DA2FD /* QMAboutController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMAboutController.swift; sourceTree = "<group>"; };
+		8C95B7C626E0B4C9008DA2FD /* QMAboutController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QMAboutController.xib; sourceTree = "<group>"; };
+		8C95B7C926E0BCF5008DA2FD /* QMMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMMenuItem.swift; sourceTree = "<group>"; };
+		8C95B7CA26E0BCF5008DA2FD /* QMMenuItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QMMenuItem.xib; sourceTree = "<group>"; };
+		9C55F730B1BDB0564FC4388F /* Pods-QMenuTarget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QMenuTarget.release.xcconfig"; path = "Target Support Files/Pods-QMenuTarget/Pods-QMenuTarget.release.xcconfig"; sourceTree = "<group>"; };
+		D0E50D4A0296B50C83E57AED /* Pods-QMenu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QMenu.release.xcconfig"; path = "Target Support Files/Pods-QMenu/Pods-QMenu.release.xcconfig"; sourceTree = "<group>"; };
+		F0AC1DA33AFC2F1853897163 /* Pods-QMenuTarget.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QMenuTarget.debug.xcconfig"; path = "Target Support Files/Pods-QMenuTarget/Pods-QMenuTarget.debug.xcconfig"; sourceTree = "<group>"; };
+		F49E0BC9CE58856B1D850B06 /* Pods_QMenu.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QMenu.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8C82A42D26CE29E700C83E1D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8CC019D3498782985BFA107C /* Pods_QMenu.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C86FCF526DCAA3800E71F72 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E661DE1AC7669CC2EEEF7608 /* Pods_QMenuTarget.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		105BEBEA584CD687051B0EF6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				69A2304B61675EB88C53E974 /* Pods-QMenu.debug.xcconfig */,
+				D0E50D4A0296B50C83E57AED /* Pods-QMenu.release.xcconfig */,
+				F0AC1DA33AFC2F1853897163 /* Pods-QMenuTarget.debug.xcconfig */,
+				9C55F730B1BDB0564FC4388F /* Pods-QMenuTarget.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		7700B3D7FF656BE6A7E8F9A3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F49E0BC9CE58856B1D850B06 /* Pods_QMenu.framework */,
+				866BC2E8B41FE5EFBCA3E07F /* Pods_QMenuTarget.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8C7602D526E1BEA4009A9864 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				8C7B642B26DE29CC00C025C8 /* QMTabViewController.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		8C7602D626E1BEB0009A9864 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				8C7602D726E1BEC6009A9864 /* QMBaseController.swift */,
+				8C7602EB26E20CEB009A9864 /* QMTableRowView.swift */,
+				8C7602ED26E20D8D009A9864 /* QMTableCellView.swift */,
+				8C7602F526E22728009A9864 /* QMTextFieldCell.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		8C7602D926E1C2D2009A9864 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				8C82A43526CE29E700C83E1D /* QMRootController.swift */,
+				8C7B642D26DE2D3200C025C8 /* QMFeatureController.swift */,
+				8C7B642E26DE2D3200C025C8 /* QMFeatureController.xib */,
+				8C8370A226E5AC2200683BCF /* QMOpenController.swift */,
+				8C8370A326E5AC2200683BCF /* QMOpenController.xib */,
+				8C95B7BD26E0B49C008DA2FD /* QMDirectoryController.swift */,
+				8C95B7BE26E0B49C008DA2FD /* QMDirectoryController.xib */,
+				8C95B7C126E0B4B5008DA2FD /* QMNewFileController.swift */,
+				8C95B7C226E0B4B5008DA2FD /* QMNewFileController.xib */,
+				8C8370A626E5ACFD00683BCF /* QMDescController.swift */,
+				8C8370A726E5ACFD00683BCF /* QMDescController.xib */,
+				8C95B7C526E0B4C9008DA2FD /* QMAboutController.swift */,
+				8C95B7C626E0B4C9008DA2FD /* QMAboutController.xib */,
+				8C8370AA26E5B8CB00683BCF /* QMLogController.swift */,
+				8C8370AB26E5B8CB00683BCF /* QMLogController.xib */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		8C7602DD26E1C2FA009A9864 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8C95B7C926E0BCF5008DA2FD /* QMMenuItem.swift */,
+				8C95B7CA26E0BCF5008DA2FD /* QMMenuItem.xib */,
+				8C7602DE26E1C53E009A9864 /* QMOpenCellView.swift */,
+				8C7602E026E1C54C009A9864 /* QMIconCellView.swift */,
+				8C7602E226E1C559009A9864 /* QMTextCellView.swift */,
+				8C7602E426E1C57C009A9864 /* QMOpenHeaderCell.swift */,
+				8C7602E626E1C58B009A9864 /* QMTextHeaderCell.swift */,
+				8C8370AE26E5BDF100683BCF /* QMLogItem.swift */,
+				8C8370AF26E5BDF100683BCF /* QMLogItem.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		8C7602E826E1C87F009A9864 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				8C7602E926E1C899009A9864 /* QMFeatureModel.swift */,
+				8C8370C526E608D600683BCF /* QMConfigModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		8C82A42726CE29E700C83E1D = {
+			isa = PBXGroup;
+			children = (
+				8C82A43226CE29E700C83E1D /* QMenu */,
+				8C86FCF926DCAA3800E71F72 /* QMenuTarget */,
+				8C82A43126CE29E700C83E1D /* Products */,
+				105BEBEA584CD687051B0EF6 /* Pods */,
+				7700B3D7FF656BE6A7E8F9A3 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		8C82A43126CE29E700C83E1D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8C82A43026CE29E700C83E1D /* QMenu.app */,
+				8C86FCF826DCAA3800E71F72 /* QMenuTarget.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8C82A43226CE29E700C83E1D /* QMenu */ = {
+			isa = PBXGroup;
+			children = (
+				8C82A44626CE2AC300C83E1D /* Resources */,
+				8C82A44426CE2A1500C83E1D /* Core */,
+				8C82A44326CE2A0200C83E1D /* SupportingFiles */,
+			);
+			path = QMenu;
+			sourceTree = "<group>";
+		};
+		8C82A44326CE2A0200C83E1D /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				8C82A43726CE29EA00C83E1D /* Assets.xcassets */,
+				8C82A43926CE29EA00C83E1D /* Main.storyboard */,
+				8C82A43C26CE29EA00C83E1D /* Info.plist */,
+				8C82A43D26CE29EA00C83E1D /* QMenu.entitlements */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		8C82A44426CE2A1500C83E1D /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				8C86FD1826DCAD9E00E71F72 /* General */,
+				8C86FD1B26DCAD9E00E71F72 /* Services */,
+				8C82A44526CE2AAA00C83E1D /* Moudles */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		8C82A44526CE2AAA00C83E1D /* Moudles */ = {
+			isa = PBXGroup;
+			children = (
+				8C82A43326CE29E700C83E1D /* QMAppDelegate.swift */,
+				8C7602E826E1C87F009A9864 /* Models */,
+				8C7602D926E1C2D2009A9864 /* Controllers */,
+				8C7602DD26E1C2FA009A9864 /* Views */,
+			);
+			path = Moudles;
+			sourceTree = "<group>";
+		};
+		8C82A44626CE2AC300C83E1D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8C4049C626E6EE1B00AF764F /* xmind.xmind */,
+				8C4049BE26E6ED4900AF764F /* keynote.key */,
+				8C4049BF26E6ED4900AF764F /* numbers.numbers */,
+				8C4049BD26E6ED4900AF764F /* pages.pages */,
+				8C8370B726E6045500683BCF /* doc.docx */,
+				8C8370B926E6045500683BCF /* excel.xltx */,
+				8C8370B826E6045500683BCF /* markdown.md */,
+				8C8370BA26E6045600683BCF /* ppt.pptx */,
+				8C8370B626E6045500683BCF /* text.txt */,
+				8C95B7B926E0A234008DA2FD /* cartool */,
+				8C4049C926E7491300AF764F /* config.json */,
+				8C8005AA26E9CDEC00370FD9 /* runner.scpt */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		8C86FCF926DCAA3800E71F72 /* QMenuTarget */ = {
+			isa = PBXGroup;
+			children = (
+				8C86FCFA26DCAA3800E71F72 /* QMFinderSync.swift */,
+				8C95B7BB26E0A429008DA2FD /* QMShell.swift */,
+				8C8005B826E9D77900370FD9 /* QMRunner.swift */,
+				8C86FCFC26DCAA3800E71F72 /* Info.plist */,
+				8C86FCFD26DCAA3800E71F72 /* QMenuTarget.entitlements */,
+			);
+			path = QMenuTarget;
+			sourceTree = "<group>";
+		};
+		8C86FD1826DCAD9E00E71F72 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				8C7602D626E1BEB0009A9864 /* Base */,
+				8C7602D526E1BEA4009A9864 /* UI */,
+				8C86FD1926DCAD9E00E71F72 /* Category */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		8C86FD1926DCAD9E00E71F72 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				8C86FD1A26DCAD9E00E71F72 /* Date.swift */,
+				8C7602EF26E20E4E009A9864 /* NSView.swift */,
+				8C7602F126E20E5E009A9864 /* NSViewController.swift */,
+				8C7602F326E21195009A9864 /* NSColor.swift */,
+				8C65734026E8B77200F619B3 /* String.swift */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		8C86FD1B26DCAD9E00E71F72 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8C86FD1C26DCAD9E00E71F72 /* QMLoger.swift */,
+				8C8370B226E5F6A700683BCF /* QMDataManager.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8C82A42F26CE29E700C83E1D /* QMenu */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8C82A44026CE29EA00C83E1D /* Build configuration list for PBXNativeTarget "QMenu" */;
+			buildPhases = (
+				216C3094C42CAAAB4EE3B4FA /* [CP] Check Pods Manifest.lock */,
+				8C82A42C26CE29E700C83E1D /* Sources */,
+				8C82A42D26CE29E700C83E1D /* Frameworks */,
+				8C82A42E26CE29E700C83E1D /* Resources */,
+				8C86FD0126DCAA3800E71F72 /* Embed App Extensions */,
+				AC792CDDD4C624B457EC2575 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8C86FCFF26DCAA3800E71F72 /* PBXTargetDependency */,
+			);
+			name = QMenu;
+			productName = RightMenu;
+			productReference = 8C82A43026CE29E700C83E1D /* QMenu.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8C86FCF726DCAA3800E71F72 /* QMenuTarget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8C86FD0426DCAA3800E71F72 /* Build configuration list for PBXNativeTarget "QMenuTarget" */;
+			buildPhases = (
+				A0F7F27891606C779E2DAC28 /* [CP] Check Pods Manifest.lock */,
+				8C86FCF426DCAA3800E71F72 /* Sources */,
+				8C86FCF526DCAA3800E71F72 /* Frameworks */,
+				8C86FCF626DCAA3800E71F72 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QMenuTarget;
+			productName = RightMenuTarget;
+			productReference = 8C86FCF826DCAA3800E71F72 /* QMenuTarget.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8C82A42826CE29E700C83E1D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = QM;
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					8C82A42F26CE29E700C83E1D = {
+						CreatedOnToolsVersion = 12.5;
+					};
+					8C86FCF726DCAA3800E71F72 = {
+						CreatedOnToolsVersion = 12.5;
+					};
+				};
+			};
+			buildConfigurationList = 8C82A42B26CE29E700C83E1D /* Build configuration list for PBXProject "QMenu" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8C82A42726CE29E700C83E1D;
+			productRefGroup = 8C82A43126CE29E700C83E1D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8C82A42F26CE29E700C83E1D /* QMenu */,
+				8C86FCF726DCAA3800E71F72 /* QMenuTarget */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8C82A42E26CE29E700C83E1D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C8370BD26E6045600683BCF /* doc.docx in Resources */,
+				8C82A43826CE29EA00C83E1D /* Assets.xcassets in Resources */,
+				8C8370BF26E6045600683BCF /* markdown.md in Resources */,
+				8C8370A526E5AC2200683BCF /* QMOpenController.xib in Resources */,
+				8C95B7C426E0B4B5008DA2FD /* QMNewFileController.xib in Resources */,
+				8C95B7C026E0B49C008DA2FD /* QMDirectoryController.xib in Resources */,
+				8C8370B126E5BDF100683BCF /* QMLogItem.xib in Resources */,
+				8C8370C326E6045600683BCF /* ppt.pptx in Resources */,
+				8C4049C426E6ED5200AF764F /* pages.pages in Resources */,
+				8C8370A926E5ACFD00683BCF /* QMDescController.xib in Resources */,
+				8C4049C526E6ED5200AF764F /* keynote.key in Resources */,
+				8C8370AD26E5B8CB00683BCF /* QMLogController.xib in Resources */,
+				8C82A43B26CE29EA00C83E1D /* Main.storyboard in Resources */,
+				8C7B643026DE2D3200C025C8 /* QMFeatureController.xib in Resources */,
+				8C8370BB26E6045600683BCF /* text.txt in Resources */,
+				8C8370C126E6045600683BCF /* excel.xltx in Resources */,
+				8C4049CA26E7491300AF764F /* config.json in Resources */,
+				8C4049C326E6ED5200AF764F /* numbers.numbers in Resources */,
+				8C95B7C826E0B4C9008DA2FD /* QMAboutController.xib in Resources */,
+				8C8005AD26E9CDEC00370FD9 /* runner.scpt in Resources */,
+				8C95B7CC26E0BCF5008DA2FD /* QMMenuItem.xib in Resources */,
+				8C4049C726E6EE1B00AF764F /* xmind.xmind in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C86FCF626DCAA3800E71F72 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C4049C226E6ED4900AF764F /* numbers.numbers in Resources */,
+				8C4049C026E6ED4900AF764F /* pages.pages in Resources */,
+				8C8370BE26E6045600683BCF /* doc.docx in Resources */,
+				8C8370C226E6045600683BCF /* excel.xltx in Resources */,
+				8C8370BC26E6045600683BCF /* text.txt in Resources */,
+				8C8370C426E6045600683BCF /* ppt.pptx in Resources */,
+				8C4049C826E6EE1B00AF764F /* xmind.xmind in Resources */,
+				8C8005AE26E9CDEC00370FD9 /* runner.scpt in Resources */,
+				8C4049C126E6ED4900AF764F /* keynote.key in Resources */,
+				8C95B7BA26E0A234008DA2FD /* cartool in Resources */,
+				8C8370C026E6045600683BCF /* markdown.md in Resources */,
+				8C4049CB26E7491300AF764F /* config.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		216C3094C42CAAAB4EE3B4FA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-QMenu-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A0F7F27891606C779E2DAC28 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-QMenuTarget-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AC792CDDD4C624B457EC2575 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-QMenu/Pods-QMenu-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-QMenu/Pods-QMenu-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-QMenu/Pods-QMenu-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8C82A42C26CE29E700C83E1D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C95B7C726E0B4C9008DA2FD /* QMAboutController.swift in Sources */,
+				8C7602EE26E20D8D009A9864 /* QMTableCellView.swift in Sources */,
+				8C95B7CB26E0BCF5008DA2FD /* QMMenuItem.swift in Sources */,
+				8C7602F026E20E4E009A9864 /* NSView.swift in Sources */,
+				8C8370AC26E5B8CB00683BCF /* QMLogController.swift in Sources */,
+				8C7602DF26E1C53E009A9864 /* QMOpenCellView.swift in Sources */,
+				8C95B7BF26E0B49C008DA2FD /* QMDirectoryController.swift in Sources */,
+				8C7B642F26DE2D3200C025C8 /* QMFeatureController.swift in Sources */,
+				8C7602E526E1C57C009A9864 /* QMOpenHeaderCell.swift in Sources */,
+				8C8370B026E5BDF100683BCF /* QMLogItem.swift in Sources */,
+				8C82A43626CE29E700C83E1D /* QMRootController.swift in Sources */,
+				8C86FD1D26DCAD9E00E71F72 /* Date.swift in Sources */,
+				8C65734126E8B77200F619B3 /* String.swift in Sources */,
+				8C7602EC26E20CEB009A9864 /* QMTableRowView.swift in Sources */,
+				8C8370B326E5F6A700683BCF /* QMDataManager.swift in Sources */,
+				8C7602E326E1C559009A9864 /* QMTextCellView.swift in Sources */,
+				8C8005A826E9A31900370FD9 /* QMShell.swift in Sources */,
+				8C8370A826E5ACFD00683BCF /* QMDescController.swift in Sources */,
+				8C7602E126E1C54C009A9864 /* QMIconCellView.swift in Sources */,
+				8C8370A426E5AC2200683BCF /* QMOpenController.swift in Sources */,
+				8C7602F226E20E5E009A9864 /* NSViewController.swift in Sources */,
+				8C95B7C326E0B4B5008DA2FD /* QMNewFileController.swift in Sources */,
+				8C7B642C26DE29CC00C025C8 /* QMTabViewController.swift in Sources */,
+				8C7602D826E1BEC6009A9864 /* QMBaseController.swift in Sources */,
+				8C7602E726E1C58B009A9864 /* QMTextHeaderCell.swift in Sources */,
+				8C7602F626E22728009A9864 /* QMTextFieldCell.swift in Sources */,
+				8C8370C626E608D600683BCF /* QMConfigModel.swift in Sources */,
+				8C7602EA26E1C899009A9864 /* QMFeatureModel.swift in Sources */,
+				8C82A43426CE29E700C83E1D /* QMAppDelegate.swift in Sources */,
+				8C7602F426E21195009A9864 /* NSColor.swift in Sources */,
+				8C86FD1E26DCAD9E00E71F72 /* QMLoger.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8C86FCF426DCAA3800E71F72 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C86FCFB26DCAA3800E71F72 /* QMFinderSync.swift in Sources */,
+				8C4049CC26E7664300AF764F /* QMDataManager.swift in Sources */,
+				8C8370C726E608D600683BCF /* QMConfigModel.swift in Sources */,
+				8C65734226E8B77200F619B3 /* String.swift in Sources */,
+				8C86FD1F26DCADA400E71F72 /* Date.swift in Sources */,
+				8C95B7BC26E0A429008DA2FD /* QMShell.swift in Sources */,
+				8C8005B926E9D77A00370FD9 /* QMRunner.swift in Sources */,
+				8C86FD2026DCADA700E71F72 /* QMLoger.swift in Sources */,
+				8C8370CB26E617E900683BCF /* QMFeatureModel.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8C86FCFF26DCAA3800E71F72 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8C86FCF726DCAA3800E71F72 /* QMenuTarget */;
+			targetProxy = 8C86FCFE26DCAA3800E71F72 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8C82A43926CE29EA00C83E1D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8C82A43A26CE29EA00C83E1D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8C82A43E26CE29EA00C83E1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8C82A43F26CE29EA00C83E1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		8C82A44126CE29EA00C83E1D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69A2304B61675EB88C53E974 /* Pods-QMenu.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = QMenu/SupportingFiles/QMenu.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = QMenu/SupportingFiles/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.liyb.QMenu;
+				PRODUCT_NAME = QMenu;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		8C82A44226CE29EA00C83E1D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0E50D4A0296B50C83E57AED /* Pods-QMenu.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = QMenu/SupportingFiles/QMenu.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = QMenu/SupportingFiles/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.liyb.QMenu;
+				PRODUCT_NAME = QMenu;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		8C86FD0226DCAA3800E71F72 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0AC1DA33AFC2F1853897163 /* Pods-QMenuTarget.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = QMenuTarget/QMenuTarget.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = QMenuTarget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.liyb.QMenu.QMenuTarget;
+				PRODUCT_NAME = QMenuTarget;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		8C86FD0326DCAA3800E71F72 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C55F730B1BDB0564FC4388F /* Pods-QMenuTarget.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = QMenuTarget/QMenuTarget.entitlements;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = QMenuTarget/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@executable_path/../../../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.liyb.QMenu.QMenuTarget;
+				PRODUCT_NAME = QMenuTarget;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8C82A42B26CE29E700C83E1D /* Build configuration list for PBXProject "QMenu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C82A43E26CE29EA00C83E1D /* Debug */,
+				8C82A43F26CE29EA00C83E1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8C82A44026CE29EA00C83E1D /* Build configuration list for PBXNativeTarget "QMenu" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C82A44126CE29EA00C83E1D /* Debug */,
+				8C82A44226CE29EA00C83E1D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8C86FD0426DCAA3800E71F72 /* Build configuration list for PBXNativeTarget "QMenuTarget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8C86FD0226DCAA3800E71F72 /* Debug */,
+				8C86FD0326DCAA3800E71F72 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8C82A42826CE29E700C83E1D /* Project object */;
+}
