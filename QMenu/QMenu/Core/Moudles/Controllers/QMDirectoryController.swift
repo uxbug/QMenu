@@ -23,6 +23,7 @@ fileprivate extension QMDirectoryController {
     func makeUI() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.enclosingScrollView?.contentInsets = NSEdgeInsets.init(top: 10, left: 0, bottom: 10, right: 0)
         tableView.enclosingScrollView?.borderType = .noBorder
         tableView.enclosingScrollView?.verticalScrollElasticity = .none
         tableView.enclosingScrollView?.horizontalScrollElasticity = .none
@@ -69,12 +70,22 @@ extension QMDirectoryController: NSTableViewDelegate, NSTableViewDataSource {
             cell?.delegate = self
             return cell
         } else if tableColumn == tableView.tableColumns[1] {
-            let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "feature.desc.identifier"), owner: nil) as? QMTextCellView
+            let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "feature.name.identifier"), owner: nil) as? QMTextCellView
             var path = model.path
             if path.contains("{{username}}") {
                 path = model.path.replacingOccurrences(of: "{{username}}", with: QMDataManager.shared.userName)
             }
-            cell?.textLabel.stringValue = model.title + "(\(path))"
+            cell?.textLabel.stringValue = model.title
+            return cell
+        } else if tableColumn == tableView.tableColumns[2] {
+            let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "feature.name.identifier"), owner: nil) as? QMTextCellView
+            var path = model.path
+            if path.contains("{{username}}") {
+                path = model.path.replacingOccurrences(of: "{{username}}", with: QMDataManager.shared.userName)
+            }
+            cell?.textLabel.stringValue = path
+            cell?.textLabel.toolTip = path
+            cell?.textLabel.allowsExpansionToolTips = true
             return cell
         }
         return nil

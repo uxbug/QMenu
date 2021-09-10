@@ -18,9 +18,9 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <scrollView autohidesScrollers="YES" horizontalLineScroll="30" horizontalPageScroll="10" verticalLineScroll="30" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t1P-6X-nLT">
-                    <rect key="frame" x="0.0" y="0.0" width="236" height="118"/>
+                    <rect key="frame" x="0.0" y="0.0" width="116" height="118"/>
                     <clipView key="contentView" id="l4O-Zk-ipV">
-                        <rect key="frame" x="1" y="1" width="234" height="116"/>
+                        <rect key="frame" x="1" y="1" width="114" height="116"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="30" rowSizeStyle="automatic" headerView="TEu-Ku-to5" viewBased="YES" id="83F-Hl-0hh">
@@ -47,7 +47,7 @@
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cDy-To-Ovu">
-                                                        <rect key="frame" x="10" y="8" width="18" height="18"/>
+                                                        <rect key="frame" x="10" y="6" width="18" height="18"/>
                                                         <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="7I0-uJ-w2G">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -58,7 +58,7 @@
                                                     </button>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="cDy-To-Ovu" firstAttribute="top" secondItem="MJD-sw-lZa" secondAttribute="top" constant="6" id="gGR-7R-stg"/>
+                                                    <constraint firstItem="cDy-To-Ovu" firstAttribute="centerY" secondItem="MJD-sw-lZa" secondAttribute="centerY" id="hY4-jM-qvl"/>
                                                     <constraint firstItem="cDy-To-Ovu" firstAttribute="centerX" secondItem="MJD-sw-lZa" secondAttribute="centerX" id="ja0-v8-NKr"/>
                                                 </constraints>
                                                 <connections>
@@ -93,7 +93,7 @@
                                                     </imageView>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="1gP-xe-zqk" firstAttribute="top" secondItem="hVb-82-WkL" secondAttribute="top" constant="5" id="iqg-6g-qvf"/>
+                                                    <constraint firstItem="1gP-xe-zqk" firstAttribute="centerY" secondItem="hVb-82-WkL" secondAttribute="centerY" id="93y-Ih-yem"/>
                                                     <constraint firstItem="1gP-xe-zqk" firstAttribute="centerX" secondItem="hVb-82-WkL" secondAttribute="centerX" id="ygA-hK-iDN"/>
                                                 </constraints>
                                                 <connections>
@@ -119,11 +119,8 @@
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="VhE-NU-cJP">
-                                                        <rect key="frame" x="-2" y="5" width="114" height="20"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="20" id="MwL-7Z-aof"/>
-                                                        </constraints>
-                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="p7C-YN-dxY" customClass="QMTextFieldCell" customModule="QMenu" customModuleProvider="target">
+                                                        <rect key="frame" x="-2" y="7" width="114" height="16"/>
+                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Table View Cell" id="p7C-YN-dxY" customClass="QMTextFieldCell" customModule="QMenu" customModuleProvider="target">
                                                             <font key="font" usesAppearanceFont="YES"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -132,7 +129,7 @@
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="VhE-NU-cJP" secondAttribute="trailing" id="5yr-kf-3I5"/>
-                                                    <constraint firstItem="VhE-NU-cJP" firstAttribute="top" secondItem="tKT-BL-UOF" secondAttribute="top" constant="5" id="WJ5-wd-PcW"/>
+                                                    <constraint firstItem="VhE-NU-cJP" firstAttribute="centerY" secondItem="tKT-BL-UOF" secondAttribute="centerY" id="apt-Pd-xPt"/>
                                                     <constraint firstItem="VhE-NU-cJP" firstAttribute="leading" secondItem="tKT-BL-UOF" secondAttribute="leading" id="sov-qC-dMB"/>
                                                 </constraints>
                                                 <connections>
@@ -154,13 +151,13 @@
                                         </textFieldCell>
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
-                                            <tableCellView identifier="feature.desc.identifier" misplaced="YES" id="Xnl-uP-87s" customClass="QMTextCellView" customModule="QMenu" customModuleProvider="target">
+                                            <tableCellView identifier="feature.desc.identifier" id="Xnl-uP-87s" customClass="QMTextCellView" customModule="QMenu" customModuleProvider="target">
                                                 <rect key="frame" x="247" y="0.0" width="124" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="d67-we-iDO">
-                                                        <rect key="frame" x="-2" y="5" width="128" height="16"/>
-                                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Table View Cell" id="F8e-3f-bdw" customClass="QMTextFieldCell" customModule="QMenu" customModuleProvider="target">
+                                                        <rect key="frame" x="-2" y="7" width="128" height="16"/>
+                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="left" title="Table View Cell" id="F8e-3f-bdw" customClass="QMTextFieldCell" customModule="QMenu" customModuleProvider="target">
                                                             <font key="font" usesAppearanceFont="YES"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -170,8 +167,7 @@
                                                 <constraints>
                                                     <constraint firstItem="d67-we-iDO" firstAttribute="leading" secondItem="Xnl-uP-87s" secondAttribute="leading" id="5tc-ii-hY4"/>
                                                     <constraint firstAttribute="trailing" secondItem="d67-we-iDO" secondAttribute="trailing" id="MQn-8G-CSW"/>
-                                                    <constraint firstItem="d67-we-iDO" firstAttribute="top" secondItem="Xnl-uP-87s" secondAttribute="top" constant="5" id="Nq7-Cc-RR7"/>
-                                                    <constraint firstAttribute="bottom" secondItem="d67-we-iDO" secondAttribute="bottom" constant="5" id="TO8-aO-JQR"/>
+                                                    <constraint firstItem="d67-we-iDO" firstAttribute="centerY" secondItem="Xnl-uP-87s" secondAttribute="centerY" id="WYD-xv-yWY"/>
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="textField" destination="d67-we-iDO" id="Voi-Cq-XKV"/>

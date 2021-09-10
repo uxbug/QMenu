@@ -25,6 +25,7 @@ fileprivate extension QMFeatureController {
     func makeUI() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.enclosingScrollView?.contentInsets = NSEdgeInsets.init(top: 10, left: 0, bottom: 10, right: 0)
         tableView.enclosingScrollView?.borderType = .noBorder
         scrollView.verticalScrollElasticity = .none
         scrollView.horizontalScrollElasticity = .none
@@ -50,26 +51,17 @@ extension QMFeatureController: NSTableViewDataSource, NSTableViewDelegate {
         } else if tableColumn == tableView.tableColumns[2] {
             let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "feature.name.identifier"), owner: nil) as? QMTextCellView
             cell?.textLabel.stringValue = model.title
+            cell?.textLabel.toolTip = model.title
+            cell?.textLabel.allowsExpansionToolTips = true
             return cell
         } else if tableColumn == tableView.tableColumns[3] {
             let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "feature.desc.identifier"), owner: nil) as? QMTextCellView
             cell?.textLabel.stringValue = model.desc
+            cell?.textLabel.toolTip = model.desc
+            cell?.textLabel.allowsExpansionToolTips = true
             return cell
         }
         return nil
-    }
-    
-    func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
-        let model = dataSource[row]
-        guard let column = tableView.tableColumns.last else {
-            return 30
-        }
-        let attributedStr = NSAttributedString.init(string: model.desc, attributes: [
-            NSAttributedString.Key.font: NSFont.systemFont(ofSize: 12)
-        ])
-        let size = attributedStr.boundingRect(with: NSSize.init(width: column.width, height: CGFloat.greatestFiniteMagnitude), options: [.usesLineFragmentOrigin, .usesFontLeading], context: nil).size
-        let height = max(size.height + 10, 30)
-        return height
     }
     
     func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {

@@ -48,7 +48,7 @@
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ehm-rM-rI1">
-                                                        <rect key="frame" x="10" y="8" width="18" height="18"/>
+                                                        <rect key="frame" x="10" y="6" width="18" height="18"/>
                                                         <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="X3H-yS-3ug">
                                                             <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                             <font key="font" metaFont="system"/>
@@ -60,7 +60,7 @@
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstItem="ehm-rM-rI1" firstAttribute="centerX" secondItem="bUE-xB-8WS" secondAttribute="centerX" id="SVV-iL-NN8"/>
-                                                    <constraint firstItem="ehm-rM-rI1" firstAttribute="top" secondItem="bUE-xB-8WS" secondAttribute="top" constant="6" id="fqT-7o-GgE"/>
+                                                    <constraint firstItem="ehm-rM-rI1" firstAttribute="centerY" secondItem="bUE-xB-8WS" secondAttribute="centerY" id="Viq-Ra-B8M"/>
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="box" destination="ehm-rM-rI1" id="CxT-Z8-wGg"/>
@@ -94,8 +94,8 @@
                                                     </imageView>
                                                 </subviews>
                                                 <constraints>
+                                                    <constraint firstItem="JV7-BJ-iN5" firstAttribute="centerY" secondItem="IpZ-vQ-Uym" secondAttribute="centerY" id="GXT-ha-Dt4"/>
                                                     <constraint firstItem="JV7-BJ-iN5" firstAttribute="centerX" secondItem="IpZ-vQ-Uym" secondAttribute="centerX" id="ZZs-rL-dYt"/>
-                                                    <constraint firstItem="JV7-BJ-iN5" firstAttribute="top" secondItem="IpZ-vQ-Uym" secondAttribute="top" constant="5" id="jMi-aQ-Wjz"/>
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="iconView" destination="JV7-BJ-iN5" id="h55-BJ-4Qi"/>
@@ -120,11 +120,8 @@
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="gx0-Gk-vcn">
-                                                        <rect key="frame" x="0.0" y="5" width="110" height="20"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="20" id="em1-Jo-KNU"/>
-                                                        </constraints>
-                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="1BO-TH-ffi" customClass="QMTextFieldCell" customModule="QMenu" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="7" width="110" height="16"/>
+                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Table View Cell" id="1BO-TH-ffi" customClass="QMTextFieldCell" customModule="QMenu" customModuleProvider="target">
                                                             <font key="font" usesAppearanceFont="YES"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -132,9 +129,9 @@
                                                     </textField>
                                                 </subviews>
                                                 <constraints>
-                                                    <constraint firstItem="gx0-Gk-vcn" firstAttribute="top" secondItem="PJU-Ys-PQt" secondAttribute="top" constant="5" id="5jc-pH-Ght"/>
                                                     <constraint firstItem="gx0-Gk-vcn" firstAttribute="leading" secondItem="PJU-Ys-PQt" secondAttribute="leading" constant="2" id="Ebg-DM-Dnb"/>
                                                     <constraint firstAttribute="trailing" secondItem="gx0-Gk-vcn" secondAttribute="trailing" constant="2" id="WV7-hz-T4l"/>
+                                                    <constraint firstItem="gx0-Gk-vcn" firstAttribute="centerY" secondItem="PJU-Ys-PQt" secondAttribute="centerY" id="fui-ys-p2l"/>
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="textField" destination="gx0-Gk-vcn" id="duY-dN-3SM"/>
@@ -155,13 +152,13 @@
                                         </textFieldCell>
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
-                                            <tableCellView identifier="feature.desc.identifier" misplaced="YES" id="wOM-oD-Clo" customClass="QMTextCellView" customModule="QMenu" customModuleProvider="target">
+                                            <tableCellView identifier="feature.desc.identifier" id="wOM-oD-Clo" customClass="QMTextCellView" customModule="QMenu" customModuleProvider="target">
                                                 <rect key="frame" x="247" y="0.0" width="124" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="bXG-h0-T12">
-                                                        <rect key="frame" x="0.0" y="5" width="124" height="16"/>
-                                                        <textFieldCell key="cell" sendsActionOnEndEditing="YES" title="Table View Cell" id="NKq-zs-qG9" customClass="QMTextFieldCell" customModule="QMenu" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="7" width="124" height="16"/>
+                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="left" title="Table View Cell" id="NKq-zs-qG9" customClass="QMTextFieldCell" customModule="QMenu" customModuleProvider="target">
                                                             <font key="font" usesAppearanceFont="YES"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -171,8 +168,7 @@
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="bXG-h0-T12" secondAttribute="trailing" constant="2" id="6BO-Lu-ItD"/>
                                                     <constraint firstItem="bXG-h0-T12" firstAttribute="leading" secondItem="wOM-oD-Clo" secondAttribute="leading" constant="2" id="JCU-fv-6sT"/>
-                                                    <constraint firstItem="bXG-h0-T12" firstAttribute="top" secondItem="wOM-oD-Clo" secondAttribute="top" constant="5" id="Odm-5E-YfD"/>
-                                                    <constraint firstAttribute="bottom" secondItem="bXG-h0-T12" secondAttribute="bottom" constant="5" id="rFC-JF-mYm"/>
+                                                    <constraint firstItem="bXG-h0-T12" firstAttribute="centerY" secondItem="wOM-oD-Clo" secondAttribute="centerY" id="M0E-Y8-HdZ"/>
                                                 </constraints>
                                                 <connections>
                                                     <outlet property="textField" destination="bXG-h0-T12" id="Wmt-oK-fSR"/>

@@ -24,6 +24,7 @@ fileprivate extension QMNewFileController {
     func makeUI() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.enclosingScrollView?.contentInsets = NSEdgeInsets.init(top: 10, left: 0, bottom: 10, right: 0)
         tableView.enclosingScrollView?.borderType = .noBorder
         tableView.enclosingScrollView?.verticalScrollElasticity = .none
         tableView.enclosingScrollView?.horizontalScrollElasticity = .none

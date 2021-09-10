@@ -14,9 +14,6 @@ class QMTextCellView: QMTableCellView {
     override func awakeFromNib() {
         super.awakeFromNib()
         textLabel.font = NSFont.systemFont(ofSize: 12)
-        textLabel.maximumNumberOfLines = 0
-        textLabel.usesSingleLineMode = false
-        (textLabel.cell as? NSTextFieldCell)?.wraps = true
     }
     
     override var backgroundStyle: NSView.BackgroundStyle {
