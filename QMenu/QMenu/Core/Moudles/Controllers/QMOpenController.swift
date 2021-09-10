@@ -11,7 +11,7 @@ class QMOpenController: QMBaseController {
 
     @IBOutlet weak var tableView: NSTableView!
     
-    fileprivate var dataSource: [QMFeatureModel] = QMDataManager.shared.config?.open ?? []
+    fileprivate var dataSource: [QMOpenModel] = QMDataManager.shared.config?.open ?? []
     
     override func viewDidLoad() {
         super.viewDidLoad()

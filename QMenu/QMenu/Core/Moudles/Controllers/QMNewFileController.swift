@@ -11,7 +11,7 @@ class QMNewFileController: QMBaseController {
 
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet weak var autoOpenButton: NSButton!
-    fileprivate var dataSource: [QMFeatureModel] = QMDataManager.shared.config?.file ?? []
+    fileprivate var dataSource: [QMFileModel] = QMDataManager.shared.config?.file ?? []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,9 +72,8 @@ extension QMNewFileController: NSTableViewDelegate, NSTableViewDataSource {
         } else if tableColumn == tableView.tableColumns[1] {
             let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "feature.icon.identifier"), owner: nil) as? QMIconCellView
             var path = model.path
-            if model.path.contains("{{path}}") {
-                let title = model.path.replacingOccurrences(of: "{{path}}", with: "")
-                path = Bundle.main.path(forResource: title, ofType: model.desc) ?? ""
+            if model.path.count <= 0, model.name.count > 0 {
+                path = Bundle.main.path(forResource: model.name, ofType: model.suffix) ?? ""
             }
             cell?.iconView.image = NSWorkspace.shared.icon(forFile: path)
             return cell
@@ -84,23 +83,10 @@ extension QMNewFileController: NSTableViewDelegate, NSTableViewDataSource {
             return cell
         } else if tableColumn == tableView.tableColumns[3] {
             let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "feature.desc.identifier"), owner: nil) as? QMTextCellView
-            cell?.textLabel.stringValue = model.desc
+            cell?.textLabel.stringValue = model.suffix
             return cell
         }
         return nil
-    }
-    
-    func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
-        let model = dataSource[row]
-        guard let column = tableView.tableColumns.last else {
-            return 30
-        }
-        let attributedStr = NSAttributedString.init(string: model.desc, attributes: [
-            NSAttributedString.Key.font: NSFont.systemFont(ofSize: 12)
-        ])
-        let size = attributedStr.boundingRect(with: NSSize.init(width: column.width, height: CGFloat.greatestFiniteMagnitude), options: [.usesLineFragmentOrigin, .usesFontLeading], context: nil).size
-        let height = max(size.height + 10, 30)
-        return height
     }
     
     func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {

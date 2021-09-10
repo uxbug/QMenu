@@ -38,7 +38,6 @@ extension QMFeatureController: NSTableViewDataSource, NSTableViewDelegate {
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let model = dataSource[row]
-        print("type: \(model.type)")
         if tableColumn == tableView.tableColumns[0] {
             let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "feature.open.identifier"), owner: nil) as? QMOpenCellView
             cell?.box.state = model.state

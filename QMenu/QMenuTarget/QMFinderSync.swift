@@ -271,10 +271,10 @@ fileprivate extension QMFinderSync {
         var path = model.path
         if model.path.contains("{{path}}") {
             let file = model.path.replacingOccurrences(of: "{{path}}", with: "")
-            path = Bundle.main.path(forResource: file, ofType: model.desc) ?? ""
+            path = Bundle.main.path(forResource: file, ofType: model.suffix) ?? ""
         }
         let fileName = path.lastPathComponent.deletingPathExtension
-        let toPath = createPath(isFile: true, path: target.path, name: fileName, suffix: model.desc)
+        let toPath = createPath(isFile: true, path: target.path, name: fileName, suffix: model.suffix)
         do {
             try FileManager.default.copyItem(atPath: path, toPath: toPath)
             if QMDataManager.shared.config?.autoOpen ?? true {

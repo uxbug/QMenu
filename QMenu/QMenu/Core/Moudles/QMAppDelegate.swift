@@ -16,8 +16,6 @@ class QMAppDelegate: NSObject, NSApplicationDelegate {
         if !FIFinderSyncController.isExtensionEnabled {
             FIFinderSyncController.showExtensionManagementInterface()
         }
-        let a = QMDataManager.shared.configPath()
-        print(a)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

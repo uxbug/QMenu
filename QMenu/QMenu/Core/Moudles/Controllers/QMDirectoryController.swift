@@ -10,7 +10,7 @@ import Cocoa
 class QMDirectoryController: QMBaseController {
 
     @IBOutlet weak var tableView: NSTableView!
-    fileprivate var dataSource: [QMFeatureModel] = QMDataManager.shared.config?.directory ?? []
+    fileprivate var dataSource: [QMDirectoryModel] = QMDataManager.shared.config?.directory ?? []
     
     override func viewDidLoad() {
         super.viewDidLoad()

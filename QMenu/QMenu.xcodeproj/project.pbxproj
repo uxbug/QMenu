@@ -72,6 +72,14 @@
 		8C86FD1E26DCAD9E00E71F72 /* QMLoger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C86FD1C26DCAD9E00E71F72 /* QMLoger.swift */; };
 		8C86FD1F26DCADA400E71F72 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C86FD1A26DCAD9E00E71F72 /* Date.swift */; };
 		8C86FD2026DCADA700E71F72 /* QMLoger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C86FD1C26DCAD9E00E71F72 /* QMLoger.swift */; };
+		8C878E2426EB237F00DD32FE /* QMOpenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C878E2326EB237F00DD32FE /* QMOpenModel.swift */; };
+		8C878E2526EB237F00DD32FE /* QMOpenModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C878E2326EB237F00DD32FE /* QMOpenModel.swift */; };
+		8C878E2726EB238E00DD32FE /* QMDirectoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C878E2626EB238E00DD32FE /* QMDirectoryModel.swift */; };
+		8C878E2826EB238E00DD32FE /* QMDirectoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C878E2626EB238E00DD32FE /* QMDirectoryModel.swift */; };
+		8C878E2A26EB239900DD32FE /* QMFileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C878E2926EB239900DD32FE /* QMFileModel.swift */; };
+		8C878E2B26EB239900DD32FE /* QMFileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C878E2926EB239900DD32FE /* QMFileModel.swift */; };
+		8C878E2D26EB249300DD32FE /* QMBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C878E2C26EB249300DD32FE /* QMBaseModel.swift */; };
+		8C878E2E26EB249300DD32FE /* QMBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C878E2C26EB249300DD32FE /* QMBaseModel.swift */; };
 		8C95B7BA26E0A234008DA2FD /* cartool in Resources */ = {isa = PBXBuildFile; fileRef = 8C95B7B926E0A234008DA2FD /* cartool */; };
 		8C95B7BC26E0A429008DA2FD /* QMShell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C95B7BB26E0A429008DA2FD /* QMShell.swift */; };
 		8C95B7BF26E0B49C008DA2FD /* QMDirectoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C95B7BD26E0B49C008DA2FD /* QMDirectoryController.swift */; };
@@ -165,6 +173,10 @@
 		8C86FCFD26DCAA3800E71F72 /* QMenuTarget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QMenuTarget.entitlements; sourceTree = "<group>"; };
 		8C86FD1A26DCAD9E00E71F72 /* Date.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		8C86FD1C26DCAD9E00E71F72 /* QMLoger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QMLoger.swift; sourceTree = "<group>"; };
+		8C878E2326EB237F00DD32FE /* QMOpenModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMOpenModel.swift; sourceTree = "<group>"; };
+		8C878E2626EB238E00DD32FE /* QMDirectoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMDirectoryModel.swift; sourceTree = "<group>"; };
+		8C878E2926EB239900DD32FE /* QMFileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMFileModel.swift; sourceTree = "<group>"; };
+		8C878E2C26EB249300DD32FE /* QMBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMBaseModel.swift; sourceTree = "<group>"; };
 		8C95B7B926E0A234008DA2FD /* cartool */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = cartool; sourceTree = "<group>"; };
 		8C95B7BB26E0A429008DA2FD /* QMShell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMShell.swift; sourceTree = "<group>"; };
 		8C95B7BD26E0B49C008DA2FD /* QMDirectoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMDirectoryController.swift; sourceTree = "<group>"; };
@@ -236,6 +248,7 @@
 				8C7602EB26E20CEB009A9864 /* QMTableRowView.swift */,
 				8C7602ED26E20D8D009A9864 /* QMTableCellView.swift */,
 				8C7602F526E22728009A9864 /* QMTextFieldCell.swift */,
+				8C878E2C26EB249300DD32FE /* QMBaseModel.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -282,6 +295,9 @@
 			isa = PBXGroup;
 			children = (
 				8C7602E926E1C899009A9864 /* QMFeatureModel.swift */,
+				8C878E2326EB237F00DD32FE /* QMOpenModel.swift */,
+				8C878E2626EB238E00DD32FE /* QMDirectoryModel.swift */,
+				8C878E2926EB239900DD32FE /* QMFileModel.swift */,
 				8C8370C526E608D600683BCF /* QMConfigModel.swift */,
 			);
 			path = Models;
@@ -613,8 +629,10 @@
 				8C95B7C726E0B4C9008DA2FD /* QMAboutController.swift in Sources */,
 				8C7602EE26E20D8D009A9864 /* QMTableCellView.swift in Sources */,
 				8C95B7CB26E0BCF5008DA2FD /* QMMenuItem.swift in Sources */,
+				8C878E2A26EB239900DD32FE /* QMFileModel.swift in Sources */,
 				8C7602F026E20E4E009A9864 /* NSView.swift in Sources */,
 				8C8370AC26E5B8CB00683BCF /* QMLogController.swift in Sources */,
+				8C878E2D26EB249300DD32FE /* QMBaseModel.swift in Sources */,
 				8C7602DF26E1C53E009A9864 /* QMOpenCellView.swift in Sources */,
 				8C95B7BF26E0B49C008DA2FD /* QMDirectoryController.swift in Sources */,
 				8C7B642F26DE2D3200C025C8 /* QMFeatureController.swift in Sources */,
@@ -623,7 +641,9 @@
 				8C82A43626CE29E700C83E1D /* QMRootController.swift in Sources */,
 				8C86FD1D26DCAD9E00E71F72 /* Date.swift in Sources */,
 				8C65734126E8B77200F619B3 /* String.swift in Sources */,
+				8C878E2426EB237F00DD32FE /* QMOpenModel.swift in Sources */,
 				8C7602EC26E20CEB009A9864 /* QMTableRowView.swift in Sources */,
+				8C878E2726EB238E00DD32FE /* QMDirectoryModel.swift in Sources */,
 				8C8370B326E5F6A700683BCF /* QMDataManager.swift in Sources */,
 				8C7602E326E1C559009A9864 /* QMTextCellView.swift in Sources */,
 				8C8005A826E9A31900370FD9 /* QMShell.swift in Sources */,
@@ -651,10 +671,14 @@
 				8C86FCFB26DCAA3800E71F72 /* QMFinderSync.swift in Sources */,
 				8C4049CC26E7664300AF764F /* QMDataManager.swift in Sources */,
 				8C8370C726E608D600683BCF /* QMConfigModel.swift in Sources */,
+				8C878E2B26EB239900DD32FE /* QMFileModel.swift in Sources */,
 				8C65734226E8B77200F619B3 /* String.swift in Sources */,
+				8C878E2826EB238E00DD32FE /* QMDirectoryModel.swift in Sources */,
 				8C86FD1F26DCADA400E71F72 /* Date.swift in Sources */,
+				8C878E2526EB237F00DD32FE /* QMOpenModel.swift in Sources */,
 				8C95B7BC26E0A429008DA2FD /* QMShell.swift in Sources */,
 				8C8005B926E9D77A00370FD9 /* QMRunner.swift in Sources */,
+				8C878E2E26EB249300DD32FE /* QMBaseModel.swift in Sources */,
 				8C86FD2026DCADA700E71F72 /* QMLoger.swift in Sources */,
 				8C8370CB26E617E900683BCF /* QMFeatureModel.swift in Sources */,
 			);

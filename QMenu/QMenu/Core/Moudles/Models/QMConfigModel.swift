@@ -11,9 +11,9 @@ import HandyJSON
 class QMConfigModel: NSObject, HandyJSON {
     
     var feature: [QMFeatureModel] = []
-    var open: [QMFeatureModel] = []
-    var directory: [QMFeatureModel] = []
-    var file: [QMFeatureModel] = []
+    var open: [QMOpenModel] = []
+    var directory: [QMDirectoryModel] = []
+    var file: [QMFileModel] = []
     var autoOpen: Bool = true
     
     required override init() {

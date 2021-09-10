@@ -55,7 +55,7 @@ extension QMDataManager {
         saveConfig()
     }
     
-    func updateOpenState(_ feature: QMFeatureModel, state: NSControl.StateValue) {
+    func updateOpenState(_ feature: QMOpenModel, state: NSControl.StateValue) {
         config?.open.forEach({ model in
             if feature.id == model.id {
                 model.state = state
@@ -64,7 +64,7 @@ extension QMDataManager {
         saveConfig()
     }
     
-    func updateDirectoryState(_ feature: QMFeatureModel, state: NSControl.StateValue) {
+    func updateDirectoryState(_ feature: QMDirectoryModel, state: NSControl.StateValue) {
         config?.directory.forEach({ model in
             if feature.id == model.id {
                 model.state = state
@@ -74,7 +74,7 @@ extension QMDataManager {
     }
     
     func addDirectory(_ path: String) {
-        let directory = QMFeatureModel.init()
+        let directory = QMDirectoryModel.init()
         directory.path = path
         directory.id = Date.timestamp
         directory.state = .on
@@ -83,7 +83,7 @@ extension QMDataManager {
         saveConfig()
     }
     
-    func removeDirectory(_ feature: QMFeatureModel) {
+    func removeDirectory(_ feature: QMDirectoryModel) {
         guard let directory = config?.directory else {
             return
         }
@@ -96,7 +96,7 @@ extension QMDataManager {
         saveConfig()
     }
     
-    func updateNewFileState(_ feature: QMFeatureModel, state: NSControl.StateValue) {
+    func updateNewFileState(_ feature: QMFileModel, state: NSControl.StateValue) {
         config?.file.forEach({ model in
             if feature.id == model.id {
                 model.state = state
@@ -106,12 +106,12 @@ extension QMDataManager {
     }
     
     func addNewFile(_ path: String) {
-        let file = QMFeatureModel.init()
+        let file = QMFileModel.init()
         file.state = .on
         file.title = path.lastPathComponent.deletingPathExtension
-        file.desc = path.pathExtension
+        file.suffix = path.pathExtension
         file.id = Date.timestamp
-        let tempPath = fileTempletePath() + "/" + file.title + ".\(file.desc)"
+        let tempPath = fileTempletePath() + "/" + file.title + ".\(file.suffix)"
         do {
             try FileManager.default.copyItem(atPath: path, toPath: tempPath)
             file.path = tempPath
@@ -122,7 +122,7 @@ extension QMDataManager {
         }
     }
     
-    func removeFile(_ feature: QMFeatureModel) {
+    func removeFile(_ feature: QMFileModel) {
         guard let file = config?.file else {
             return
         }

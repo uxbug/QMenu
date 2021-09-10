@@ -274,72 +274,81 @@
             "title": "文本文档",
             "state": true,
             "icon": "",
-            "desc": "txt",
-            "path": "{{path}}text"
+            "suffix": "txt",
+            "path": "",
+            "name": "text"
         },
         {
             "id": 1030230901,
             "title": "Word文档",
             "state": true,
             "icon": "",
-            "desc": "docx",
-            "path": "{{path}}doc"
+            "suffix": "docx",
+            "path": "",
+            "name": "doc"
         },
         {
             "id": 1030230902,
             "title": "Excel表格",
             "state": true,
             "icon": "",
-            "desc": "xltx",
-            "path": "{{path}}excel"
+            "suffix": "xltx",
+            "path": "",
+            "name": "excel"
         },
         {
             "id": 1030230903,
             "title": "PPT",
             "state": true,
             "icon": "",
-            "desc": "pptx",
-            "path": "{{path}}ppt"
+            "suffix": "pptx",
+            "path": "",
+            "name": "ppt"
         },
         {
             "id": 1030230904,
             "title": "Markdown",
             "state": true,
             "icon": "",
-            "desc": "md",
-            "path": "{{path}}markdown"
+            "suffix": "md",
+            "path": "",
+            "name": "markdown"
         },
         {
             "id": 1030230905,
             "title": "Pages",
             "state": true,
             "icon": "",
-            "desc": "pages",
-            "path": "{{path}}pages"
+            "suffix": "pages",
+            "path": "",
+            "name": "pages"
         },
         {
             "id": 1030230906,
             "title": "Numbers",
             "state": true,
             "icon": "",
-            "desc": "numbers",
-            "path": "{{path}}numbers"
+            "suffix": "numbers",
+            "path": "",
+            "name": "numbers"
         },
         {
             "id": 1030230907,
             "title": "Keynote",
             "state": true,
             "icon": "",
-            "desc": "key",
-            "path": "{{path}}keynote"
+            "suffix": "key",
+            "path": "",
+            "name": "keynote"
         },
         {
             "id": 1030230908,
             "title": "思维导图",
             "state": true,
             "icon": "",
-            "desc": "xmind",
-            "path": "{{path}}xmind"
+            "suffix": "xmind",
+            "path": "",
+            "name": "xmind"
         }
     ],
     "autoOpen": true
