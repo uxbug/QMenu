@@ -83,7 +83,5 @@ extension QMFeatureController: QMOpenCellViewDelegate {
         let row = tableView.row(for: view)
         let model = dataSource[row]
         QMDataManager.shared.updateFeatureState(model, state: state)
-        QMLoger.addLog("更新")
-        updateFinderSync()
     }
 }

@@ -18,18 +18,29 @@ class QMDataManager: NSObject {
         return String.init(cString: name)
     }
     
-    var config: QMConfigModel?
+    var config: QMConfigModel? {
+        QMLoger.addLog("获取数据")
+        if FileManager.default.fileExists(atPath: configPath()) {
+            guard let data = try? Data.init(contentsOf: URL.init(fileURLWithPath: configPath())), let dict = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] else {
+                return nil
+            }
+            return QMConfigModel.deserialize(from: dict)
+        } else {
+            return defaultConfig()
+        }
+    }
     
     override init() {
         super.init()
-        if FileManager.default.fileExists(atPath: configPath()) {
-            guard let data = try? Data.init(contentsOf: URL.init(fileURLWithPath: configPath())), let dict = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] else {
-                return
-            }
-            config = QMConfigModel.deserialize(from: dict)
-        } else {
-            config = defaultConfig()
-        }
+        
+//        if FileManager.default.fileExists(atPath: configPath()) {
+//            guard let data = try? Data.init(contentsOf: URL.init(fileURLWithPath: configPath())), let dict = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] else {
+//                return
+//            }
+//            config = QMConfigModel.deserialize(from: dict)
+//        } else {
+//            config = defaultConfig()
+//        }
     }
 }
 
@@ -47,65 +58,83 @@ extension QMDataManager {
     }
     
     func updateFeatureState(_ feature: QMFeatureModel, state: NSControl.StateValue) {
-        config?.feature.forEach({ model in
+        guard let cg = config else {
+            return
+        }
+        cg.feature.forEach({ model in
             if feature.id == model.id {
                 model.state = state
             }
         })
-        saveConfig()
+        save(with: cg)
     }
     
     func updateOpenState(_ feature: QMOpenModel, state: NSControl.StateValue) {
-        config?.open.forEach({ model in
+        guard let cg = config else {
+            return
+        }
+        cg.open.forEach({ model in
             if feature.id == model.id {
                 model.state = state
             }
         })
-        saveConfig()
+        save(with: cg)
     }
     
     func updateDirectoryState(_ feature: QMDirectoryModel, state: NSControl.StateValue) {
-        config?.directory.forEach({ model in
+        guard let cg = config else {
+            return
+        }
+        cg.directory.forEach({ model in
             if feature.id == model.id {
                 model.state = state
             }
         })
-        saveConfig()
+        save(with: cg)
     }
     
     func addDirectory(_ path: String) {
+        guard let cg = config else {
+            return
+        }
         let directory = QMDirectoryModel.init()
         directory.path = path
         directory.id = Date.timestamp
         directory.state = .on
         directory.title = path.lastPathComponent
-        config?.directory.append(directory)
-        saveConfig()
+        cg.directory.append(directory)
+        save(with: cg)
     }
     
     func removeDirectory(_ feature: QMDirectoryModel) {
-        guard let directory = config?.directory else {
+        guard let cg = config else {
             return
         }
-        for idx in 0..<directory.count {
-            let model = directory[idx]
+        for idx in 0..<cg.directory.count {
+            let model = cg.directory[idx]
             if model.id == feature.id {
-                config?.directory.remove(at: idx)
+                cg.directory.remove(at: idx)
             }
         }
-        saveConfig()
+        save(with: cg)
     }
     
     func updateNewFileState(_ feature: QMFileModel, state: NSControl.StateValue) {
-        config?.file.forEach({ model in
+        guard let cg = config else {
+            return
+        }
+        cg.file.forEach({ model in
             if feature.id == model.id {
                 model.state = state
             }
         })
-        saveConfig()
+        save(with: cg)
     }
     
     func addNewFile(_ path: String) {
+        guard let cg = config else {
+            return
+        }
         let file = QMFileModel.init()
         file.state = .on
         file.title = path.lastPathComponent.deletingPathExtension
@@ -115,33 +144,36 @@ extension QMDataManager {
         do {
             try FileManager.default.copyItem(atPath: path, toPath: tempPath)
             file.path = tempPath
-            config?.file.append(file)
-            saveConfig()
+            cg.file.append(file)
+            save(with: cg)
         } catch {
             QMLoger.addLog("添加模板失败: \(path)")
         }
     }
     
     func removeFile(_ feature: QMFileModel) {
+        guard let cg = config else {
+            return
+        }
         guard let file = config?.file else {
             return
         }
         for idx in 0..<file.count {
             let model = file[idx]
             if model.id == feature.id {
-                config?.file.remove(at: idx)
+                cg.file.remove(at: idx)
                 if !model.path.contains("{{path}}"), FileManager.default.fileExists(atPath: model.path) {
                     try? FileManager.default.removeItem(atPath: model.path)
                 }
             }
         }
-        saveConfig()
+        save(with: cg)
     }
 }
 
 fileprivate extension QMDataManager {
-    func saveConfig() {
-        let json = config?.toJSONString()
+    func save(with config: QMConfigModel) {
+        let json = config.toJSONString()
         if FileManager.default.fileExists(atPath: configPath()) {
             try? FileManager.default.removeItem(atPath: configPath())
         }

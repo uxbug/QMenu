@@ -10,12 +10,21 @@ import FinderSync
 
 class QMFinderSync: FIFinderSync {
 
-    var myFolderURL = URL(fileURLWithPath: "/")
     var runner: QMRunner!
     
     override init() {
         super.init()
-        FIFinderSyncController.default().directoryURLs = [self.myFolderURL]
+        let finderSync = FIFinderSyncController.default()
+        if let mountedVolumes = FileManager.default.mountedVolumeURLs(includingResourceValuesForKeys: nil, options: [.skipHiddenVolumes]) {
+            finderSync.directoryURLs = Set<URL>(mountedVolumes)
+        }
+        // Monitor volumes
+        let notificationCenter = NSWorkspace.shared.notificationCenter
+        notificationCenter.addObserver(forName: NSWorkspace.didMountNotification, object: nil, queue: .main) { notification in
+            if let volumeURL = notification.userInfo?[NSWorkspace.volumeURLUserInfoKey] as? URL {
+                finderSync.directoryURLs.insert(volumeURL)
+            }
+        }
         runner = QMRunner.init()
     }
     

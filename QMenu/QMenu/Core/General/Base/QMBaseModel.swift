@@ -13,7 +13,7 @@ class QMBaseModel: NSObject, HandyJSON {
         
     }
     
-    var state: NSControl.StateValue = .on
+    var state: NSControl.StateValue = .on  // false: 关闭,   true: 开启
     var title: String = ""
     var id: Int = 0
     
@@ -21,7 +21,7 @@ class QMBaseModel: NSObject, HandyJSON {
         mapper <<< state <-- TransformOf<NSControl.StateValue, Int> (fromJSON: { value in
             return NSControl.StateValue.init(value ?? NSControl.StateValue.on.rawValue)
         }, toJSON: { value in
-            return value == .on ? 1 : 0
+            return value?.rawValue ?? NSControl.StateValue.on.rawValue
         })
     }
 }

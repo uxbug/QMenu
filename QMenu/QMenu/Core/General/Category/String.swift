@@ -20,6 +20,10 @@ extension String {
         return (self as NSString).pathExtension
     }
     
+    var deletingLastPathComponent: String {
+        return self.replacingOccurrences(of: lastPathComponent, with: "")
+    }
+    
     /// 处理空格
     /// `count`: number of escape characters.
     func nameSpaceEscaped(_ count: Int = 1) -> String {
