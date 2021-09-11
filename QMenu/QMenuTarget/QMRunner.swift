@@ -21,7 +21,7 @@ struct QMRunner {
         moveScriptFile()
     }
     
-    func launch(with appName: String, selectURLs: [URL], mode: OpenMode) {
+    func launch(with appName: String, selectURLs: [URL], mode: LaunchMode) {
         switch mode {
         case .editor:
             let name = appName.nameSpaceEscaped()

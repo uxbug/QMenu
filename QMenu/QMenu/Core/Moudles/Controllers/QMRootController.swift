@@ -17,7 +17,7 @@ class QMRootController: QMBaseController {
         let controller = QMTabViewController.init()
         controller.addChilds([
             QMFeatureController(),
-            QMOpenController(),
+            QMLaunchController(),
             QMDirectoryController(),
             QMNewFileController(),
             QMDescController(),
@@ -25,13 +25,13 @@ class QMRootController: QMBaseController {
         ])
         return controller
     }()
-    fileprivate var dataSource: [String] = [
-        "功能列表",
-        "打开...",
-        "常用目录",
-        "新建文件",
-        "使用说明",
-        "关于我们"
+    fileprivate var dataSource: [(String, String)] = [
+        ("功能列表", "tab_feature"),
+        ("打开...", "tab_launch"),
+        ("常用目录", "tab_directory"),
+        ("新建文件", "tab_file"),
+        ("使用说明", "tab_desc"),
+        ("关于我们", "tab_about")
     ]
     
     override func viewDidLoad() {
@@ -54,7 +54,9 @@ extension QMRootController {
         collectionView.register(QMMenuItem.self, forItemWithIdentifier: .init("QMMenuItem"))
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.selectItems(at: [IndexPath(item: 0, section: 0)], scrollPosition: .bottom)
+        // 检测扩展启用状态，未启用默认选择说明页
+        tabController.selectedIndex = isExtensionEnabled ? 0 : 4
+        collectionView.selectItems(at: [IndexPath(item: tabController.selectedIndex, section: 0)], scrollPosition: .bottom)
     }
 }
 
@@ -65,7 +67,7 @@ extension QMRootController: NSCollectionViewDelegateFlowLayout, NSCollectionView
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         let item = collectionView.makeItem(withIdentifier: .init("QMMenuItem"), for: indexPath) as! QMMenuItem
-        item.textLabel.stringValue = dataSource[indexPath.item]
+        item.data = dataSource[indexPath.item]
         item.delegate = self
         return item
     }

@@ -1,5 +1,5 @@
 //
-//  QMOpenController.swift
+//  QMLaunchController.swift
 //  QMenu
 //
 //  Created by password 1234 on 9/6/21.
@@ -7,11 +7,11 @@
 
 import Cocoa
 
-class QMOpenController: QMBaseController {
+class QMLaunchController: QMBaseController {
 
     @IBOutlet weak var tableView: NSTableView!
     
-    fileprivate var dataSource: [QMOpenModel] = QMDataManager.shared.config?.open ?? []
+    fileprivate var dataSource: [QMLaunchModel] = QMDataManager.shared.config?.launch ?? []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +20,7 @@ class QMOpenController: QMBaseController {
     
 }
 
-fileprivate extension QMOpenController {
+fileprivate extension QMLaunchController {
     func makeUI() {
         tableView.delegate = self
         tableView.dataSource = self
@@ -31,7 +31,7 @@ fileprivate extension QMOpenController {
     }
 }
 
-extension QMOpenController: NSTableViewDelegate, NSTableViewDataSource {
+extension QMLaunchController: NSTableViewDelegate, NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
         return dataSource.count
     }
@@ -69,7 +69,7 @@ extension QMOpenController: NSTableViewDelegate, NSTableViewDataSource {
     }
 }
 
-extension QMOpenController: QMOpenCellViewDelegate {
+extension QMLaunchController: QMOpenCellViewDelegate {
     func openCellView(_ view: QMOpenCellView, didClickBox state: NSControl.StateValue) {
         let row = tableView.row(for: view)
         let model = dataSource[row]

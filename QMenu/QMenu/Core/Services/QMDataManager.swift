@@ -19,7 +19,6 @@ class QMDataManager: NSObject {
     }
     
     var config: QMConfigModel? {
-        QMLoger.addLog("获取数据")
         if FileManager.default.fileExists(atPath: configPath()) {
             guard let data = try? Data.init(contentsOf: URL.init(fileURLWithPath: configPath())), let dict = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] else {
                 return nil
@@ -69,11 +68,11 @@ extension QMDataManager {
         save(with: cg)
     }
     
-    func updateOpenState(_ feature: QMOpenModel, state: NSControl.StateValue) {
+    func updateOpenState(_ feature: QMLaunchModel, state: NSControl.StateValue) {
         guard let cg = config else {
             return
         }
-        cg.open.forEach({ model in
+        cg.launch.forEach({ model in
             if feature.id == model.id {
                 model.state = state
             }

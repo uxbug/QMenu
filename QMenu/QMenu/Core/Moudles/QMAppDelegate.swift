@@ -12,10 +12,7 @@ import FinderSync
 class QMAppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        // 检测是否启用扩展
-        if !FIFinderSyncController.isExtensionEnabled {
-            FIFinderSyncController.showExtensionManagementInterface()
-        }
+        
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

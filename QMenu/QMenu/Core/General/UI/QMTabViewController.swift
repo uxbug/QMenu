@@ -39,7 +39,7 @@ class QMTabViewController: QMBaseController {
     
     override func viewDidLayout() {
         super.viewDidLayout()
-        if firstLoad {
+        if firstLoad, selectedIndex == 0 {
             selectedIndex = 0
             firstLoad = false
         }

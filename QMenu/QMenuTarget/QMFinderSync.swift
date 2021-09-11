@@ -85,12 +85,19 @@ fileprivate extension QMFinderSync {
                     let item = NSMenuItem.init()
                     item.title = feature.title
                     item.tag = feature.id
+                    item.image = NSImage.init(named: feature.icon)
                     item.submenu = NSMenu.init(title: feature.title)
                     let files = config.file.filter({ $0.state == .on })
                     if files.count > 0 {
                         files.forEach { model in
                             let it = NSMenuItem.init(title: model.title, action: #selector(createNewFile(_:)), keyEquivalent: "")
                             it.tag = model.id
+                            var path: String = model.path
+                            if path.count <= 0 {
+                                path = Bundle.main.path(forResource: model.name, ofType: model.suffix) ?? ""
+                            }
+                            let image = NSWorkspace.shared.icon(forFile: path).resize(for: CGSize.init(width: 20, height: 20))
+                            it.image = image
                             item.submenu?.addItem(it)
                         }
                         menu.addItem(item)
@@ -99,12 +106,14 @@ fileprivate extension QMFinderSync {
                     let item = NSMenuItem.init()
                     item.title = feature.title
                     item.tag = feature.id
+                    item.image = NSImage.init(named: feature.icon)
                     item.submenu = NSMenu.init(title: feature.title)
-                    let opens = config.open.filter({ $0.state == .on && LSCopyApplicationURLsForBundleIdentifier($0.bundleId as CFString, nil) != nil })
-                    if opens.count > 0 {
-                        opens.forEach { model in
+                    let launchs = config.launch.filter({ $0.state == .on && LSCopyApplicationURLsForBundleIdentifier($0.bundleId as CFString, nil) != nil })
+                    if launchs.count > 0 {
+                        launchs.forEach { model in
                             let it = NSMenuItem.init(title: model.title, action: #selector(openItem(_:)), keyEquivalent: "")
                             it.tag = model.id
+                            it.image = NSImage.init(named: model.icon)
                             item.submenu?.addItem(it)
                         }
                         menu.addItem(item)
@@ -113,11 +122,13 @@ fileprivate extension QMFinderSync {
                     let item = NSMenuItem.init()
                     item.title = feature.title
                     item.tag = feature.id
+                    item.image = NSImage.init(named: feature.icon)
                     item.submenu = NSMenu.init(title: feature.title)
                     let directorys = config.directory.filter({ $0.state == .on })
                     if directorys.count > 0 {
                         directorys.forEach { model in
                             let it = NSMenuItem.init(title: model.title, action: #selector(moveToDirectory(_:)), keyEquivalent: "")
+                            it.image = NSImage.init(named: "directory")
                             it.tag = model.id
                             item.submenu?.addItem(it)
                         }
@@ -127,37 +138,34 @@ fileprivate extension QMFinderSync {
                     let item = NSMenuItem.init()
                     item.title = feature.title
                     item.tag = feature.id
+                    item.image = NSImage.init(named: feature.icon)
                     item.submenu = NSMenu.init(title: feature.title)
                     let directorys = config.directory.filter({ $0.state == .on })
                     if directorys.count > 0 {
                         directorys.forEach { model in
                             let it = NSMenuItem.init(title: model.title, action: #selector(copyToDirectory(_:)), keyEquivalent: "")
                             it.tag = model.id
+                            it.image = NSImage.init(named: "directory")
                             item.submenu?.addItem(it)
                         }
                         menu.addItem(item)
                     }
                 } else if feature.type == .unpack { // 解包Assets.car
-                    if let items = FIFinderSyncController.default().selectedItemURLs() {
-                        var containsAssetCar: Bool = false
-                        for item in items {
-                            if item.path.hasSuffix(".car") {
-                                containsAssetCar = true
-                            }
-                        }
-                        if containsAssetCar {
-                            let item = NSMenuItem.init(title: feature.title, action: #selector(unPackAssetCarFile), keyEquivalent: "")
-                            item.tag = feature.id
-                            menu.addItem(item)
-                        }
+                    if FIFinderSyncController.default().selectedItemURLs()?.first(where: { $0.path.hasSuffix(".car") }) != nil {
+                        let item = NSMenuItem.init(title: feature.title, action: #selector(unPackAssetCarFile), keyEquivalent: "")
+                        item.tag = feature.id
+                        item.image = NSImage.init(named: feature.icon)
+                        menu.addItem(item)
                     }
                 } else if feature.type == .copyPath {   // 拷贝路径
                     let item = NSMenuItem.init(title: feature.title, action: #selector(copyPath), keyEquivalent: "")
                     item.tag = feature.id
+                    item.image = NSImage.init(named: feature.icon)
                     menu.addItem(item)
                 } else if feature.type == .delete { // 直接删除文件
                     let item = NSMenuItem.init(title: feature.title, action: #selector(deleteItem), keyEquivalent: "")
                     item.tag = feature.id
+                    item.image = NSImage.init(named: feature.icon)
                     menu.addItem(item)
                 }
             }
@@ -296,7 +304,7 @@ fileprivate extension QMFinderSync {
     
     // 打开
     @objc func openItem(_ item: NSMenuItem) {
-        guard let model = QMDataManager.shared.config?.open.first(where: { $0.id == item.tag }) else {
+        guard let model = QMDataManager.shared.config?.launch.first(where: { $0.id == item.tag }) else {
             QMLoger.addLog("获取绑定模型错误: \(item.title)")
             return
         }

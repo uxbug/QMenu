@@ -4,7 +4,7 @@
             "id": 103023090,
             "title": "新建文件",
             "state": true,
-            "icon": "icon",
+            "icon": "feature_file",
             "desc": "支持文本文档、Markdown、Word文档、Excel、PPT等",
             "type": 0,
         },
@@ -12,7 +12,7 @@
             "id": 103023091,
             "title": "打开...",
             "state": true,
-            "icon": "",
+            "icon": "feature_launch",
             "desc": "支持Sublime Text、Visual Studio Code、iTerm、Terminal、Hyper等",
             "type": 1,
         },
@@ -20,7 +20,7 @@
             "id": 103023092,
             "title": "移动至",
             "state": true,
-            "icon": "",
+            "icon": "feature_move",
             "desc": "移动文件\/文件夹至常用目录",
             "type": 2,
         },
@@ -28,7 +28,7 @@
             "id": 103023093,
             "title": "拷贝至",
             "state": true,
-            "icon": "",
+            "icon": "feature_copy",
             "desc": "拷贝文件\/文件夹至常用目录",
             "type": 3,
         },
@@ -36,7 +36,7 @@
             "id": 103023094,
             "title": "解包Assets.car文件",
             "state": true,
-            "icon": "",
+            "icon": "feature_unpack",
             "desc": "解包Assets.car文件",
             "type": 4,
         },
@@ -44,7 +44,7 @@
             "id": 103023095,
             "title": "拷贝路径",
             "state": true,
-            "icon": "",
+            "icon": "feature_copyPath",
             "desc": "拷贝当前选择路径至剪切板",
             "type": 5,
         },
@@ -52,7 +52,7 @@
             "id": 103023096,
             "title": "直接删除",
             "state": true,
-            "icon": "",
+            "icon": "feature_delete",
             "desc": "慎用！直接删除文件，无法恢复。",
             "type": 6,
         }
@@ -77,7 +77,7 @@
             "id": 1030230922
         }
     ],
-    "open": [
+    "launch": [
         {
             "id": 1030230910,
             "title": "Sublime Text",

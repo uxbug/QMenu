@@ -42,13 +42,13 @@
                     </connections>
                 </button>
                 <scrollView autohidesScrollers="YES" horizontalLineScroll="30" horizontalPageScroll="10" verticalLineScroll="30" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pWl-8N-O6a">
-                    <rect key="frame" x="0.0" y="40" width="62" height="64"/>
+                    <rect key="frame" x="0.0" y="40" width="329" height="36"/>
                     <clipView key="contentView" id="Q3P-ek-kDT">
-                        <rect key="frame" x="1" y="1" width="60" height="62"/>
+                        <rect key="frame" x="1" y="1" width="327" height="34"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="30" rowSizeStyle="automatic" headerView="Zk7-tV-HDf" viewBased="YES" id="MAd-4E-Ekx">
-                                <rect key="frame" x="0.0" y="0.0" width="380" height="34"/>
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="30"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <size key="intercellSpacing" width="17" height="0.0"/>
                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -91,7 +91,7 @@
                                             </tableCellView>
                                         </prototypeCellViews>
                                     </tableColumn>
-                                    <tableColumn width="110" minWidth="110" maxWidth="110" id="Iil-aS-bda">
+                                    <tableColumn width="160" minWidth="160" maxWidth="160" id="Iil-aS-bda">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="标题">
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -104,11 +104,11 @@
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
                                             <tableCellView identifier="feature.name.identifier" id="R3O-N5-CPH" customClass="QMTextCellView" customModule="QMenu" customModuleProvider="target">
-                                                <rect key="frame" x="63" y="0.0" width="110" height="30"/>
+                                                <rect key="frame" x="63" y="0.0" width="160" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="qcv-Dj-Zwv">
-                                                        <rect key="frame" x="-2" y="7" width="114" height="16"/>
+                                                        <rect key="frame" x="-2" y="7" width="164" height="16"/>
                                                         <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="Table View Cell" id="Xqc-PO-tdf" customClass="QMTextFieldCell" customModule="QMenu" customModuleProvider="target">
                                                             <font key="font" usesAppearanceFont="YES"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -128,7 +128,7 @@
                                             </tableCellView>
                                         </prototypeCellViews>
                                     </tableColumn>
-                                    <tableColumn width="184" minWidth="184" maxWidth="184" id="nFA-Zj-hCL">
+                                    <tableColumn width="234" minWidth="234" maxWidth="234" id="nFA-Zj-hCL">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="center" title="路径">
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -141,11 +141,11 @@
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
                                             <tableCellView identifier="feature.desc.identifier" id="S1T-nt-Vha" customClass="QMTextCellView" customModule="QMenu" customModuleProvider="target">
-                                                <rect key="frame" x="190" y="0.0" width="181" height="30"/>
+                                                <rect key="frame" x="240" y="0.0" width="231" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="sBR-EV-3k9">
-                                                        <rect key="frame" x="-2" y="7" width="185" height="16"/>
+                                                        <rect key="frame" x="-2" y="7" width="235" height="16"/>
                                                         <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="left" title="Table View Cell" id="Yfc-uc-DXh" customClass="QMTextFieldCell" customModule="QMenu" customModuleProvider="target">
                                                             <font key="font" usesAppearanceFont="YES"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -178,7 +178,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                     <tableHeaderView key="headerView" wantsLayer="YES" id="Zk7-tV-HDf">
-                        <rect key="frame" x="0.0" y="0.0" width="380" height="28"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="28"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </tableHeaderView>
                 </scrollView>

@@ -16,6 +16,12 @@ class QMMenuItem: NSCollectionViewItem {
     @IBOutlet weak var iconView: NSImageView!
     @IBOutlet weak var textLabel: NSTextField!
     weak var delegate: QMMenuItemDelegate?
+    var data: (String, String) = ("", "") {
+        didSet {
+            textLabel.stringValue = data.0
+            iconView.image = NSImage.init(named: data.1.appending("_normal"))
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +32,7 @@ class QMMenuItem: NSCollectionViewItem {
         didSet {
             textLabel.textColor = isSelected ? NSColor.init(hex: 0x38A3A5) : NSColor.init(hex: 0x112031)
             view.layer?.backgroundColor = isSelected ? NSColor.init(hex: 0xF5F4F4).cgColor : NSColor.clear.cgColor
+            iconView.image = NSImage.init(named: data.1.appending(isSelected ? "_select" : "_normal"))
         }
     }
     

@@ -76,7 +76,8 @@ extension QMNewFileController: NSTableViewDelegate, NSTableViewDataSource {
             if model.path.count <= 0, model.name.count > 0 {
                 path = Bundle.main.path(forResource: model.name, ofType: model.suffix) ?? ""
             }
-            cell?.iconView.image = NSWorkspace.shared.icon(forFile: path)
+            let imgage = NSWorkspace.shared.icon(forFile: path).resize(for: CGSize.init(width: 20, height: 20))
+            cell?.iconView.image = imgage
             return cell
         } else if tableColumn == tableView.tableColumns[2] {
             let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "feature.name.identifier"), owner: nil) as? QMTextCellView
