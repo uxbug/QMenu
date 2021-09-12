@@ -90,7 +90,7 @@ struct QMRunner {
 fileprivate extension QMRunner {
     func moveScriptFile() {
         guard let path = Bundle.main.path(forResource: "runner", ofType: "scpt"), let toPath = runnerScriptURL?.path else {
-            QMLoger.addLog("脚本拷贝失败: \(runnerScriptURL)")
+            QMLoger.addLog("脚本拷贝失败: \(runnerScriptURL?.path ?? "")")
             return
         }
         if !FileManager.default.fileExists(atPath: toPath) {
