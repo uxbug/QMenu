@@ -20,6 +20,7 @@ class QMLaunchController: QMBaseController {
     
 }
 
+// MARK: Private Method
 fileprivate extension QMLaunchController {
     func makeUI() {
         tableView.delegate = self
@@ -31,6 +32,7 @@ fileprivate extension QMLaunchController {
     }
 }
 
+// MARK: NSTableViewDelegate, NSTableViewDataSource
 extension QMLaunchController: NSTableViewDelegate, NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
         return dataSource.count
@@ -52,12 +54,15 @@ extension QMLaunchController: NSTableViewDelegate, NSTableViewDataSource {
             cell?.textLabel.stringValue = model.title
             cell?.textLabel.toolTip = model.title
             cell?.textLabel.allowsExpansionToolTips = true
+            cell?.textLabel.isEditable = true
+            cell?.delegate = self
             return cell
         } else if tableColumn == tableView.tableColumns[3] {
             let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "feature.desc.identifier"), owner: nil) as? QMTextCellView
             cell?.textLabel.stringValue = model.desc
             cell?.textLabel.toolTip = model.desc
             cell?.textLabel.allowsExpansionToolTips = true
+            cell?.textLabel.isEditable = false
             return cell
         }
         return nil
@@ -69,10 +74,20 @@ extension QMLaunchController: NSTableViewDelegate, NSTableViewDataSource {
     }
 }
 
+// MARK: QMOpenCellViewDelegate
 extension QMLaunchController: QMOpenCellViewDelegate {
     func openCellView(_ view: QMOpenCellView, didClickBox state: NSControl.StateValue) {
         let row = tableView.row(for: view)
         let model = dataSource[row]
-        QMDataManager.shared.updateOpenState(model, state: state)
+        QMDataManager.shared.updateLaunchState(model, state: state)
+    }
+}
+
+// MARK: QMTextCellViewDelegate
+extension QMLaunchController: QMTextCellViewDelegate {
+    func textCellView(_ cellView: QMTextCellView, didEndEditingAt text: String) {
+        let row = tableView.row(for: cellView)
+        let model = dataSource[row]
+        QMDataManager.shared.updateLaunchTitle(model, title: text)
     }
 }

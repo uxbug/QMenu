@@ -19,6 +19,7 @@ class QMDirectoryController: QMBaseController {
 
 }
 
+// MARK: Private Method
 fileprivate extension QMDirectoryController {
     func makeUI() {
         tableView.delegate = self
@@ -57,6 +58,7 @@ fileprivate extension QMDirectoryController {
     }
 }
 
+// MARK: NSTableViewDelegate, NSTableViewDataSource
 extension QMDirectoryController: NSTableViewDelegate, NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
         return dataSource.count
@@ -76,9 +78,11 @@ extension QMDirectoryController: NSTableViewDelegate, NSTableViewDataSource {
                 path = model.path.replacingOccurrences(of: "{{username}}", with: QMDataManager.shared.userName)
             }
             cell?.textLabel.stringValue = model.title
+            cell?.textLabel.isEditable = true
+            cell?.delegate = self
             return cell
         } else if tableColumn == tableView.tableColumns[2] {
-            let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "feature.name.identifier"), owner: nil) as? QMTextCellView
+            let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "feature.desc.identifier"), owner: nil) as? QMTextCellView
             var path = model.path
             if path.contains("{{username}}") {
                 path = model.path.replacingOccurrences(of: "{{username}}", with: QMDataManager.shared.userName)
@@ -86,6 +90,7 @@ extension QMDirectoryController: NSTableViewDelegate, NSTableViewDataSource {
             cell?.textLabel.stringValue = path
             cell?.textLabel.toolTip = path
             cell?.textLabel.allowsExpansionToolTips = true
+            cell?.textLabel.isEditable = false
             return cell
         }
         return nil
@@ -97,10 +102,20 @@ extension QMDirectoryController: NSTableViewDelegate, NSTableViewDataSource {
     }
 }
 
+// MARK: QMOpenCellViewDelegate
 extension QMDirectoryController: QMOpenCellViewDelegate {
     func openCellView(_ view: QMOpenCellView, didClickBox state: NSControl.StateValue) {
         let row = tableView.row(for: view)
         let model = dataSource[row]
         QMDataManager.shared.updateDirectoryState(model, state: state)
+    }
+}
+
+// MARK: QMTextCellViewDelegate
+extension QMDirectoryController: QMTextCellViewDelegate {
+    func textCellView(_ cellView: QMTextCellView, didEndEditingAt text: String) {
+        let row = tableView.row(for: cellView)
+        let model = dataSource[row]
+        QMDataManager.shared.updateDirectoryTitle(model, title: text)
     }
 }

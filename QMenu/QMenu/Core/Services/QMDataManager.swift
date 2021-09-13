@@ -11,6 +11,7 @@ class QMDataManager: NSObject {
     
     static let shared: QMDataManager = QMDataManager.init()
     
+    /// 用户电脑名
     var userName: String {
         guard let name = getlogin() else {
             return ""
@@ -18,10 +19,11 @@ class QMDataManager: NSObject {
         return String.init(cString: name)
     }
     
+    /// 配置
     var config: QMConfigModel? {
         if FileManager.default.fileExists(atPath: configPath()) {
             guard let data = try? Data.init(contentsOf: URL.init(fileURLWithPath: configPath())), let dict = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] else {
-                return nil
+                return defaultConfig()
             }
             return QMConfigModel.deserialize(from: dict)
         } else {
@@ -31,11 +33,14 @@ class QMDataManager: NSObject {
 }
 
 extension QMDataManager {
+    
+    /// 配置文件路径
     func configPath() -> String {
         let path = "/Users/\(userName)" + "/.QMenu/config.json"
         return path
     }
     
+    /// 默认配置
     func defaultConfig() -> QMConfigModel? {
         guard let path = Bundle.main.url(forResource: "config", withExtension: "json"), let data = try? Data.init(contentsOf: path), let dict = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] else {
             return nil
@@ -43,6 +48,10 @@ extension QMDataManager {
         return QMConfigModel.deserialize(from: dict)
     }
     
+    /// 更新功能状态
+    /// - Parameters:
+    ///   - feature: 功能模型
+    ///   - state: 状态
     func updateFeatureState(_ feature: QMFeatureModel, state: NSControl.StateValue) {
         guard let cg = config else {
             return
@@ -55,30 +64,88 @@ extension QMDataManager {
         save(with: cg)
     }
     
-    func updateOpenState(_ feature: QMLaunchModel, state: NSControl.StateValue) {
+    /// 更新功能标题
+    /// - Parameters:
+    ///   - feature: 功能模型
+    ///   - title: 标题
+    func updateFeatureTitle(_ feature: QMFeatureModel, title: String) {
+        guard let cg = config else {
+            return
+        }
+        cg.feature.forEach({ model in
+            if feature.id == model.id {
+                model.title = title
+            }
+        })
+        save(with: cg)
+    }
+    
+    /// 更新启动功能状态
+    /// - Parameters:
+    ///   - launch: 启动功能模型
+    ///   - state: 状态
+    func updateLaunchState(_ launch: QMLaunchModel, state: NSControl.StateValue) {
         guard let cg = config else {
             return
         }
         cg.launch.forEach({ model in
-            if feature.id == model.id {
+            if launch.id == model.id {
                 model.state = state
             }
         })
         save(with: cg)
     }
     
-    func updateDirectoryState(_ feature: QMDirectoryModel, state: NSControl.StateValue) {
+    /// 更新启动标题
+    /// - Parameters:
+    ///   - launch: 启动模型
+    ///   - title: 标题
+    func updateLaunchTitle(_ launch: QMLaunchModel, title: String) {
+        guard let cg = config else {
+            return
+        }
+        cg.launch.forEach({ model in
+            if launch.id == model.id {
+                model.title = title
+            }
+        })
+        save(with: cg)
+    }
+    
+    /// 更新常用目录状态
+    /// - Parameters:
+    ///   - directory: 目录模型
+    ///   - state: 状态
+    func updateDirectoryState(_ directory: QMDirectoryModel, state: NSControl.StateValue) {
         guard let cg = config else {
             return
         }
         cg.directory.forEach({ model in
-            if feature.id == model.id {
+            if directory.id == model.id {
                 model.state = state
             }
         })
         save(with: cg)
     }
     
+    /// 更新常用目录标题
+    /// - Parameters:
+    ///   - directory: 目录模型
+    ///   - title: 标题
+    func updateDirectoryTitle(_ directory: QMDirectoryModel, title: String) {
+        guard let cg = config else {
+            return
+        }
+        cg.directory.forEach({ model in
+            if directory.id == model.id {
+                model.title = title
+            }
+        })
+        save(with: cg)
+    }
+    
+    /// 添加常用目录
+    /// - Parameter path: 添加目录地址
     func addDirectory(_ path: String) {
         guard let cg = config else {
             return
@@ -92,31 +159,55 @@ extension QMDataManager {
         save(with: cg)
     }
     
-    func removeDirectory(_ feature: QMDirectoryModel) {
+    /// 移除常用目录
+    /// - Parameter directory: 目录模型
+    func removeDirectory(_ directory: QMDirectoryModel) {
         guard let cg = config else {
             return
         }
         for idx in 0..<cg.directory.count {
             let model = cg.directory[idx]
-            if model.id == feature.id {
+            if model.id == directory.id {
                 cg.directory.remove(at: idx)
             }
         }
         save(with: cg)
     }
     
-    func updateNewFileState(_ feature: QMFileModel, state: NSControl.StateValue) {
+    /// 更新文件模板状态
+    /// - Parameters:
+    ///   - file: 文件模板模型
+    ///   - state: 状态
+    func updateNewFileState(_ file: QMFileModel, state: NSControl.StateValue) {
         guard let cg = config else {
             return
         }
         cg.file.forEach({ model in
-            if feature.id == model.id {
+            if file.id == model.id {
                 model.state = state
             }
         })
         save(with: cg)
     }
     
+    /// 更新文件模板标题
+    /// - Parameters:
+    ///   - file: 文件模板模型
+    ///   - title: 标题
+    func updateNewFileTitle(_ file: QMFileModel, title: String) {
+        guard let cg = config else {
+            return
+        }
+        cg.file.forEach({ model in
+            if file.id == model.id {
+                model.title = title
+            }
+        })
+        save(with: cg)
+    }
+    
+    /// 添加文件模板
+    /// - Parameter path: 文件路径
     func addNewFile(_ path: String) {
         guard let cg = config else {
             return
@@ -137,16 +228,18 @@ extension QMDataManager {
         }
     }
     
-    func removeFile(_ feature: QMFileModel) {
+    /// 移除文件模板
+    /// - Parameter file: 文件模板模型
+    func removeFile(_ file: QMFileModel) {
         guard let cg = config else {
             return
         }
-        guard let file = config?.file else {
+        guard let files = config?.file else {
             return
         }
-        for idx in 0..<file.count {
-            let model = file[idx]
-            if model.id == feature.id {
+        for idx in 0..<files.count {
+            let model = files[idx]
+            if model.id == file.id {
                 cg.file.remove(at: idx)
                 if !model.path.contains("{{path}}"), FileManager.default.fileExists(atPath: model.path) {
                     try? FileManager.default.removeItem(atPath: model.path)

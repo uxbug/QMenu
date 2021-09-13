@@ -123,6 +123,7 @@
 /* Begin PBXFileReference section */
 		69A2304B61675EB88C53E974 /* Pods-QMenu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QMenu.debug.xcconfig"; path = "Target Support Files/Pods-QMenu/Pods-QMenu.debug.xcconfig"; sourceTree = "<group>"; };
 		866BC2E8B41FE5EFBCA3E07F /* Pods_QMenuTarget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QMenuTarget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C2C6D2426EEEB6700AC4734 /* CoreUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreUI.framework; path = ../../../../../../System/Library/PrivateFrameworks/CoreUI.framework; sourceTree = "<group>"; };
 		8C4049BD26E6ED4900AF764F /* pages.pages */ = {isa = PBXFileReference; lastKnownFileType = file; path = pages.pages; sourceTree = "<group>"; };
 		8C4049BE26E6ED4900AF764F /* keynote.key */ = {isa = PBXFileReference; lastKnownFileType = file; path = keynote.key; sourceTree = "<group>"; };
 		8C4049BF26E6ED4900AF764F /* numbers.numbers */ = {isa = PBXFileReference; lastKnownFileType = file; path = numbers.numbers; sourceTree = "<group>"; };
@@ -229,6 +230,7 @@
 		7700B3D7FF656BE6A7E8F9A3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8C2C6D2426EEEB6700AC4734 /* CoreUI.framework */,
 				F49E0BC9CE58856B1D850B06 /* Pods_QMenu.framework */,
 				866BC2E8B41FE5EFBCA3E07F /* Pods_QMenuTarget.framework */,
 			);
@@ -359,8 +361,8 @@
 			isa = PBXGroup;
 			children = (
 				8C82A43326CE29E700C83E1D /* QMAppDelegate.swift */,
-				8C7602E826E1C87F009A9864 /* Models */,
 				8C7602D926E1C2D2009A9864 /* Controllers */,
+				8C7602E826E1C87F009A9864 /* Models */,
 				8C7602DD26E1C2FA009A9864 /* Views */,
 			);
 			path = Moudles;
@@ -846,6 +848,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.liyb.QMenu;
 				PRODUCT_NAME = QMenu;
 				SWIFT_VERSION = 5.0;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
+				);
 			};
 			name = Debug;
 		};
@@ -870,6 +876,10 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.liyb.QMenu;
 				PRODUCT_NAME = QMenu;
 				SWIFT_VERSION = 5.0;
+				SYSTEM_FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
+				);
 			};
 			name = Release;
 		};

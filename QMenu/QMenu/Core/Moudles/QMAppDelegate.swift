@@ -6,7 +6,6 @@
 //
 
 import Cocoa
-import FinderSync
 
 @main
 class QMAppDelegate: NSObject, NSApplicationDelegate {
