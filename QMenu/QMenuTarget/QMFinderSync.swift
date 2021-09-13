@@ -93,11 +93,10 @@ fileprivate extension QMFinderSync {
                         files.forEach { model in
                             let it = NSMenuItem.init(title: model.title, action: #selector(createNewFile(_:)), keyEquivalent: "")
                             it.tag = model.id
-                            var path: String = model.path
-                            if path.count <= 0 {
-                                path = Bundle.main.path(forResource: model.name, ofType: model.suffix) ?? ""
+                            var image: NSImage? = NSImage.init(named: model.icon)
+                            if model.icon.count <= 0, model.path.count > 0 {
+                                image = NSWorkspace.shared.icon(forFile: model.path).resize(for: CGSize.init(width: 20, height: 20))
                             }
-                            let image = NSWorkspace.shared.icon(forFile: path).resize(for: CGSize.init(width: 20, height: 20))
                             it.image = image
                             item.submenu?.addItem(it)
                         }

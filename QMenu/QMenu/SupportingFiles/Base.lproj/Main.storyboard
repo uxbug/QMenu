@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="5UR-3d-Otf">
     <dependencies>
+        <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -721,16 +722,16 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Kl3-oP-l3Z" secondAttribute="height" id="4fa-on-H05"/>
                                         </constraints>
-                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="icon" id="U36-5S-bdX"/>
+                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="logo" id="U36-5S-bdX"/>
                                     </imageView>
                                     <scrollView wantsLayer="YES" borderType="none" autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="51x-cr-ujc">
-                                        <rect key="frame" x="0.0" y="20" width="150" height="365"/>
+                                        <rect key="frame" x="0.0" y="20" width="150" height="339"/>
                                         <clipView key="contentView" id="OZE-3a-Ofg">
-                                            <rect key="frame" x="0.0" y="0.0" width="150" height="365"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="150" height="339"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <collectionView id="1Bo-LV-hVE">
-                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="365"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="150" height="339"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" minimumInteritemSpacing="10" minimumLineSpacing="10" id="Wmq-lX-arv">
                                                         <size key="itemSize" width="50" height="50"/>
@@ -745,21 +746,32 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                         <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="G4A-S5-e5F">
-                                            <rect key="frame" x="234" y="1" width="15" height="143"/>
+                                            <rect key="frame" x="134" y="0.0" width="16" height="335"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </scroller>
                                     </scrollView>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GFY-3q-msv">
+                                        <rect key="frame" x="18" y="379" width="114" height="21"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="QMenu" id="ruq-9i-KYW">
+                                            <font key="font" size="15" name="PingFangSC-Semibold"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="66T-wp-TNN"/>
+                                    <constraint firstItem="51x-cr-ujc" firstAttribute="top" secondItem="GFY-3q-msv" secondAttribute="bottom" constant="20" id="AKG-nk-8rY"/>
                                     <constraint firstAttribute="trailing" secondItem="51x-cr-ujc" secondAttribute="trailing" id="E99-Oe-IBF"/>
                                     <constraint firstItem="Kl3-oP-l3Z" firstAttribute="width" secondItem="K7d-kh-a9S" secondAttribute="width" multiplier="0.5" id="Ekf-ba-ryS"/>
                                     <constraint firstItem="Kl3-oP-l3Z" firstAttribute="centerX" secondItem="K7d-kh-a9S" secondAttribute="centerX" id="LU0-7F-Eg9"/>
                                     <constraint firstAttribute="height" constant="500" id="RFU-cX-z59"/>
                                     <constraint firstItem="Kl3-oP-l3Z" firstAttribute="top" secondItem="K7d-kh-a9S" secondAttribute="top" constant="20" id="RNs-og-e8x"/>
+                                    <constraint firstItem="GFY-3q-msv" firstAttribute="top" secondItem="Kl3-oP-l3Z" secondAttribute="bottom" constant="5" id="T9D-qR-yS9"/>
                                     <constraint firstItem="51x-cr-ujc" firstAttribute="leading" secondItem="K7d-kh-a9S" secondAttribute="leading" id="hhF-ND-pUw"/>
                                     <constraint firstAttribute="bottom" secondItem="51x-cr-ujc" secondAttribute="bottom" constant="20" id="kKZ-ra-36K"/>
-                                    <constraint firstItem="51x-cr-ujc" firstAttribute="top" secondItem="Kl3-oP-l3Z" secondAttribute="bottom" constant="20" id="puT-vu-35R"/>
+                                    <constraint firstItem="GFY-3q-msv" firstAttribute="leading" secondItem="K7d-kh-a9S" secondAttribute="leading" constant="20" id="sHM-qT-TDd"/>
+                                    <constraint firstAttribute="trailing" secondItem="GFY-3q-msv" secondAttribute="trailing" constant="20" id="wFZ-zk-e1c"/>
                                 </constraints>
                             </customView>
                         </subviews>
@@ -782,6 +794,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon" width="48" height="44"/>
+        <image name="logo" width="300" height="300"/>
     </resources>
 </document>

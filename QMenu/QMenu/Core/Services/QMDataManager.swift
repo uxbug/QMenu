@@ -28,19 +28,6 @@ class QMDataManager: NSObject {
             return defaultConfig()
         }
     }
-    
-    override init() {
-        super.init()
-        
-//        if FileManager.default.fileExists(atPath: configPath()) {
-//            guard let data = try? Data.init(contentsOf: URL.init(fileURLWithPath: configPath())), let dict = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] else {
-//                return
-//            }
-//            config = QMConfigModel.deserialize(from: dict)
-//        } else {
-//            config = defaultConfig()
-//        }
-    }
 }
 
 extension QMDataManager {

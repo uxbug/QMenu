@@ -72,12 +72,11 @@ extension QMNewFileController: NSTableViewDelegate, NSTableViewDataSource {
             return cell
         } else if tableColumn == tableView.tableColumns[1] {
             let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "feature.icon.identifier"), owner: nil) as? QMIconCellView
-            var path = model.path
-            if model.path.count <= 0, model.name.count > 0 {
-                path = Bundle.main.path(forResource: model.name, ofType: model.suffix) ?? ""
+            var image: NSImage? = NSImage.init(named: model.icon)
+            if model.icon.count <= 0, model.path.count > 0 {
+                image = NSWorkspace.shared.icon(forFile: model.path).resize(for: CGSize.init(width: 20, height: 20))
             }
-            let imgage = NSWorkspace.shared.icon(forFile: path).resize(for: CGSize.init(width: 20, height: 20))
-            cell?.iconView.image = imgage
+            cell?.iconView.image = image
             return cell
         } else if tableColumn == tableView.tableColumns[2] {
             let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "feature.name.identifier"), owner: nil) as? QMTextCellView

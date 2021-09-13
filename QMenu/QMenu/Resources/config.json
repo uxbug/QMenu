@@ -273,7 +273,7 @@
             "id": 1030230900,
             "title": "文本文档",
             "state": true,
-            "icon": "",
+            "icon": "text",
             "suffix": "txt",
             "path": "",
             "name": "text"
@@ -282,7 +282,7 @@
             "id": 1030230901,
             "title": "Word文档",
             "state": true,
-            "icon": "",
+            "icon": "doc",
             "suffix": "docx",
             "path": "",
             "name": "doc"
@@ -291,7 +291,7 @@
             "id": 1030230902,
             "title": "Excel表格",
             "state": true,
-            "icon": "",
+            "icon": "excel",
             "suffix": "xltx",
             "path": "",
             "name": "excel"
@@ -300,7 +300,7 @@
             "id": 1030230903,
             "title": "PPT",
             "state": true,
-            "icon": "",
+            "icon": "ppt",
             "suffix": "pptx",
             "path": "",
             "name": "ppt"
@@ -309,7 +309,7 @@
             "id": 1030230904,
             "title": "Markdown",
             "state": true,
-            "icon": "",
+            "icon": "markdown",
             "suffix": "md",
             "path": "",
             "name": "markdown"
@@ -318,7 +318,7 @@
             "id": 1030230905,
             "title": "Pages",
             "state": true,
-            "icon": "",
+            "icon": "pages",
             "suffix": "pages",
             "path": "",
             "name": "pages"
@@ -327,7 +327,7 @@
             "id": 1030230906,
             "title": "Numbers",
             "state": true,
-            "icon": "",
+            "icon": "numbers",
             "suffix": "numbers",
             "path": "",
             "name": "numbers"
@@ -336,7 +336,7 @@
             "id": 1030230907,
             "title": "Keynote",
             "state": true,
-            "icon": "",
+            "icon": "keynote",
             "suffix": "key",
             "path": "",
             "name": "keynote"
@@ -345,7 +345,7 @@
             "id": 1030230908,
             "title": "思维导图",
             "state": true,
-            "icon": "",
+            "icon": "xmind",
             "suffix": "xmind",
             "path": "",
             "name": "xmind"
