@@ -15,7 +15,6 @@ class QMFinderSync: FIFinderSync {
     override init() {
         super.init()
         let finderSync = FIFinderSyncController.default()
-//        finderSync.directoryURLs = [URL.init(fileURLWithPath: "/")]
         if let mountedVolumes = FileManager.default.mountedVolumeURLs(includingResourceValuesForKeys: nil, options: [.skipHiddenVolumes]) {
             finderSync.directoryURLs = Set<URL>(mountedVolumes)
         }

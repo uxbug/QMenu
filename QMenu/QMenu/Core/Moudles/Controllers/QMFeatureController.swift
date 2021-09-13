@@ -21,6 +21,7 @@ class QMFeatureController: QMBaseController {
     
 }
 
+// MARK: Private Method
 fileprivate extension QMFeatureController {
     func makeUI() {
         tableView.delegate = self
@@ -32,6 +33,7 @@ fileprivate extension QMFeatureController {
     }
 }
 
+// MARK: NSTableViewDataSource, NSTableViewDelegate
 extension QMFeatureController: NSTableViewDataSource, NSTableViewDelegate {
     func numberOfRows(in tableView: NSTableView) -> Int {
         return dataSource.count
@@ -53,12 +55,15 @@ extension QMFeatureController: NSTableViewDataSource, NSTableViewDelegate {
             cell?.textLabel.stringValue = model.title
             cell?.textLabel.toolTip = model.title
             cell?.textLabel.allowsExpansionToolTips = true
+            cell?.textLabel.isEditable = true
+            cell?.delegate = self
             return cell
         } else if tableColumn == tableView.tableColumns[3] {
             let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "feature.desc.identifier"), owner: nil) as? QMTextCellView
             cell?.textLabel.stringValue = model.desc
             cell?.textLabel.toolTip = model.desc
             cell?.textLabel.allowsExpansionToolTips = true
+            cell?.textLabel.isEditable = false
             return cell
         }
         return nil
@@ -70,10 +75,20 @@ extension QMFeatureController: NSTableViewDataSource, NSTableViewDelegate {
     }
 }
 
+// MARK: QMOpenCellViewDelegate
 extension QMFeatureController: QMOpenCellViewDelegate {
     func openCellView(_ view: QMOpenCellView, didClickBox state: NSControl.StateValue) {
         let row = tableView.row(for: view)
         let model = dataSource[row]
         QMDataManager.shared.updateFeatureState(model, state: state)
+    }
+}
+
+// MARK: QMTextCellViewDelegate
+extension QMFeatureController: QMTextCellViewDelegate {
+    func textCellView(_ cellView: QMTextCellView, didEndEditingAt text: String) {
+        let row = tableView.row(for: cellView)
+        let model = dataSource[row]
+        QMDataManager.shared.updateFeatureTitle(model, title: text)
     }
 }

@@ -20,6 +20,7 @@ class QMNewFileController: QMBaseController {
     
 }
 
+// MARK: Private Method
 fileprivate extension QMNewFileController {
     func makeUI() {
         tableView.delegate = self
@@ -58,6 +59,7 @@ fileprivate extension QMNewFileController {
     }
 }
 
+// MARK: NSTableViewDelegate, NSTableViewDataSource
 extension QMNewFileController: NSTableViewDelegate, NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
         return dataSource.count
@@ -81,10 +83,13 @@ extension QMNewFileController: NSTableViewDelegate, NSTableViewDataSource {
         } else if tableColumn == tableView.tableColumns[2] {
             let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "feature.name.identifier"), owner: nil) as? QMTextCellView
             cell?.textLabel.stringValue = model.title
+            cell?.textLabel.isEditable = true
+            cell?.delegate = self
             return cell
         } else if tableColumn == tableView.tableColumns[3] {
             let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "feature.desc.identifier"), owner: nil) as? QMTextCellView
             cell?.textLabel.stringValue = model.suffix
+            cell?.textLabel.isEditable = false
             return cell
         }
         return nil
@@ -96,10 +101,20 @@ extension QMNewFileController: NSTableViewDelegate, NSTableViewDataSource {
     }
 }
 
+// MARK: QMOpenCellViewDelegate
 extension QMNewFileController: QMOpenCellViewDelegate {
     func openCellView(_ view: QMOpenCellView, didClickBox state: NSControl.StateValue) {
         let row = tableView.row(for: view)
         let model = dataSource[row]
         QMDataManager.shared.updateNewFileState(model, state: state)
+    }
+}
+
+// MARK: QMTextCellViewDelegate
+extension QMNewFileController: QMTextCellViewDelegate {
+    func textCellView(_ cellView: QMTextCellView, didEndEditingAt text: String) {
+        let row = tableView.row(for: cellView)
+        let model = dataSource[row]
+        QMDataManager.shared.updateNewFileTitle(model, title: text)
     }
 }

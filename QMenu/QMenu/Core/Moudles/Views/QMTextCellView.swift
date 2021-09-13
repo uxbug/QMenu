@@ -7,13 +7,19 @@
 
 import Cocoa
 
+protocol QMTextCellViewDelegate: NSObjectProtocol {
+    func textCellView(_ cellView: QMTextCellView, didEndEditingAt text:String)
+}
+
 class QMTextCellView: QMTableCellView {
 
     @IBOutlet var textLabel: NSTextField!
+    weak var delegate: QMTextCellViewDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         textLabel.font = NSFont.systemFont(ofSize: 12)
+        textLabel.delegate = self
     }
     
     override var backgroundStyle: NSView.BackgroundStyle {
@@ -24,5 +30,11 @@ class QMTextCellView: QMTableCellView {
                 textLabel.textColor = .init(hex: 0x112031)
             }
         }
+    }
+}
+
+extension QMTextCellView: NSTextFieldDelegate {
+    func controlTextDidEndEditing(_ obj: Notification) {
+        delegate?.textCellView(self, didEndEditingAt: textLabel.stringValue)
     }
 }
