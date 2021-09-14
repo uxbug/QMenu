@@ -48,7 +48,13 @@ extension QMFeatureController: NSTableViewDataSource, NSTableViewDelegate {
             return cell
         } else if tableColumn == tableView.tableColumns[1] {
             let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "feature.icon.identifier"), owner: nil) as? QMIconCellView
-            cell?.iconView.image = NSImage.init(named: model.icon)
+            var image: NSImage?
+            if model.iconPath.count > 0 {
+                image = NSImage.init(contentsOfFile: model.iconPath)
+            } else {
+                image = NSImage.init(named: model.icon)
+            }
+            cell?.iconView.image = image
             return cell
         } else if tableColumn == tableView.tableColumns[2] {
             let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "feature.name.identifier"), owner: nil) as? QMTextCellView

@@ -57,7 +57,7 @@ extension QMDataManager {
             return
         }
         cg.feature.forEach({ model in
-            if feature.id == model.id {
+            if feature.id == model.id, model.state != state {
                 model.state = state
             }
         })
@@ -73,7 +73,7 @@ extension QMDataManager {
             return
         }
         cg.feature.forEach({ model in
-            if feature.id == model.id {
+            if feature.id == model.id, model.title != title {
                 model.title = title
             }
         })
@@ -89,7 +89,7 @@ extension QMDataManager {
             return
         }
         cg.launch.forEach({ model in
-            if launch.id == model.id {
+            if launch.id == model.id, model.state != state {
                 model.state = state
             }
         })
@@ -105,7 +105,7 @@ extension QMDataManager {
             return
         }
         cg.launch.forEach({ model in
-            if launch.id == model.id {
+            if launch.id == model.id, model.title != title {
                 model.title = title
             }
         })
@@ -121,7 +121,7 @@ extension QMDataManager {
             return
         }
         cg.directory.forEach({ model in
-            if directory.id == model.id {
+            if directory.id == model.id, model.state != state {
                 model.state = state
             }
         })
@@ -137,7 +137,7 @@ extension QMDataManager {
             return
         }
         cg.directory.forEach({ model in
-            if directory.id == model.id {
+            if directory.id == model.id, model.title != title {
                 model.title = title
             }
         })
@@ -183,7 +183,7 @@ extension QMDataManager {
             return
         }
         cg.file.forEach({ model in
-            if file.id == model.id {
+            if file.id == model.id, model.state != state {
                 model.state = state
             }
         })
@@ -199,7 +199,7 @@ extension QMDataManager {
             return
         }
         cg.file.forEach({ model in
-            if file.id == model.id {
+            if file.id == model.id, model.title != title {
                 model.title = title
             }
         })

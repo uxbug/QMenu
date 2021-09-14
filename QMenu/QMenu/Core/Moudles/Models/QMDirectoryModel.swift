@@ -8,5 +8,5 @@
 import Cocoa
 
 class QMDirectoryModel: QMBaseModel {
-    var path: String = ""
+    var path: String = ""   // 路径
 }

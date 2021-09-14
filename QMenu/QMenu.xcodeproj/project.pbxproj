@@ -24,7 +24,6 @@
 		8C7602DF26E1C53E009A9864 /* QMOpenCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7602DE26E1C53E009A9864 /* QMOpenCellView.swift */; };
 		8C7602E126E1C54C009A9864 /* QMIconCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7602E026E1C54C009A9864 /* QMIconCellView.swift */; };
 		8C7602E326E1C559009A9864 /* QMTextCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7602E226E1C559009A9864 /* QMTextCellView.swift */; };
-		8C7602E726E1C58B009A9864 /* QMTextHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7602E626E1C58B009A9864 /* QMTextHeaderCell.swift */; };
 		8C7602EA26E1C899009A9864 /* QMFeatureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7602E926E1C899009A9864 /* QMFeatureModel.swift */; };
 		8C7602EC26E20CEB009A9864 /* QMTableRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7602EB26E20CEB009A9864 /* QMTableRowView.swift */; };
 		8C7602EE26E20D8D009A9864 /* QMTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7602ED26E20D8D009A9864 /* QMTableCellView.swift */; };
@@ -134,7 +133,6 @@
 		8C7602DE26E1C53E009A9864 /* QMOpenCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMOpenCellView.swift; sourceTree = "<group>"; };
 		8C7602E026E1C54C009A9864 /* QMIconCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMIconCellView.swift; sourceTree = "<group>"; };
 		8C7602E226E1C559009A9864 /* QMTextCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMTextCellView.swift; sourceTree = "<group>"; };
-		8C7602E626E1C58B009A9864 /* QMTextHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMTextHeaderCell.swift; sourceTree = "<group>"; };
 		8C7602E926E1C899009A9864 /* QMFeatureModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMFeatureModel.swift; sourceTree = "<group>"; };
 		8C7602EB26E20CEB009A9864 /* QMTableRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMTableRowView.swift; sourceTree = "<group>"; };
 		8C7602ED26E20D8D009A9864 /* QMTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMTableCellView.swift; sourceTree = "<group>"; };
@@ -287,7 +285,6 @@
 				8C7602DE26E1C53E009A9864 /* QMOpenCellView.swift */,
 				8C7602E026E1C54C009A9864 /* QMIconCellView.swift */,
 				8C7602E226E1C559009A9864 /* QMTextCellView.swift */,
-				8C7602E626E1C58B009A9864 /* QMTextHeaderCell.swift */,
 				8C8370AE26E5BDF100683BCF /* QMLogItem.swift */,
 				8C8370AF26E5BDF100683BCF /* QMLogItem.xib */,
 			);
@@ -659,7 +656,6 @@
 				8C95B7C326E0B4B5008DA2FD /* QMNewFileController.swift in Sources */,
 				8C7B642C26DE29CC00C025C8 /* QMTabViewController.swift in Sources */,
 				8C7602D826E1BEC6009A9864 /* QMBaseController.swift in Sources */,
-				8C7602E726E1C58B009A9864 /* QMTextHeaderCell.swift in Sources */,
 				8C7602F626E22728009A9864 /* QMTextFieldCell.swift in Sources */,
 				8C8370C626E608D600683BCF /* QMConfigModel.swift in Sources */,
 				8C7602EA26E1C899009A9864 /* QMFeatureModel.swift in Sources */,

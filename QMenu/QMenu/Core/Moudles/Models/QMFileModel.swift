@@ -7,8 +7,9 @@
 
 import Cocoa
 class QMFileModel: QMBaseModel {
-    var icon: String = ""
-    var suffix: String = ""
-    var path: String = ""
-    var name: String = ""
+    var icon: String = ""   // 默认图标
+    var suffix: String = "" // 后缀
+    var path: String = ""   // 路径
+    var name: String = ""   // 名称
+    var iconPath: String = ""   // 自定义图标路径
 }

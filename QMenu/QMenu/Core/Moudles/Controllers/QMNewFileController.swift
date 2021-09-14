@@ -74,8 +74,13 @@ extension QMNewFileController: NSTableViewDelegate, NSTableViewDataSource {
             return cell
         } else if tableColumn == tableView.tableColumns[1] {
             let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "feature.icon.identifier"), owner: nil) as? QMIconCellView
-            var image: NSImage? = NSImage.init(named: model.icon)
-            if model.icon.count <= 0, model.path.count > 0 {
+            var image: NSImage?
+            if model.iconPath.count > 0 {
+                image = NSImage.init(contentsOfFile: model.iconPath)
+            } else {
+                image = NSImage.init(named: model.icon)
+            }
+            if image == nil, model.icon.count <= 0, model.path.count > 0 {  // 获取系统默认图标
                 image = NSWorkspace.shared.icon(forFile: model.path).resize(for: CGSize.init(width: 20, height: 20))
             }
             cell?.iconView.image = image

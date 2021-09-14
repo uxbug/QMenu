@@ -92,8 +92,13 @@ fileprivate extension QMFinderSync {
                         files.forEach { model in
                             let it = NSMenuItem.init(title: model.title, action: #selector(createNewFile(_:)), keyEquivalent: "")
                             it.tag = model.id
-                            var image: NSImage? = NSImage.init(named: model.icon)
-                            if model.icon.count <= 0, model.path.count > 0 {
+                            var image: NSImage?
+                            if model.iconPath.count > 0 {
+                                image = NSImage.init(contentsOfFile: model.iconPath)
+                            } else {
+                                image = NSImage.init(named: model.icon)
+                            }
+                            if image == nil, model.icon.count <= 0, model.path.count > 0 {  // 获取系统默认图标
                                 image = NSWorkspace.shared.icon(forFile: model.path).resize(for: CGSize.init(width: 20, height: 20))
                             }
                             it.image = image
@@ -101,7 +106,7 @@ fileprivate extension QMFinderSync {
                         }
                         menu.addItem(item)
                     }
-                } else if feature.type == .open {   // 打开方式
+                } else if feature.type == .launch {   // 打开方式
                     let item = NSMenuItem.init()
                     item.title = feature.title
                     item.tag = feature.id
@@ -112,7 +117,13 @@ fileprivate extension QMFinderSync {
                         launchs.forEach { model in
                             let it = NSMenuItem.init(title: model.title, action: #selector(openItem(_:)), keyEquivalent: "")
                             it.tag = model.id
-                            it.image = NSImage.init(named: model.icon)
+                            var image: NSImage?
+                            if model.iconPath.count > 0 {
+                                image = NSImage.init(contentsOfFile: model.iconPath)
+                            } else {
+                                image = NSImage.init(named: model.icon)
+                            }
+                            it.image = image
                             item.submenu?.addItem(it)
                         }
                         menu.addItem(item)
@@ -149,22 +160,40 @@ fileprivate extension QMFinderSync {
                         }
                         menu.addItem(item)
                     }
-                } else if feature.type == .unpack { // 解包Assets.car
+                } else if feature.type == .assets { // 解包Assets.car
                     if FIFinderSyncController.default().selectedItemURLs()?.first(where: { $0.path.hasSuffix(".car") }) != nil {
                         let item = NSMenuItem.init(title: feature.title, action: #selector(unPackAssetCarFile), keyEquivalent: "")
                         item.tag = feature.id
-                        item.image = NSImage.init(named: feature.icon)
+                        var image: NSImage?
+                        if feature.iconPath.count > 0 {
+                            image = NSImage.init(contentsOfFile: feature.iconPath)
+                        } else {
+                            image = NSImage.init(named: feature.icon)
+                        }
+                        item.image = image
                         menu.addItem(item)
                     }
                 } else if feature.type == .copyPath {   // 拷贝路径
                     let item = NSMenuItem.init(title: feature.title, action: #selector(copyPath), keyEquivalent: "")
                     item.tag = feature.id
-                    item.image = NSImage.init(named: feature.icon)
+                    var image: NSImage?
+                    if feature.iconPath.count > 0 {
+                        image = NSImage.init(contentsOfFile: feature.iconPath)
+                    } else {
+                        image = NSImage.init(named: feature.icon)
+                    }
+                    item.image = image
                     menu.addItem(item)
                 } else if feature.type == .delete { // 直接删除文件
                     let item = NSMenuItem.init(title: feature.title, action: #selector(deleteItem), keyEquivalent: "")
                     item.tag = feature.id
-                    item.image = NSImage.init(named: feature.icon)
+                    var image: NSImage?
+                    if feature.iconPath.count > 0 {
+                        image = NSImage.init(contentsOfFile: feature.iconPath)
+                    } else {
+                        image = NSImage.init(named: feature.icon)
+                    }
+                    item.image = image
                     menu.addItem(item)
                 }
             }
