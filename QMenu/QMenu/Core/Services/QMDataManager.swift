@@ -80,6 +80,25 @@ extension QMDataManager {
         save(with: cg)
     }
     
+    /// 更新功能图标
+    /// - Parameters:
+    ///   - feature: 功能模型
+    ///   - iconPath: 图标路径
+    func updateFeatureIcon(_ feature: QMFeatureModel, iconPath: String) {
+        guard let cg = config else {
+            return
+        }
+        cg.feature.forEach({ model in
+            let toPath = iconsPath() + "/" + iconPath.lastPathComponent
+            if feature.id == model.id, model.iconPath != toPath {
+                if !FileManager.default.fileExists(atPath: toPath), let _ = try? FileManager.default.copyItem(atPath: iconPath, toPath: toPath) {
+                    model.iconPath = toPath
+                }
+            }
+        })
+        save(with: cg)
+    }
+    
     /// 更新启动功能状态
     /// - Parameters:
     ///   - launch: 启动功能模型
@@ -261,6 +280,14 @@ fileprivate extension QMDataManager {
     
     func fileTempletePath() -> String {
         let path = "/Users/\(userName)" + "/.QMenu/template"
+        if !FileManager.default.fileExists(atPath: path) {
+            try? FileManager.default.createDirectory(atPath: path, withIntermediateDirectories: true, attributes: nil)
+        }
+        return path
+    }
+    
+    func iconsPath() -> String {
+        let path = "/Users/\(userName)" + "/.QMenu/icon"
         if !FileManager.default.fileExists(atPath: path) {
             try? FileManager.default.createDirectory(atPath: path, withIntermediateDirectories: true, attributes: nil)
         }

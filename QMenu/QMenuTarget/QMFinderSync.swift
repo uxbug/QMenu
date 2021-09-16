@@ -7,6 +7,7 @@
 
 import Cocoa
 import FinderSync
+import ACS
 
 class QMFinderSync: FIFinderSync {
 
@@ -98,6 +99,9 @@ fileprivate extension QMFinderSync {
                             } else {
                                 image = NSImage.init(named: model.icon)
                             }
+                            if image?.size.width ?? 0 > 60, image?.size.height ?? 0 > 60 {
+                                image = image?.resize(for: CGSize.init(width: 60, height: 60))
+                            }
                             if image == nil, model.icon.count <= 0, model.path.count > 0 {  // 获取系统默认图标
                                 image = NSWorkspace.shared.icon(forFile: model.path).resize(for: CGSize.init(width: 20, height: 20))
                             }
@@ -122,6 +126,9 @@ fileprivate extension QMFinderSync {
                                 image = NSImage.init(contentsOfFile: model.iconPath)
                             } else {
                                 image = NSImage.init(named: model.icon)
+                            }
+                            if image?.size.width ?? 0 > 60, image?.size.height ?? 0 > 60 {
+                                image = image?.resize(for: CGSize.init(width: 60, height: 60))
                             }
                             it.image = image
                             item.submenu?.addItem(it)
@@ -170,6 +177,9 @@ fileprivate extension QMFinderSync {
                         } else {
                             image = NSImage.init(named: feature.icon)
                         }
+                        if image?.size.width ?? 0 > 60, image?.size.height ?? 0 > 60 {
+                            image = image?.resize(for: CGSize.init(width: 60, height: 60))
+                        }
                         item.image = image
                         menu.addItem(item)
                     }
@@ -182,6 +192,9 @@ fileprivate extension QMFinderSync {
                     } else {
                         image = NSImage.init(named: feature.icon)
                     }
+                    if image?.size.width ?? 0 > 60, image?.size.height ?? 0 > 60 {
+                        image = image?.resize(for: CGSize.init(width: 60, height: 60))
+                    }
                     item.image = image
                     menu.addItem(item)
                 } else if feature.type == .delete { // 直接删除文件
@@ -192,6 +205,9 @@ fileprivate extension QMFinderSync {
                         image = NSImage.init(contentsOfFile: feature.iconPath)
                     } else {
                         image = NSImage.init(named: feature.icon)
+                    }
+                    if image?.size.width ?? 0 > 60, image?.size.height ?? 0 > 60 {
+                        image = image?.resize(for: CGSize.init(width: 60, height: 60))
                     }
                     item.image = image
                     menu.addItem(item)
@@ -222,7 +238,7 @@ fileprivate extension QMFinderSync {
     
     // 解包Assets.car
     @objc func unPackAssetCarFile() {
-        guard let items = FIFinderSyncController.default().selectedItemURLs() else {
+        guard let items = FIFinderSyncController.default().selectedItemURLs()?.filter({ $0.path.hasSuffix(".car") }) else {
             QMLoger.addLog("解包AssetCar失败，未获取到选中路径")
             return
         }
@@ -235,14 +251,12 @@ fileprivate extension QMFinderSync {
             return
         }
         for item in items {
-            if item.path.hasSuffix(".car") {
-                let dir = createPath(isFile: false, path: target.path, name: "Assets")
-                if !FileManager.default.fileExists(atPath: dir) {
-                    try? FileManager.default.createDirectory(atPath: dir, withIntermediateDirectories: true, attributes: nil)
-                }
-                QMShell.execmd(carToolPath, arguments: [item.path, dir]) { value in
-                    QMLoger.addLog("解包AssetCar成功")
-                }
+            let dir = createPath(isFile: false, path: target.path, name: "Assets")
+            if !FileManager.default.fileExists(atPath: dir) {
+                try? FileManager.default.createDirectory(atPath: dir, withIntermediateDirectories: true, attributes: nil)
+            }
+            QMShell.execmd(carToolPath, arguments: [item.path, dir]) { value in
+                QMLoger.addLog("解包AssetCar成功")
             }
         }
     }
@@ -314,9 +328,8 @@ fileprivate extension QMFinderSync {
             return
         }
         var path = model.path
-        if model.path.contains("{{path}}") {
-            let file = model.path.replacingOccurrences(of: "{{path}}", with: "")
-            path = Bundle.main.path(forResource: file, ofType: model.suffix) ?? ""
+        if model.path.count <= 0 {
+            path = Bundle.main.path(forResource: model.name, ofType: model.suffix) ?? ""
         }
         let fileName = path.lastPathComponent.deletingPathExtension
         let toPath = createPath(isFile: true, path: target.path, name: fileName, suffix: model.suffix)
