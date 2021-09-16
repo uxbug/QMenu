@@ -15,10 +15,11 @@ enum LaunchMode: Int {
 
 class QMLaunchModel: QMBaseModel {
     
-    var icon: String = ""
-    var desc: String = ""
-    var bundleId: String = ""
-    var mode: LaunchMode = .editor
+    var icon: String = ""   // 默认图标
+    var desc: String = ""   // 描述
+    var bundleId: String = ""   // bundleId
+    var mode: LaunchMode = .editor  // 类型
+    var iconPath: String = ""   // 自定义图标
     
     override func mapping(mapper: HelpingMapper) {
         super.mapping(mapper: mapper)

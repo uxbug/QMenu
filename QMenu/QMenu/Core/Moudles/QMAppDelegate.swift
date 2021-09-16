@@ -6,6 +6,7 @@
 //
 
 import Cocoa
+import ACS
 
 @main
 class QMAppDelegate: NSObject, NSApplicationDelegate {

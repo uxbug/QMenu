@@ -10,7 +10,7 @@ import Cocoa
 class QMFeatureController: QMBaseController {
 
     @IBOutlet weak var scrollView: NSScrollView!
-    @IBOutlet weak var tableView: NSTableView!
+    @IBOutlet weak var tableView: QMTableView!
     
     fileprivate var dataSource: [QMFeatureModel] = QMDataManager.shared.config?.feature ?? []
     
@@ -26,6 +26,7 @@ fileprivate extension QMFeatureController {
     func makeUI() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.qm_delegate = self
         tableView.enclosingScrollView?.contentInsets = NSEdgeInsets.init(top: 10, left: 0, bottom: 10, right: 0)
         tableView.enclosingScrollView?.borderType = .noBorder
         scrollView.verticalScrollElasticity = .none
@@ -34,7 +35,7 @@ fileprivate extension QMFeatureController {
 }
 
 // MARK: NSTableViewDataSource, NSTableViewDelegate
-extension QMFeatureController: NSTableViewDataSource, NSTableViewDelegate {
+extension QMFeatureController: NSTableViewDataSource, QMTableViewDelegate {
     func numberOfRows(in tableView: NSTableView) -> Int {
         return dataSource.count
     }
@@ -48,7 +49,13 @@ extension QMFeatureController: NSTableViewDataSource, NSTableViewDelegate {
             return cell
         } else if tableColumn == tableView.tableColumns[1] {
             let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "feature.icon.identifier"), owner: nil) as? QMIconCellView
-            cell?.iconView.image = NSImage.init(named: model.icon)
+            var image: NSImage?
+            if model.iconPath.count > 0 {
+                image = NSImage.init(contentsOfFile: model.iconPath)
+            } else {
+                image = NSImage.init(named: model.icon)
+            }
+            cell?.iconView.image = image
             return cell
         } else if tableColumn == tableView.tableColumns[2] {
             let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "feature.name.identifier"), owner: nil) as? QMTextCellView
@@ -72,6 +79,26 @@ extension QMFeatureController: NSTableViewDataSource, NSTableViewDelegate {
     func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
         let rowView = QMTableRowView.init()
         return rowView
+    }
+    
+    func tableView(_ tableView: QMTableView, didClickRightMenuAt row: Int) {
+        let panel = NSOpenPanel.init()
+        panel.canChooseFiles = true
+        panel.canChooseDirectories = false
+        panel.allowedFileTypes = ["png","jpg"]
+        panel.begin { [weak self] response in
+            switch response {
+            case .OK:
+                guard let path = panel.url?.path, let model = self?.dataSource[row] else {
+                    return
+                }
+                QMDataManager.shared.updateFeatureIcon(model, iconPath: path)
+                self?.tableView.reloadData()
+                break
+            default:
+                break
+            }
+        }
     }
 }
 
