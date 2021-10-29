@@ -19,10 +19,15 @@ class QMDataManager: NSObject {
     
     /// 用户电脑名
     var userName: String {
-        guard let name = getlogin() else {
+        let home = NSHomeDirectory()
+        let paths = (home as NSString).pathComponents
+        guard paths.count > 3 else {
             return ""
         }
-        return String.init(cString: name)
+        if paths[0] == "/" {
+            return paths[2]
+        }
+        return paths[1]
     }
     
     /// 配置
