@@ -196,6 +196,7 @@
                     </tableHeaderView>
                 </scrollView>
                 <customView translatesAutoresizingMaskIntoConstraints="NO" id="Dbg-su-2GV" customClass="QMColorView" customModule="右键菜单" customModuleProvider="target">
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="Dbg-su-2GV" customClass="QMColorView" customModule="QMenu" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="541" height="40"/>
                 </customView>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Vbf-6s-Tk0">

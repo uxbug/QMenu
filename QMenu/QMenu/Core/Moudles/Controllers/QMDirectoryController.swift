@@ -13,7 +13,6 @@ class QMDirectoryController: QMBaseController {
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet weak var bottomView: NSView!
     @IBOutlet weak var useDirectoryButton: NSButton!
-    
     fileprivate var dataSource: [QMDirectoryModel] = QMDataManager.shared.config?.directory ?? []
     
     override func viewDidLoad() {

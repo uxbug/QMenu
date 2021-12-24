@@ -218,6 +218,7 @@
                 <constraint firstItem="crB-S6-ni3" firstAttribute="top" secondItem="3Vy-eX-z4B" secondAttribute="top" id="xT2-gw-q96"/>
             </constraints>
             <point key="canvasLocation" x="155.5" y="379.5"/>
+            <point key="canvasLocation" x="30" y="252"/>
         </customView>
     </objects>
     <resources>
