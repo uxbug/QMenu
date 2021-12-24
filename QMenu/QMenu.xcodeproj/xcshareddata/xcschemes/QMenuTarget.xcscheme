@@ -30,7 +30,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8C82A42F26CE29E700C83E1D"
-               BuildableName = "QMenu.app"
+               BuildableName = "&#x53f3;&#x952e;&#x83dc;&#x5355;.app"
                BlueprintName = "QMenu"
                ReferencedContainer = "container:QMenu.xcodeproj">
             </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8C82A42F26CE29E700C83E1D"
-            BuildableName = "QMenu.app"
+            BuildableName = "&#x53f3;&#x952e;&#x83dc;&#x5355;.app"
             BlueprintName = "QMenu"
             ReferencedContainer = "container:QMenu.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8C82A42F26CE29E700C83E1D"
-            BuildableName = "QMenu.app"
+            BuildableName = "&#x53f3;&#x952e;&#x83dc;&#x5355;.app"
             BlueprintName = "QMenu"
             ReferencedContainer = "container:QMenu.xcodeproj">
          </BuildableReference>
