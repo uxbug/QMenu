@@ -7,6 +7,7 @@
 
 import Cocoa
 import FinderSync
+import macOSThemeKit
 
 class QMBaseController: NSViewController {
 

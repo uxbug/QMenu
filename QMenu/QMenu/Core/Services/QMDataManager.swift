@@ -7,6 +7,12 @@
 
 import Cocoa
 
+enum SkipStyle: Int {
+    case system = 0
+    case light = 1
+    case dark = 2
+}
+
 class QMDataManager: NSObject {
     
     static let shared: QMDataManager = QMDataManager.init()
@@ -28,6 +34,16 @@ class QMDataManager: NSObject {
             return QMConfigModel.deserialize(from: dict)
         } else {
             return defaultConfig()
+        }
+    }
+    
+    var currentSkip: SkipStyle {
+        get {
+            let value = UserDefaults.standard.integer(forKey: "QMenu.cureentTheme")
+            return SkipStyle.init(rawValue: value) ?? .system
+        }
+        set {
+            UserDefaults.standard.set(newValue.rawValue, forKey: "QMenu.cureentTheme")
         }
     }
 }

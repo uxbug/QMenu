@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19162" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19162"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -20,6 +21,9 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="BMx-6f-Ru2" customClass="QMColorView" customModule="QMenu" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="232" width="480" height="40"/>
+                </customView>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SPm-jC-RKP">
                     <rect key="frame" x="10" y="240" width="20" height="25"/>
                     <constraints>
@@ -140,12 +144,16 @@
                 <constraint firstAttribute="trailing" secondItem="xvr-rB-Enc" secondAttribute="trailing" id="JFT-LR-bfs"/>
                 <constraint firstItem="SPm-jC-RKP" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="10" id="KuE-0f-Hph"/>
                 <constraint firstItem="SPm-jC-RKP" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="10" id="OQc-ar-beg"/>
+                <constraint firstAttribute="trailing" secondItem="BMx-6f-Ru2" secondAttribute="trailing" id="Sp8-Ku-Dza"/>
+                <constraint firstItem="BMx-6f-Ru2" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="Xbn-wF-CbT"/>
                 <constraint firstAttribute="trailing" secondItem="4Mz-vL-n1P" secondAttribute="trailing" id="akA-W4-Cal"/>
                 <constraint firstAttribute="bottom" secondItem="xvr-rB-Enc" secondAttribute="bottom" id="dAk-bd-Luo"/>
                 <constraint firstItem="4Mz-vL-n1P" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="dFH-lc-Fv0"/>
                 <constraint firstItem="xvr-rB-Enc" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="dpA-5R-Zu9"/>
                 <constraint firstItem="xvr-rB-Enc" firstAttribute="top" secondItem="4Mz-vL-n1P" secondAttribute="bottom" id="h1o-SJ-sOX"/>
+                <constraint firstItem="BMx-6f-Ru2" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="p8w-T2-Gh1"/>
                 <constraint firstItem="4Mz-vL-n1P" firstAttribute="top" secondItem="ExF-QZ-rj1" secondAttribute="bottom" constant="10" id="rGC-iK-QWD"/>
+                <constraint firstItem="4Mz-vL-n1P" firstAttribute="top" secondItem="BMx-6f-Ru2" secondAttribute="bottom" id="voc-Ne-RUf"/>
             </constraints>
             <point key="canvasLocation" x="19" y="121"/>
         </customView>

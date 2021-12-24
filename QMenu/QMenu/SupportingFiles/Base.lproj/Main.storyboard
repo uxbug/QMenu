@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="5UR-3d-Otf">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="5UR-3d-Otf">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19162"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -675,7 +675,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="QMAppDelegate" customModule="QMenu" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="QMAppDelegate" customModule="右键菜单" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -684,7 +684,7 @@
         <!--Window Controller-->
         <scene sceneID="p0y-HO-Gct">
             <objects>
-                <windowController id="5UR-3d-Otf" sceneMemberID="viewController">
+                <windowController id="5UR-3d-Otf" customClass="QMWindowController" customModule="右键菜单" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="QMenu" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="B5G-RG-7yn">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -694,11 +694,27 @@
                             <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </view>
+                        <toolbar key="toolbar" implicitIdentifier="49EB24F2-7B0E-418D-A3CF-E82C1524A413" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconOnly" sizeMode="regular" id="0pQ-eL-tNZ">
+                            <allowedToolbarItems>
+                                <toolbarItem implicitItemIdentifier="E2479FF7-296D-4E7E-B56F-F65C30F82224" explicitItemIdentifier="QMSkipIdentifier" label="主题" paletteLabel="主题" tag="-1" image="skip_auto_light" bordered="YES" autovalidates="NO" id="Aon-VE-JRk">
+                                    <size key="minSize" width="32" height="25"/>
+                                    <size key="maxSize" width="32" height="25"/>
+                                    <connections>
+                                        <action selector="onClickSkip:" target="5UR-3d-Otf" id="a2A-gd-cmP"/>
+                                    </connections>
+                                </toolbarItem>
+                            </allowedToolbarItems>
+                            <defaultToolbarItems>
+                                <toolbarItem reference="Aon-VE-JRk"/>
+                            </defaultToolbarItems>
+                        </toolbar>
                         <connections>
                             <outlet property="delegate" destination="5UR-3d-Otf" id="LBA-uo-Hsg"/>
                         </connections>
                     </window>
                     <connections>
+                        <outlet property="skipItem" destination="Aon-VE-JRk" id="gqB-lB-nKo"/>
+                        <outlet property="toolBar" destination="0pQ-eL-tNZ" id="tWC-RK-i1d"/>
                         <segue destination="RnW-Xl-ni6" kind="relationship" relationship="window.shadowedContentViewController" id="lqA-H9-TsN"/>
                     </connections>
                 </windowController>
@@ -709,7 +725,7 @@
         <!--Root Controller-->
         <scene sceneID="lY2-hl-Gjn">
             <objects>
-                <viewController id="RnW-Xl-ni6" customClass="QMRootController" customModule="QMenu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="RnW-Xl-ni6" customClass="QMRootController" customModule="右键菜单" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="1cx-kR-fLs">
                         <rect key="frame" x="0.0" y="0.0" width="650" height="500"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -785,6 +801,7 @@
                         <outlet property="clipView" destination="OZE-3a-Ofg" id="HIL-6u-Fr2"/>
                         <outlet property="collectionView" destination="1Bo-LV-hVE" id="LyV-6V-rQV"/>
                         <outlet property="leftView" destination="K7d-kh-a9S" id="99e-M8-3Ce"/>
+                        <outlet property="nameLabel" destination="GFY-3q-msv" id="BHL-Vu-LBg"/>
                         <outlet property="scrollView" destination="51x-cr-ujc" id="QfQ-Ym-Sjn"/>
                     </connections>
                 </viewController>
@@ -795,5 +812,6 @@
     </scenes>
     <resources>
         <image name="logo" width="300" height="300"/>
+        <image name="skip_auto_light" width="30" height="30"/>
     </resources>
 </document>

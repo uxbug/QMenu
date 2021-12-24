@@ -6,10 +6,12 @@
 //
 
 import Cocoa
+import macOSThemeKit
 
 class QMDirectoryController: QMBaseController {
 
     @IBOutlet weak var tableView: NSTableView!
+    @IBOutlet weak var bottomView: NSView!
     fileprivate var dataSource: [QMDirectoryModel] = QMDataManager.shared.config?.directory ?? []
     
     override func viewDidLoad() {
@@ -28,6 +30,7 @@ fileprivate extension QMDirectoryController {
         tableView.enclosingScrollView?.borderType = .noBorder
         tableView.enclosingScrollView?.verticalScrollElasticity = .none
         tableView.enclosingScrollView?.horizontalScrollElasticity = .none
+        bottomView.backgroundColor = ThemeColor.backgroundColor
     }
     
     @IBAction func onClickAdd(_ sender: Any) {
