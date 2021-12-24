@@ -6,9 +6,11 @@
 //
 
 import Cocoa
+import macOSThemeKit
 
 class QMRootController: QMBaseController {
     
+    @IBOutlet weak var nameLabel: NSTextField!
     @IBOutlet weak var leftView: NSView!
     @IBOutlet weak var scrollView: NSScrollView!
     @IBOutlet weak var clipView: NSClipView!
@@ -25,18 +27,24 @@ class QMRootController: QMBaseController {
         ])
         return controller
     }()
-    fileprivate var dataSource: [(String, String)] = [
-        ("功能列表", "tab_feature"),
-        ("打开...", "tab_launch"),
-        ("常用目录", "tab_directory"),
-        ("新建文件", "tab_file"),
-        ("使用说明", "tab_desc"),
-        ("关于我们", "tab_about")
+    
+    fileprivate var dataSource: [(String, TabStyle)] = [
+        ("功能列表", .feature),
+        ("打开...", .launch),
+        ("常用目录", .directory),
+        ("新建文件", .newFile),
+        ("使用说明", .desc),
+        ("关于我们", .about)
     ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         makeUI()
+    }
+    
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        view.window?.title = dataSource.first?.0 ?? ""
     }
 }
 
@@ -57,6 +65,18 @@ extension QMRootController {
         // 检测扩展启用状态，未启用默认选择说明页
         tabController.selectedIndex = isExtensionEnabled ? 0 : 4
         collectionView.selectItems(at: [IndexPath(item: tabController.selectedIndex, section: 0)], scrollPosition: .bottom)
+        
+        let text = "\(QMUtiles.App.name) v\(QMUtiles.App.version)"
+        let paragraph = NSMutableParagraphStyle.init()
+        paragraph.alignment = .center
+        let attributedString = NSMutableAttributedString.init(string: text, attributes: [
+            NSAttributedString.Key.font: NSFont.boldSystemFont(ofSize: 15),
+            NSAttributedString.Key.foregroundColor: ThemeColor.menuNormalTextColor,
+            NSAttributedString.Key.paragraphStyle: paragraph,
+        ])
+        let range = (text as NSString).range(of: "v\(QMUtiles.App.version)")
+        attributedString.addAttributes([NSAttributedString.Key.font: NSFont.systemFont(ofSize: 12)], range: range)
+        nameLabel.attributedStringValue = attributedString
     }
 }
 
@@ -91,9 +111,8 @@ extension QMRootController: NSCollectionViewDelegateFlowLayout, NSCollectionView
 
 extension QMRootController: QMMenuItemDelegate {
     func menuItem(_ item: QMMenuItem, didSelectAt selected: Bool) {
-        collectionView.visibleItems().forEach { i in
-            i.isSelected = item == i
-        }
-        tabController.selectedIndex = collectionView.visibleItems().firstIndex(of: item) ?? 0
+        collectionView.visibleItems().forEach { $0.isSelected = $0 == item }
+        tabController.selectedIndex = collectionView.indexPath(for: item)?.item ?? 0
+        view.window?.title = item.data.0
     }
 }

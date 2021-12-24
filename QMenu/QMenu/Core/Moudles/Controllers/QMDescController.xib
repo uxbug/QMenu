@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19162" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19162"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -122,6 +123,7 @@ Cg
                                 <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
                             </textView>
                         </subviews>
+                        <color key="backgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                     </clipView>
                     <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="8lQ-Cc-VoY">
                         <rect key="frame" x="-100" y="-100" width="240" height="16"/>
@@ -132,6 +134,9 @@ Cg
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="nsi-3S-CK1" customClass="QMColorView" customModule="QMenu" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="265" width="480" height="40"/>
+                </customView>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cFz-jC-yeW">
                     <rect key="frame" x="3" y="268" width="89" height="32"/>
                     <constraints>
@@ -171,8 +176,10 @@ Cg
             </subviews>
             <constraints>
                 <constraint firstItem="4Bq-sk-iMX" firstAttribute="centerY" secondItem="cFz-jC-yeW" secondAttribute="centerY" id="0ez-qC-BSc"/>
+                <constraint firstItem="I8V-Co-2hC" firstAttribute="top" secondItem="nsi-3S-CK1" secondAttribute="bottom" id="3dq-N5-dXV"/>
                 <constraint firstAttribute="trailing" secondItem="I8V-Co-2hC" secondAttribute="trailing" id="4GZ-hU-3mb"/>
                 <constraint firstItem="4Bq-sk-iMX" firstAttribute="leading" secondItem="cFz-jC-yeW" secondAttribute="trailing" constant="10" id="5Mu-Lt-b60"/>
+                <constraint firstItem="nsi-3S-CK1" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="FgT-YP-gd8"/>
                 <constraint firstItem="I8V-Co-2hC" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="Upe-xg-c8F"/>
                 <constraint firstItem="cFz-jC-yeW" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="10" id="V6c-Rv-nxb"/>
                 <constraint firstItem="cFz-jC-yeW" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="10" id="bAf-Yd-pw5"/>
@@ -180,7 +187,9 @@ Cg
                 <constraint firstItem="leX-DS-gCL" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="10" id="m1q-wd-WaR"/>
                 <constraint firstAttribute="bottom" secondItem="I8V-Co-2hC" secondAttribute="bottom" id="nwT-w6-k9Q"/>
                 <constraint firstAttribute="trailing" secondItem="leX-DS-gCL" secondAttribute="trailing" constant="10" id="q8y-dY-KPj"/>
+                <constraint firstItem="nsi-3S-CK1" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="r4d-NE-qXh"/>
                 <constraint firstItem="leX-DS-gCL" firstAttribute="leading" secondItem="4Bq-sk-iMX" secondAttribute="trailing" constant="10" id="uCL-07-PGg"/>
+                <constraint firstAttribute="trailing" secondItem="nsi-3S-CK1" secondAttribute="trailing" id="yVF-BC-7fj"/>
             </constraints>
             <point key="canvasLocation" x="19" y="137.5"/>
         </customView>

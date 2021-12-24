@@ -6,6 +6,7 @@
 //
 
 import Cocoa
+import macOSThemeKit
 
 protocol QMTextCellViewDelegate: NSObjectProtocol {
     func textCellView(_ cellView: QMTextCellView, didEndEditingAt text:String)
@@ -25,9 +26,9 @@ class QMTextCellView: QMTableCellView {
     override var backgroundStyle: NSView.BackgroundStyle {
         didSet {
             if backgroundStyle == .emphasized {
-                textLabel.textColor = .init(hex: 0x38A3A5)
+                textLabel.textColor = NSColor.init(hex: 0x38A3A5)
             } else {
-                textLabel.textColor = .init(hex: 0x112031)
+                textLabel.textColor = ThemeColor.menuNormalTextColor
             }
         }
     }

@@ -1,36 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19162" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19162"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="QMAboutController" customModule="QMenu" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="QMAboutController" customModule="右键菜单" customModuleProvider="target">
             <connections>
+                <outlet property="nameLabel" destination="9O9-T9-C3e" id="twu-Xy-hdr"/>
+                <outlet property="textView" destination="jHz-ag-Slg" id="9EW-G8-IoD"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customView id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="480" height="308"/>
+        <customView id="Hz6-mo-xeY" customClass="QMColorView" customModule="右键菜单" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="305"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ejF-yd-Sim">
-                    <rect key="frame" x="18" y="20" width="444" height="16"/>
-                    <textFieldCell key="cell" lineBreakMode="clipping" title="意见反馈: " id="dDL-rs-MMP">
-                        <font key="font" usesAppearanceFont="YES"/>
+                <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ofz-9w-wQw">
+                    <rect key="frame" x="195" y="195" width="90" height="90"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="90" id="CCc-uR-Nqb"/>
+                        <constraint firstAttribute="width" constant="90" id="Pjr-Hj-rGK"/>
+                    </constraints>
+                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="logo" id="0ko-eM-vau"/>
+                </imageView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9O9-T9-C3e">
+                    <rect key="frame" x="18" y="169" width="444" height="21"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" alignment="center" title="QMenu  v1.0.0" id="fYA-Yh-Ytb">
+                        <font key="font" size="15" name="PingFangSC-Semibold"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
+                <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Im1-ra-6gL">
+                    <rect key="frame" x="20" y="20" width="440" height="139"/>
+                    <clipView key="contentView" drawsBackground="NO" id="tXI-KO-RmV">
+                        <rect key="frame" x="0.0" y="0.0" width="440" height="139"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView editable="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="jHz-ag-Slg">
+                                <rect key="frame" x="0.0" y="0.0" width="440" height="139"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                <size key="minSize" width="440" height="139"/>
+                                <size key="maxSize" width="440" height="10000000"/>
+                                <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            </textView>
+                        </subviews>
+                    </clipView>
+                    <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="EgZ-cF-bcL">
+                        <rect key="frame" x="-100" y="-100" width="240" height="16"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                    <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="vai-5A-CPM">
+                        <rect key="frame" x="424" y="0.0" width="16" height="139"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </scroller>
+                </scrollView>
             </subviews>
             <constraints>
-                <constraint firstItem="ejF-yd-Sim" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="X5d-lw-yVM"/>
-                <constraint firstAttribute="trailing" secondItem="ejF-yd-Sim" secondAttribute="trailing" constant="20" id="p5q-bE-fFm"/>
-                <constraint firstAttribute="bottom" secondItem="ejF-yd-Sim" secondAttribute="bottom" constant="20" id="xen-Hq-JRY"/>
+                <constraint firstItem="9O9-T9-C3e" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="82L-qO-Tyd"/>
+                <constraint firstAttribute="trailing" secondItem="9O9-T9-C3e" secondAttribute="trailing" constant="20" id="Blw-rp-ysg"/>
+                <constraint firstAttribute="bottom" secondItem="Im1-ra-6gL" secondAttribute="bottom" constant="20" id="DRF-rD-NOv"/>
+                <constraint firstItem="9O9-T9-C3e" firstAttribute="top" secondItem="Ofz-9w-wQw" secondAttribute="bottom" constant="5" id="SMq-Md-UvM"/>
+                <constraint firstItem="Im1-ra-6gL" firstAttribute="top" secondItem="9O9-T9-C3e" secondAttribute="bottom" constant="10" id="TKU-VO-9Z3"/>
+                <constraint firstItem="Ofz-9w-wQw" firstAttribute="centerX" secondItem="Hz6-mo-xeY" secondAttribute="centerX" id="aO7-Ae-g93"/>
+                <constraint firstItem="Ofz-9w-wQw" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="20" id="bgR-NB-hcL"/>
+                <constraint firstItem="Im1-ra-6gL" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" constant="20" id="dfL-Yq-7vs"/>
+                <constraint firstAttribute="trailing" secondItem="Im1-ra-6gL" secondAttribute="trailing" constant="20" id="gY5-rF-CWA"/>
             </constraints>
-            <point key="canvasLocation" x="4" y="149"/>
+            <point key="canvasLocation" x="4" y="148.5"/>
         </customView>
     </objects>
+    <resources>
+        <image name="logo" width="300" height="300"/>
+    </resources>
 </document>

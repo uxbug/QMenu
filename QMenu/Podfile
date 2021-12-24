@@ -5,6 +5,7 @@ target 'QMenu' do
   use_frameworks!
   
   pod 'HandyJSON', '~> 5.0.2'
+  pod 'macOSThemeKit', '~> 1.4.0'
   
 end
 

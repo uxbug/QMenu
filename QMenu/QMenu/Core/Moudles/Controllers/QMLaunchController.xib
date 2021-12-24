@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="18122" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19162" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="18122"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19162"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,13 +19,13 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
                 <scrollView autohidesScrollers="YES" horizontalLineScroll="30" horizontalPageScroll="10" verticalLineScroll="30" verticalPageScroll="10" hasHorizontalScroller="NO" hasVerticalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t1P-6X-nLT">
-                    <rect key="frame" x="0.0" y="0.0" width="186" height="118"/>
+                    <rect key="frame" x="0.0" y="0.0" width="166" height="62"/>
                     <clipView key="contentView" id="l4O-Zk-ipV">
-                        <rect key="frame" x="1" y="1" width="184" height="116"/>
+                        <rect key="frame" x="1" y="1" width="164" height="60"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="30" rowSizeStyle="automatic" headerView="TEu-Ku-to5" viewBased="YES" id="83F-Hl-0hh">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="88"/>
+                                <rect key="frame" x="0.0" y="0.0" width="480" height="32"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <size key="intercellSpacing" width="17" height="0.0"/>
                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -90,7 +90,7 @@
                                                             <constraint firstAttribute="height" constant="20" id="TrW-p0-8kd"/>
                                                             <constraint firstAttribute="width" constant="20" id="i9t-cU-jqh"/>
                                                         </constraints>
-                                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="icon" id="Zq6-qc-Wwr"/>
+                                                        <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="Zq6-qc-Wwr"/>
                                                     </imageView>
                                                 </subviews>
                                                 <constraints>
@@ -204,7 +204,4 @@
             <point key="canvasLocation" x="147" y="-220"/>
         </customView>
     </objects>
-    <resources>
-        <image name="icon" width="48" height="44"/>
-    </resources>
 </document>

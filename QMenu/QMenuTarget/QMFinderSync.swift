@@ -7,7 +7,6 @@
 
 import Cocoa
 import FinderSync
-import ACS
 
 class QMFinderSync: FIFinderSync {
 
@@ -271,13 +270,14 @@ fileprivate extension QMFinderSync {
             QMLoger.addLog("拷贝至常用目录失败，未获取到选中路径")
             return
         }
-        var toPath = model.path
-        if toPath.contains("{{username}}") {
-            toPath = model.path.replacingOccurrences(of: "{{username}}", with: QMDataManager.shared.userName)
+        var basePath = model.path
+        if basePath.contains("{{username}}") {
+            basePath = model.path.replacingOccurrences(of: "{{username}}", with: QMDataManager.shared.userName)
         }
         for item in items {
             let lastPath = item.path.lastPathComponent
             var isDirectory: ObjCBool = false
+            var toPath = basePath
             if FileManager.default.fileExists(atPath: item.path, isDirectory: &isDirectory) {
                 toPath = createPath(isFile: !isDirectory.boolValue, path: toPath, name: lastPath)
             }
@@ -299,16 +299,19 @@ fileprivate extension QMFinderSync {
             QMLoger.addLog("拷贝至常用目录失败，未获取到选中路径")
             return
         }
-        var toPath = model.path
-        if toPath.contains("{{username}}") {
-            toPath = model.path.replacingOccurrences(of: "{{username}}", with: QMDataManager.shared.userName)
+        var basePath = model.path
+        if basePath.contains("{{username}}") {
+            basePath = model.path.replacingOccurrences(of: "{{username}}", with: QMDataManager.shared.userName)
         }
         for item in items {
+            QMLoger.addLog("begin: \(item.path)")
             let lastPath = item.path.lastPathComponent
             var isDirectory: ObjCBool = false
+            var toPath = basePath
             if FileManager.default.fileExists(atPath: item.path, isDirectory: &isDirectory) {
                 toPath = createPath(isFile: !isDirectory.boolValue, path: toPath, name: lastPath)
             }
+            QMLoger.addLog("end: \(toPath)")
             do {
                 try FileManager.default.copyItem(atPath: item.path, toPath: toPath)
             } catch {

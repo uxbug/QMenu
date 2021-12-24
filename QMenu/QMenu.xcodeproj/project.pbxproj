@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C31A81A2771D1B80004570F /* ThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C31A8192771D1B80004570F /* ThemeColor.swift */; };
 		8C4049C026E6ED4900AF764F /* pages.pages in Resources */ = {isa = PBXBuildFile; fileRef = 8C4049BD26E6ED4900AF764F /* pages.pages */; };
 		8C4049C126E6ED4900AF764F /* keynote.key in Resources */ = {isa = PBXBuildFile; fileRef = 8C4049BE26E6ED4900AF764F /* keynote.key */; };
 		8C4049C226E6ED4900AF764F /* numbers.numbers in Resources */ = {isa = PBXBuildFile; fileRef = 8C4049BF26E6ED4900AF764F /* numbers.numbers */; };
@@ -20,15 +21,13 @@
 		8C4049CC26E7664300AF764F /* QMDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8370B226E5F6A700683BCF /* QMDataManager.swift */; };
 		8C65734126E8B77200F619B3 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C65734026E8B77200F619B3 /* String.swift */; };
 		8C65734226E8B77200F619B3 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C65734026E8B77200F619B3 /* String.swift */; };
-		8C735AAE26F1EB7B00BF6C80 /* ACS.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C735AAC26F1EB7B00BF6C80 /* ACS.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8C735AB126F1EB7B00BF6C80 /* ACS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C735AAA26F1EB7B00BF6C80 /* ACS.framework */; };
-		8C735AB226F1EB7B00BF6C80 /* ACS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8C735AAA26F1EB7B00BF6C80 /* ACS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8C735ABC26F1EB8D00BF6C80 /* AssetCatalogReader.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C735AB726F1EB8D00BF6C80 /* AssetCatalogReader.m */; };
-		8C735ABD26F1EB8D00BF6C80 /* AssetCatalogReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C735AB826F1EB8D00BF6C80 /* AssetCatalogReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8C735ABE26F1EB8D00BF6C80 /* CoreUI+TV.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C735ABA26F1EB8D00BF6C80 /* CoreUI+TV.h */; };
-		8C735ABF26F1EB8D00BF6C80 /* CoreUI.h in Headers */ = {isa = PBXBuildFile; fileRef = 8C735ABB26F1EB8D00BF6C80 /* CoreUI.h */; };
-		8C735AC026F1EC4B00BF6C80 /* CoreUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C2C6D2426EEEB6700AC4734 /* CoreUI.framework */; };
-		8C735AC126F1EC4B00BF6C80 /* CoreUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8C2C6D2426EEEB6700AC4734 /* CoreUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8C65E39827755C2E005453DE /* QMEventMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C65E39727755C2E005453DE /* QMEventMonitor.swift */; };
+		8C65E39B27756976005453DE /* QMUtiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C65E39A27756976005453DE /* QMUtiles.swift */; };
+		8C74C6082772C921003933E2 /* ThemeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C74C6072772C921003933E2 /* ThemeImage.swift */; };
+		8C74C60B2772E8FB003933E2 /* QMColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C74C60A2772E8FB003933E2 /* QMColorView.swift */; };
+		8C74C60F2772F090003933E2 /* QMWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C74C60E2772F090003933E2 /* QMWindowController.swift */; };
+		8C74C6122772FFCB003933E2 /* QMSkipController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C74C6102772FFCB003933E2 /* QMSkipController.swift */; };
+		8C74C6132772FFCB003933E2 /* QMSkipController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C74C6112772FFCB003933E2 /* QMSkipController.xib */; };
 		8C7602D826E1BEC6009A9864 /* QMBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7602D726E1BEC6009A9864 /* QMBaseController.swift */; };
 		8C7602DF26E1C53E009A9864 /* QMOpenCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7602DE26E1C53E009A9864 /* QMOpenCellView.swift */; };
 		8C7602E126E1C54C009A9864 /* QMIconCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7602E026E1C54C009A9864 /* QMIconCellView.swift */; };
@@ -106,13 +105,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		8C735AAF26F1EB7B00BF6C80 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 8C82A42826CE29E700C83E1D /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 8C735AA926F1EB7B00BF6C80;
-			remoteInfo = ACS;
-		};
 		8C86FCFE26DCAA3800E71F72 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8C82A42826CE29E700C83E1D /* Project object */;
@@ -129,18 +121,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8C735AB226F1EB7B00BF6C80 /* ACS.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		8C735AC226F1EC4B00BF6C80 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				8C735AC126F1EC4B00BF6C80 /* CoreUI.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -162,19 +142,20 @@
 		69A2304B61675EB88C53E974 /* Pods-QMenu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QMenu.debug.xcconfig"; path = "Target Support Files/Pods-QMenu/Pods-QMenu.debug.xcconfig"; sourceTree = "<group>"; };
 		866BC2E8B41FE5EFBCA3E07F /* Pods_QMenuTarget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QMenuTarget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C2C6D2426EEEB6700AC4734 /* CoreUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreUI.framework; path = ../../../../../../System/Library/PrivateFrameworks/CoreUI.framework; sourceTree = "<group>"; };
+		8C31A8192771D1B80004570F /* ThemeColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeColor.swift; sourceTree = "<group>"; };
 		8C4049BD26E6ED4900AF764F /* pages.pages */ = {isa = PBXFileReference; lastKnownFileType = file; path = pages.pages; sourceTree = "<group>"; };
 		8C4049BE26E6ED4900AF764F /* keynote.key */ = {isa = PBXFileReference; lastKnownFileType = file; path = keynote.key; sourceTree = "<group>"; };
 		8C4049BF26E6ED4900AF764F /* numbers.numbers */ = {isa = PBXFileReference; lastKnownFileType = file; path = numbers.numbers; sourceTree = "<group>"; };
 		8C4049C626E6EE1B00AF764F /* xmind.xmind */ = {isa = PBXFileReference; lastKnownFileType = file; path = xmind.xmind; sourceTree = "<group>"; };
 		8C4049C926E7491300AF764F /* config.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = config.json; sourceTree = "<group>"; };
 		8C65734026E8B77200F619B3 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
-		8C735AAA26F1EB7B00BF6C80 /* ACS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ACS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		8C735AAC26F1EB7B00BF6C80 /* ACS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACS.h; sourceTree = "<group>"; };
-		8C735AAD26F1EB7B00BF6C80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8C735AB726F1EB8D00BF6C80 /* AssetCatalogReader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetCatalogReader.m; sourceTree = "<group>"; };
-		8C735AB826F1EB8D00BF6C80 /* AssetCatalogReader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetCatalogReader.h; sourceTree = "<group>"; };
-		8C735ABA26F1EB8D00BF6C80 /* CoreUI+TV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CoreUI+TV.h"; sourceTree = "<group>"; };
-		8C735ABB26F1EB8D00BF6C80 /* CoreUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreUI.h; sourceTree = "<group>"; };
+		8C65E39727755C2E005453DE /* QMEventMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMEventMonitor.swift; sourceTree = "<group>"; };
+		8C65E39A27756976005453DE /* QMUtiles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMUtiles.swift; sourceTree = "<group>"; };
+		8C74C6072772C921003933E2 /* ThemeImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeImage.swift; sourceTree = "<group>"; };
+		8C74C60A2772E8FB003933E2 /* QMColorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMColorView.swift; sourceTree = "<group>"; };
+		8C74C60E2772F090003933E2 /* QMWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMWindowController.swift; sourceTree = "<group>"; };
+		8C74C6102772FFCB003933E2 /* QMSkipController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMSkipController.swift; sourceTree = "<group>"; };
+		8C74C6112772FFCB003933E2 /* QMSkipController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QMSkipController.xib; sourceTree = "<group>"; };
 		8C7602D726E1BEC6009A9864 /* QMBaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMBaseController.swift; sourceTree = "<group>"; };
 		8C7602DE26E1C53E009A9864 /* QMOpenCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMOpenCellView.swift; sourceTree = "<group>"; };
 		8C7602E026E1C54C009A9864 /* QMIconCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMIconCellView.swift; sourceTree = "<group>"; };
@@ -191,7 +172,7 @@
 		8C7B642E26DE2D3200C025C8 /* QMFeatureController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QMFeatureController.xib; sourceTree = "<group>"; };
 		8C8005AA26E9CDEC00370FD9 /* runner.scpt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = runner.scpt; sourceTree = "<group>"; };
 		8C8005B826E9D77900370FD9 /* QMRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMRunner.swift; sourceTree = "<group>"; };
-		8C82A43026CE29E700C83E1D /* QMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C82A43026CE29E700C83E1D /* 右键菜单.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "右键菜单.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C82A43326CE29E700C83E1D /* QMAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMAppDelegate.swift; sourceTree = "<group>"; };
 		8C82A43526CE29E700C83E1D /* QMRootController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMRootController.swift; sourceTree = "<group>"; };
 		8C82A43726CE29EA00C83E1D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -242,19 +223,10 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		8C735AA726F1EB7B00BF6C80 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8C735AC026F1EC4B00BF6C80 /* CoreUI.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8C82A42D26CE29E700C83E1D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C735AB126F1EB7B00BF6C80 /* ACS.framework in Frameworks */,
 				8CC019D3498782985BFA107C /* Pods_QMenu.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,6 +263,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8C65E39927756960005453DE /* Utiles */ = {
+			isa = PBXGroup;
+			children = (
+				8C65E39A27756976005453DE /* QMUtiles.swift */,
+			);
+			path = Utiles;
+			sourceTree = "<group>";
+		};
 		8C735A8426F1E8FF00BF6C80 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,42 +278,12 @@
 			path = Vendor;
 			sourceTree = "<group>";
 		};
-		8C735AAB26F1EB7B00BF6C80 /* ACS */ = {
-			isa = PBXGroup;
-			children = (
-				8C735AAC26F1EB7B00BF6C80 /* ACS.h */,
-				8C735AAD26F1EB7B00BF6C80 /* Info.plist */,
-				8C735AB926F1EB8D00BF6C80 /* Private Headers */,
-				8C735AB626F1EB8D00BF6C80 /* Source */,
-			);
-			path = ACS;
-			sourceTree = "<group>";
-		};
-		8C735AB626F1EB8D00BF6C80 /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				8C735AB826F1EB8D00BF6C80 /* AssetCatalogReader.h */,
-				8C735AB726F1EB8D00BF6C80 /* AssetCatalogReader.m */,
-			);
-			name = Source;
-			path = ACS/Source;
-			sourceTree = SOURCE_ROOT;
-		};
-		8C735AB926F1EB8D00BF6C80 /* Private Headers */ = {
-			isa = PBXGroup;
-			children = (
-				8C735ABA26F1EB8D00BF6C80 /* CoreUI+TV.h */,
-				8C735ABB26F1EB8D00BF6C80 /* CoreUI.h */,
-			);
-			name = "Private Headers";
-			path = "ACS/Private Headers";
-			sourceTree = SOURCE_ROOT;
-		};
 		8C7602D526E1BEA4009A9864 /* UI */ = {
 			isa = PBXGroup;
 			children = (
 				8C7B642B26DE29CC00C025C8 /* QMTabViewController.swift */,
 				8CA7DCDC26F0849B005CE296 /* QMTableView.swift */,
+				8C74C60A2772E8FB003933E2 /* QMColorView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -353,6 +303,7 @@
 		8C7602D926E1C2D2009A9864 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				8C74C60E2772F090003933E2 /* QMWindowController.swift */,
 				8C82A43526CE29E700C83E1D /* QMRootController.swift */,
 				8C7B642D26DE2D3200C025C8 /* QMFeatureController.swift */,
 				8C7B642E26DE2D3200C025C8 /* QMFeatureController.xib */,
@@ -368,6 +319,8 @@
 				8C95B7C626E0B4C9008DA2FD /* QMAboutController.xib */,
 				8C8370AA26E5B8CB00683BCF /* QMLogController.swift */,
 				8C8370AB26E5B8CB00683BCF /* QMLogController.xib */,
+				8C74C6102772FFCB003933E2 /* QMSkipController.swift */,
+				8C74C6112772FFCB003933E2 /* QMSkipController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -403,7 +356,6 @@
 			children = (
 				8C82A43226CE29E700C83E1D /* QMenu */,
 				8C86FCF926DCAA3800E71F72 /* QMenuTarget */,
-				8C735AAB26F1EB7B00BF6C80 /* ACS */,
 				8C82A43126CE29E700C83E1D /* Products */,
 				105BEBEA584CD687051B0EF6 /* Pods */,
 				7700B3D7FF656BE6A7E8F9A3 /* Frameworks */,
@@ -413,9 +365,8 @@
 		8C82A43126CE29E700C83E1D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8C82A43026CE29E700C83E1D /* QMenu.app */,
+				8C82A43026CE29E700C83E1D /* 右键菜单.app */,
 				8C86FCF826DCAA3800E71F72 /* QMenuTarget.appex */,
-				8C735AAA26F1EB7B00BF6C80 /* ACS.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -497,6 +448,7 @@
 		8C86FD1826DCAD9E00E71F72 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				8C65E39927756960005453DE /* Utiles */,
 				8C7602D626E1BEB0009A9864 /* Base */,
 				8C7602D526E1BEA4009A9864 /* UI */,
 				8C86FD1926DCAD9E00E71F72 /* Category */,
@@ -507,6 +459,8 @@
 		8C86FD1926DCAD9E00E71F72 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				8C31A8192771D1B80004570F /* ThemeColor.swift */,
+				8C74C6072772C921003933E2 /* ThemeImage.swift */,
 				8C86FD1A26DCAD9E00E71F72 /* Date.swift */,
 				8C7602EF26E20E4E009A9864 /* NSView.swift */,
 				8C7602F126E20E5E009A9864 /* NSViewController.swift */,
@@ -522,46 +476,14 @@
 			children = (
 				8C86FD1C26DCAD9E00E71F72 /* QMLoger.swift */,
 				8C8370B226E5F6A700683BCF /* QMDataManager.swift */,
+				8C65E39727755C2E005453DE /* QMEventMonitor.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		8C735AA526F1EB7B00BF6C80 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8C735ABE26F1EB8D00BF6C80 /* CoreUI+TV.h in Headers */,
-				8C735ABD26F1EB8D00BF6C80 /* AssetCatalogReader.h in Headers */,
-				8C735ABF26F1EB8D00BF6C80 /* CoreUI.h in Headers */,
-				8C735AAE26F1EB7B00BF6C80 /* ACS.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
 /* Begin PBXNativeTarget section */
-		8C735AA926F1EB7B00BF6C80 /* ACS */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 8C735AB326F1EB7B00BF6C80 /* Build configuration list for PBXNativeTarget "ACS" */;
-			buildPhases = (
-				8C735AA526F1EB7B00BF6C80 /* Headers */,
-				8C735AA626F1EB7B00BF6C80 /* Sources */,
-				8C735AA726F1EB7B00BF6C80 /* Frameworks */,
-				8C735AA826F1EB7B00BF6C80 /* Resources */,
-				8C735AC226F1EC4B00BF6C80 /* Embed Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = ACS;
-			productName = ACS;
-			productReference = 8C735AAA26F1EB7B00BF6C80 /* ACS.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 		8C82A42F26CE29E700C83E1D /* QMenu */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8C82A44026CE29EA00C83E1D /* Build configuration list for PBXNativeTarget "QMenu" */;
@@ -578,11 +500,10 @@
 			);
 			dependencies = (
 				8C86FCFF26DCAA3800E71F72 /* PBXTargetDependency */,
-				8C735AB026F1EB7B00BF6C80 /* PBXTargetDependency */,
 			);
 			name = QMenu;
 			productName = RightMenu;
-			productReference = 8C82A43026CE29E700C83E1D /* QMenu.app */;
+			productReference = 8C82A43026CE29E700C83E1D /* 右键菜单.app */;
 			productType = "com.apple.product-type.application";
 		};
 		8C86FCF726DCAA3800E71F72 /* QMenuTarget */ = {
@@ -613,9 +534,6 @@
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
-					8C735AA926F1EB7B00BF6C80 = {
-						CreatedOnToolsVersion = 12.5;
-					};
 					8C82A42F26CE29E700C83E1D = {
 						CreatedOnToolsVersion = 12.5;
 					};
@@ -639,23 +557,16 @@
 			targets = (
 				8C82A42F26CE29E700C83E1D /* QMenu */,
 				8C86FCF726DCAA3800E71F72 /* QMenuTarget */,
-				8C735AA926F1EB7B00BF6C80 /* ACS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		8C735AA826F1EB7B00BF6C80 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8C82A42E26CE29E700C83E1D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C74C6132772FFCB003933E2 /* QMSkipController.xib in Resources */,
 				8C8370BD26E6045600683BCF /* doc.docx in Resources */,
 				8C82A43826CE29EA00C83E1D /* Assets.xcassets in Resources */,
 				8C8370BF26E6045600683BCF /* markdown.md in Resources */,
@@ -768,14 +679,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		8C735AA626F1EB7B00BF6C80 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				8C735ABC26F1EB8D00BF6C80 /* AssetCatalogReader.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		8C82A42C26CE29E700C83E1D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -785,13 +688,17 @@
 				8C95B7CB26E0BCF5008DA2FD /* QMMenuItem.swift in Sources */,
 				8C878E2A26EB239900DD32FE /* QMFileModel.swift in Sources */,
 				8C83245A26EC7D9C00462DEC /* NSImage.swift in Sources */,
+				8C31A81A2771D1B80004570F /* ThemeColor.swift in Sources */,
 				8C7602F026E20E4E009A9864 /* NSView.swift in Sources */,
 				8C8370AC26E5B8CB00683BCF /* QMLogController.swift in Sources */,
 				8C878E2D26EB249300DD32FE /* QMBaseModel.swift in Sources */,
 				8C7602DF26E1C53E009A9864 /* QMOpenCellView.swift in Sources */,
+				8C74C6122772FFCB003933E2 /* QMSkipController.swift in Sources */,
 				8C95B7BF26E0B49C008DA2FD /* QMDirectoryController.swift in Sources */,
 				8C7B642F26DE2D3200C025C8 /* QMFeatureController.swift in Sources */,
 				8C8370B026E5BDF100683BCF /* QMLogItem.swift in Sources */,
+				8C65E39827755C2E005453DE /* QMEventMonitor.swift in Sources */,
+				8C74C60F2772F090003933E2 /* QMWindowController.swift in Sources */,
 				8C82A43626CE29E700C83E1D /* QMRootController.swift in Sources */,
 				8C86FD1D26DCAD9E00E71F72 /* Date.swift in Sources */,
 				8C65734126E8B77200F619B3 /* String.swift in Sources */,
@@ -808,12 +715,15 @@
 				8C7602F226E20E5E009A9864 /* NSViewController.swift in Sources */,
 				8C95B7C326E0B4B5008DA2FD /* QMNewFileController.swift in Sources */,
 				8C7B642C26DE29CC00C025C8 /* QMTabViewController.swift in Sources */,
+				8C74C6082772C921003933E2 /* ThemeImage.swift in Sources */,
 				8C7602D826E1BEC6009A9864 /* QMBaseController.swift in Sources */,
 				8C7602F626E22728009A9864 /* QMTextFieldCell.swift in Sources */,
 				8C8370C626E608D600683BCF /* QMConfigModel.swift in Sources */,
 				8C7602EA26E1C899009A9864 /* QMFeatureModel.swift in Sources */,
 				8C82A43426CE29E700C83E1D /* QMAppDelegate.swift in Sources */,
 				8C7602F426E21195009A9864 /* NSColor.swift in Sources */,
+				8C65E39B27756976005453DE /* QMUtiles.swift in Sources */,
+				8C74C60B2772E8FB003933E2 /* QMColorView.swift in Sources */,
 				8C86FD1E26DCAD9E00E71F72 /* QMLoger.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -842,11 +752,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		8C735AB026F1EB7B00BF6C80 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 8C735AA926F1EB7B00BF6C80 /* ACS */;
-			targetProxy = 8C735AAF26F1EB7B00BF6C80 /* PBXContainerItemProxy */;
-		};
 		8C86FCFF26DCAA3800E71F72 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8C86FCF726DCAA3800E71F72 /* QMenuTarget */;
@@ -866,68 +771,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		8C735AB426F1EB7B00BF6C80 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = ACS/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.liyb.ACS;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SYSTEM_FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
-				);
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		8C735AB526F1EB7B00BF6C80 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = "";
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = ACS/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.liyb.ACS;
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SYSTEM_FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks",
-				);
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 		8C82A43E26CE29EA00C83E1D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1062,7 +905,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.liyb.QMenu;
-				PRODUCT_NAME = QMenu;
+				PRODUCT_NAME = "右键菜单";
 				SWIFT_VERSION = 5.0;
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1090,7 +933,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.liyb.QMenu;
-				PRODUCT_NAME = QMenu;
+				PRODUCT_NAME = "右键菜单";
 				SWIFT_VERSION = 5.0;
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1156,15 +999,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8C735AB326F1EB7B00BF6C80 /* Build configuration list for PBXNativeTarget "ACS" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				8C735AB426F1EB7B00BF6C80 /* Debug */,
-				8C735AB526F1EB7B00BF6C80 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		8C82A42B26CE29E700C83E1D /* Build configuration list for PBXProject "QMenu" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
