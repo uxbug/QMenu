@@ -14,7 +14,8 @@ class QMConfigModel: NSObject, HandyJSON {
     var launch: [QMLaunchModel] = []
     var directory: [QMDirectoryModel] = []
     var file: [QMFileModel] = []
-    var autoOpen: Bool = true
+    var autoOpen: Bool = true   // 自动打开文件
+    var showDirectory: Bool = true   // 显示常用目录
     
     required override init() {
         

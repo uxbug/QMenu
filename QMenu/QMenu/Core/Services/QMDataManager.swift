@@ -283,6 +283,26 @@ extension QMDataManager {
         }
         save(with: cg)
     }
+    
+    /// 更新新建文件打开状态
+    /// - Parameter state: 状态
+    func updateFileOpen(state: NSControl.StateValue) {
+        guard let cg = config else {
+            return
+        }
+        cg.autoOpen = state == .on ? true : false
+        save(with: cg)
+    }
+    
+    /// 更新常用目录显示状态
+    /// - Parameter state: 状态
+    func updateDirectoryShow(state: NSControl.StateValue) {
+        guard let cg = config else {
+            return
+        }
+        cg.showDirectory = state == .on ? true : false
+        save(with: cg)
+    }
 }
 
 fileprivate extension QMDataManager {
