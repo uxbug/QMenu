@@ -16,7 +16,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8C86FCF726DCAA3800E71F72"
-               BuildableName = "QMenuTarget.appex"
+               BuildableName = "&#x53f3;&#x952e;&#x83dc;&#x5355;&#x6269;&#x5c55;.appex"
                BlueprintName = "QMenuTarget"
                ReferencedContainer = "container:QMenu.xcodeproj">
             </BuildableReference>
