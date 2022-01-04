@@ -33,15 +33,15 @@ class QMFinderSync: FIFinderSync {
     
     // MARK: - Menu and toolbar item support
     override var toolbarItemName: String {
-        return "QMenu"
+        return "右键菜单"
     }
     
     override var toolbarItemToolTip: String {
-        return "QMenu"
+        return "右键菜单"
     }
     
     override var toolbarItemImage: NSImage {
-        return NSImage(named: NSImage.menuOnStateTemplateName)!
+        return NSImage(named: "toolbar_logo")!
     }
     
     override func menu(for menuKind: FIMenuKind) -> NSMenu {

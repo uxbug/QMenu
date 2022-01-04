@@ -76,7 +76,7 @@
 		8C8370C726E608D600683BCF /* QMConfigModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8370C526E608D600683BCF /* QMConfigModel.swift */; };
 		8C8370CB26E617E900683BCF /* QMFeatureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7602E926E1C899009A9864 /* QMFeatureModel.swift */; };
 		8C86FCFB26DCAA3800E71F72 /* QMFinderSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C86FCFA26DCAA3800E71F72 /* QMFinderSync.swift */; };
-		8C86FD0026DCAA3800E71F72 /* QMenuTarget.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8C86FCF826DCAA3800E71F72 /* QMenuTarget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8C86FD0026DCAA3800E71F72 /* 右键菜单扩展.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8C86FCF826DCAA3800E71F72 /* 右键菜单扩展.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8C86FD1D26DCAD9E00E71F72 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C86FD1A26DCAD9E00E71F72 /* Date.swift */; };
 		8C86FD1E26DCAD9E00E71F72 /* QMLoger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C86FD1C26DCAD9E00E71F72 /* QMLoger.swift */; };
 		8C86FD1F26DCADA400E71F72 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C86FD1A26DCAD9E00E71F72 /* Date.swift */; };
@@ -131,7 +131,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				8C86FD0026DCAA3800E71F72 /* QMenuTarget.appex in Embed App Extensions */,
+				8C86FD0026DCAA3800E71F72 /* 右键菜单扩展.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -195,7 +195,7 @@
 		8C8370B926E6045500683BCF /* excel.xltx */ = {isa = PBXFileReference; lastKnownFileType = file; path = excel.xltx; sourceTree = "<group>"; };
 		8C8370BA26E6045600683BCF /* ppt.pptx */ = {isa = PBXFileReference; lastKnownFileType = file; path = ppt.pptx; sourceTree = "<group>"; };
 		8C8370C526E608D600683BCF /* QMConfigModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMConfigModel.swift; sourceTree = "<group>"; };
-		8C86FCF826DCAA3800E71F72 /* QMenuTarget.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = QMenuTarget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C86FCF826DCAA3800E71F72 /* 右键菜单扩展.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "右键菜单扩展.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C86FCFA26DCAA3800E71F72 /* QMFinderSync.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMFinderSync.swift; sourceTree = "<group>"; };
 		8C86FCFC26DCAA3800E71F72 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8C86FCFD26DCAA3800E71F72 /* QMenuTarget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QMenuTarget.entitlements; sourceTree = "<group>"; };
@@ -366,7 +366,7 @@
 			isa = PBXGroup;
 			children = (
 				8C82A43026CE29E700C83E1D /* 右键菜单.app */,
-				8C86FCF826DCAA3800E71F72 /* QMenuTarget.appex */,
+				8C86FCF826DCAA3800E71F72 /* 右键菜单扩展.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -521,7 +521,7 @@
 			);
 			name = QMenuTarget;
 			productName = RightMenuTarget;
-			productReference = 8C86FCF826DCAA3800E71F72 /* QMenuTarget.appex */;
+			productReference = 8C86FCF826DCAA3800E71F72 /* 右键菜单扩展.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -959,7 +959,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.liyb.QMenu.QMenuTarget;
-				PRODUCT_NAME = QMenuTarget;
+				PRODUCT_NAME = "右键菜单扩展";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = (
@@ -986,7 +986,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				PRODUCT_BUNDLE_IDENTIFIER = com.liyb.QMenu.QMenuTarget;
-				PRODUCT_NAME = QMenuTarget;
+				PRODUCT_NAME = "右键菜单扩展";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 				SYSTEM_FRAMEWORK_SEARCH_PATHS = (
