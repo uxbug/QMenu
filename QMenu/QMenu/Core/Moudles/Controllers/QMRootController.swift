@@ -37,6 +37,16 @@ class QMRootController: QMBaseController {
         ("关于我们", .about)
     ]
     
+    var selectIndex: Int = 0 {
+        didSet {
+            let item = collectionView.item(at: selectIndex) as? QMMenuItem
+            collectionView.visibleItems().forEach { $0.isSelected = $0 == item }
+            let data = dataSource[selectIndex]
+            tabController.selectedIndex = selectIndex
+            view.window?.title = data.0
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         makeUI()
