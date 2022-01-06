@@ -22,6 +22,7 @@ class QMRootController: QMBaseController {
             QMLaunchController(),
             QMDirectoryController(),
             QMNewFileController(),
+            QMSettingController(),
             QMDescController(),
             QMAboutController()
         ])
@@ -33,6 +34,7 @@ class QMRootController: QMBaseController {
         ("打开...", .launch),
         ("常用目录", .directory),
         ("新建文件", .newFile),
+        ("偏好配置", .setting),
         ("使用说明", .desc),
         ("关于我们", .about)
     ]

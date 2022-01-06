@@ -8,6 +8,12 @@
 
 import Cocoa
 
+enum QMLogMode: Int {
+    case weak = 0
+    case month = 1
+    case manual = 2
+}
+
 struct QMLoger {
     static func logPath() -> String {
         let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0].components(separatedBy: "/")

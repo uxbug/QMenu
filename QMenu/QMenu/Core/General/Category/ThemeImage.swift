@@ -25,6 +25,10 @@ extension ThemeImage {
         return ThemeImage.image(with: #function)
     }
     
+    static var menuSettingNormalImage: ThemeImage {
+        return ThemeImage.image(with: #function)
+    }
+    
     static var menuDescNormalImage: ThemeImage {
         return ThemeImage.image(with: #function)
     }
@@ -63,6 +67,10 @@ extension LightTheme {
         return NSImage.init(named: .init("tab_file_normal"))
     }
     
+    @objc var menuSettingNormalImage: NSImage? {
+        return NSImage.init(named: .init("tab_setting_normal"))
+    }
+    
     @objc var menuDescNormalImage: NSImage? {
         return NSImage.init(named: .init("tab_desc_normal"))
     }
@@ -99,6 +107,10 @@ extension DarkTheme {
     
     @objc var menuNewFileNormalImage: NSImage? {
         return NSImage.init(named: .init("tab_file_normal_dark"))
+    }
+    
+    @objc var menuSettingNormalImage: NSImage? {
+        return NSImage.init(named: .init("tab_setting_normal_dark"))
     }
     
     @objc var menuDescNormalImage: NSImage? {

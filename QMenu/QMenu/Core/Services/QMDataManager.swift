@@ -95,6 +95,16 @@ class QMDataManager: NSObject {
             UserDefaults.standard.set(newValue.rawValue, forKey: "QMenu.cureentTheme")
         }
     }
+    
+    var logMode: QMLogMode {
+        get {
+            let value = UserDefaults.standard.integer(forKey: "QMenu.logMode")
+            return QMLogMode.init(rawValue: value) ?? .weak
+        }
+        set {
+            UserDefaults.standard.set(newValue.rawValue, forKey: "QMenu.logMode")
+        }
+    }
 }
 
 extension QMDataManager {

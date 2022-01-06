@@ -13,6 +13,7 @@ enum TabStyle {
     case launch
     case directory
     case newFile
+    case setting
     case desc
     case about
 }
@@ -38,6 +39,8 @@ class QMMenuItem: NSCollectionViewItem {
                 iconView.image = ThemeImage.menuDirectoryNormalImage
             case .newFile:
                 iconView.image = ThemeImage.menuNewFileNormalImage
+            case .setting:
+                iconView.image = ThemeImage.menuSettingNormalImage
             case .desc:
                 iconView.image = ThemeImage.menuDescNormalImage
             case .about:
@@ -69,6 +72,9 @@ class QMMenuItem: NSCollectionViewItem {
             case .newFile:
                 normalImg = ThemeImage.menuNewFileNormalImage
                 selectedImg = NSImage.init(named: "tab_file_select")
+            case .setting:
+                normalImg = ThemeImage.menuSettingNormalImage
+                selectedImg = NSImage.init(named: "tab_setting_select")
             case .desc:
                 normalImg = ThemeImage.menuDescNormalImage
                 selectedImg = NSImage.init(named: "tab_desc_select")

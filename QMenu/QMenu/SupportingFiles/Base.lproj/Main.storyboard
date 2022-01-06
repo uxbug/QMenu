@@ -23,9 +23,9 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                                        <menuItem title="使用说明" keyEquivalent="," id="BOF-NM-1cW">
+                                        <menuItem title="偏好配置" keyEquivalent="," id="BOF-NM-1cW">
                                             <connections>
-                                                <action selector="onClickDesc:" target="Voe-Tx-rLC" id="zwo-80-aEZ"/>
+                                                <action selector="onClickSetting:" target="Voe-Tx-rLC" id="FGg-Ys-iZl"/>
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="4je-JR-u6R"/>
