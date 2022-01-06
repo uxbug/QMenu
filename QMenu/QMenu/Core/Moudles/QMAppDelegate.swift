@@ -28,12 +28,35 @@ class QMAppDelegate: NSObject, NSApplicationDelegate {
     
     // 点击dock再次启动
     func applicationShouldHandleReopen(_ sender: NSApplication, hasVisibleWindows flag: Bool) -> Bool {
-        if !flag {
+        let isVisible = sender.mainWindow?.isVisible
+        if isVisible == nil || isVisible == false {
             sender.windows.forEach { window in
                 window.makeKeyAndOrderFront(self)
             }
         }
         return true
+    }
+    
+    @IBAction func onClickAbout(_ sender: Any) {
+        let isVisible = NSApp.mainWindow?.isVisible
+        if isVisible == nil || isVisible == false {
+            NSApp.windows.forEach { window in
+                window.makeKeyAndOrderFront(self)
+            }
+        }
+        let rootController = NSApp.mainWindow?.contentViewController as? QMRootController
+        rootController?.selectIndex = 5
+    }
+    
+    @IBAction func onClickDesc(_ sender: Any) {
+        let isVisible = NSApp.mainWindow?.isVisible
+        if isVisible == nil || isVisible == false {
+            NSApp.windows.forEach { window in
+                window.makeKeyAndOrderFront(self)
+            }
+        }
+        let rootController = NSApp.mainWindow?.contentViewController as? QMRootController
+        rootController?.selectIndex = 4
     }
 }
 

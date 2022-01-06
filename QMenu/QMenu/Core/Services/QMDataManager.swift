@@ -19,10 +19,15 @@ class QMDataManager: NSObject {
     
     /// 用户电脑名
     var userName: String {
-        guard let name = getlogin() else {
+        let home = NSHomeDirectory()
+        let paths = (home as NSString).pathComponents
+        guard paths.count > 3 else {
             return ""
         }
-        return String.init(cString: name)
+        if paths[0] == "/" {
+            return paths[2]
+        }
+        return paths[1]
     }
     
     /// 配置
@@ -281,6 +286,26 @@ extension QMDataManager {
                 }
             }
         }
+        save(with: cg)
+    }
+    
+    /// 更新新建文件打开状态
+    /// - Parameter state: 状态
+    func updateFileOpen(state: NSControl.StateValue) {
+        guard let cg = config else {
+            return
+        }
+        cg.autoOpen = state == .on ? true : false
+        save(with: cg)
+    }
+    
+    /// 更新常用目录显示状态
+    /// - Parameter state: 状态
+    func updateDirectoryShow(state: NSControl.StateValue) {
+        guard let cg = config else {
+            return
+        }
+        cg.showDirectory = state == .on ? true : false
         save(with: cg)
     }
 }

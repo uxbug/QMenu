@@ -57,6 +57,10 @@ fileprivate extension QMNewFileController {
         dataSource = QMDataManager.shared.config?.file ?? []
         tableView.reloadData()
     }
+    
+    @IBAction func onClickAutoOpen(_ sender: NSButton) {
+        QMDataManager.shared.updateFileOpen(state: sender.state)
+    }
 }
 
 // MARK: NSTableViewDelegate, NSTableViewDataSource

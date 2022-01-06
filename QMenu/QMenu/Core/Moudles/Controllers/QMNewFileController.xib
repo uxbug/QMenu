@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="QMNewFileController" customModule="QMenu" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="QMNewFileController" customModule="右键菜单" customModuleProvider="target">
             <connections>
                 <outlet property="autoOpenButton" destination="nNj-C3-qaN" id="eAQ-H7-DD4"/>
                 <outlet property="tableView" destination="NTN-YY-qKh" id="Imh-pk-dHt"/>
@@ -44,7 +44,7 @@
                                         </textFieldCell>
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
-                                            <tableCellView identifier="feature.open.identifier" id="gZd-ql-aIg" customClass="QMOpenCellView" customModule="QMenu" customModuleProvider="target">
+                                            <tableCellView identifier="feature.open.identifier" id="gZd-ql-aIg" customClass="QMOpenCellView" customModule="右键菜单" customModuleProvider="target">
                                                 <rect key="frame" x="8" y="0.0" width="38" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
@@ -81,7 +81,7 @@
                                         </textFieldCell>
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
-                                            <tableCellView identifier="feature.icon.identifier" id="JJL-Qb-1DN" customClass="QMIconCellView" customModule="QMenu" customModuleProvider="target">
+                                            <tableCellView identifier="feature.icon.identifier" id="JJL-Qb-1DN" customClass="QMIconCellView" customModule="右键菜单" customModuleProvider="target">
                                                 <rect key="frame" x="63" y="0.0" width="40" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
@@ -116,13 +116,13 @@
                                         </textFieldCell>
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
-                                            <tableCellView identifier="feature.name.identifier" id="m07-xG-8pQ" customClass="QMTextCellView" customModule="QMenu" customModuleProvider="target">
+                                            <tableCellView identifier="feature.name.identifier" id="m07-xG-8pQ" customClass="QMTextCellView" customModule="右键菜单" customModuleProvider="target">
                                                 <rect key="frame" x="120" y="0.0" width="160" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="0Sh-Wl-r3I">
                                                         <rect key="frame" x="-2" y="7" width="164" height="16"/>
-                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Table View Cell" id="Gtw-n5-vrU" customClass="QMTextFieldCell" customModule="QMenu" customModuleProvider="target">
+                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Table View Cell" id="Gtw-n5-vrU" customClass="QMTextFieldCell" customModule="右键菜单" customModuleProvider="target">
                                                             <font key="font" usesAppearanceFont="YES"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -153,13 +153,13 @@
                                         </textFieldCell>
                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                         <prototypeCellViews>
-                                            <tableCellView identifier="feature.desc.identifier" id="lEx-UB-TDd" customClass="QMTextCellView" customModule="QMenu" customModuleProvider="target">
+                                            <tableCellView identifier="feature.desc.identifier" id="lEx-UB-TDd" customClass="QMTextCellView" customModule="右键菜单" customModuleProvider="target">
                                                 <rect key="frame" x="297" y="0.0" width="174" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <subviews>
                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="xEN-dM-6YN">
                                                         <rect key="frame" x="-2" y="7" width="178" height="16"/>
-                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Table View Cell" id="3Ze-SX-sjO" customClass="QMTextFieldCell" customModule="QMenu" customModuleProvider="target">
+                                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="center" title="Table View Cell" id="3Ze-SX-sjO" customClass="QMTextFieldCell" customModule="右键菜单" customModuleProvider="target">
                                                             <font key="font" usesAppearanceFont="YES"/>
                                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -195,7 +195,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </tableHeaderView>
                 </scrollView>
-                <customView translatesAutoresizingMaskIntoConstraints="NO" id="Dbg-su-2GV" customClass="QMColorView" customModule="QMenu" customModuleProvider="target">
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="Dbg-su-2GV" customClass="QMColorView" customModule="右键菜单" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="0.0" width="541" height="40"/>
                 </customView>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Vbf-6s-Tk0">
@@ -228,6 +228,9 @@
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
+                    <connections>
+                        <action selector="onClickAutoOpen:" target="-2" id="LAK-Pp-Ii5"/>
+                    </connections>
                 </button>
             </subviews>
             <constraints>

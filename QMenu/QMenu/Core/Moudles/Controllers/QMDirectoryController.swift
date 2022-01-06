@@ -12,6 +12,7 @@ class QMDirectoryController: QMBaseController {
 
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet weak var bottomView: NSView!
+    @IBOutlet weak var useDirectoryButton: NSButton!
     fileprivate var dataSource: [QMDirectoryModel] = QMDataManager.shared.config?.directory ?? []
     
     override func viewDidLoad() {
@@ -31,6 +32,7 @@ fileprivate extension QMDirectoryController {
         tableView.enclosingScrollView?.verticalScrollElasticity = .none
         tableView.enclosingScrollView?.horizontalScrollElasticity = .none
         bottomView.backgroundColor = ThemeColor.backgroundColor
+        useDirectoryButton.state = QMDataManager.shared.config?.showDirectory ?? true ? .on : .off
     }
     
     @IBAction func onClickAdd(_ sender: Any) {
@@ -58,6 +60,10 @@ fileprivate extension QMDirectoryController {
         QMDataManager.shared.removeDirectory(model)
         dataSource = QMDataManager.shared.config?.directory ?? []
         tableView.reloadData()
+    }
+    
+    @IBAction func onClickShowDirectory(_ sender: NSButton) {
+        QMDataManager.shared.updateDirectoryShow(state: sender.state)
     }
 }
 
