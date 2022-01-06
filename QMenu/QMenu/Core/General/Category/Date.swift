@@ -38,4 +38,14 @@ extension Date {
         }
         return String.init(format: "%02zi%@%02zi%@%02zi", minute, symbol, sec, symbol, sec)
     }
+    
+    /// 年
+    static var year: String {
+        get {
+            let date = Date.init()
+            let formatter = DateFormatter.init()
+            formatter.dateFormat = "yyyy"
+            return formatter.string(from: date)
+        }
+    }
 }

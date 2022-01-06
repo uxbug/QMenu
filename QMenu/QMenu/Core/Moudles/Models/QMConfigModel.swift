@@ -16,6 +16,9 @@ class QMConfigModel: NSObject, HandyJSON {
     var file: [QMFileModel] = []
     var autoOpen: Bool = true   // 自动打开文件
     var showDirectory: Bool = true   // 显示常用目录
+    var version: String = "1.0.0"
+    var author: String = "liyb"
+    var copyright: String = "Copyright © 2021-2022年 liyb. All rights reserved."
     
     required override init() {
         

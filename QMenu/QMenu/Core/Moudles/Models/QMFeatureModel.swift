@@ -13,9 +13,8 @@ enum FeatureType: Int {
     case launch = 1   // 打开方式
     case move = 2  // 移动至常用目录
     case copy = 3  // 拷贝至常用目录
-    case assets = 4  // 解包Assets.car
-    case copyPath = 5  // 拷贝路径
-    case delete = 6  // 直接删除
+    case copyPath = 4  // 拷贝路径
+    case delete = 5  // 直接删除
 }
 
 class QMFeatureModel: QMBaseModel {

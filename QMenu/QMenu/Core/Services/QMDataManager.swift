@@ -36,7 +36,51 @@ class QMDataManager: NSObject {
             guard let data = try? Data.init(contentsOf: URL.init(fileURLWithPath: configPath())), let dict = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] else {
                 return defaultConfig()
             }
-            return QMConfigModel.deserialize(from: dict)
+            let currentConfig = QMConfigModel.deserialize(from: dict)
+            let defaultConfig = defaultConfig()
+            // 配置文件小于app版本时更新配置文件
+            if currentConfig?.version.compare(defaultConfig?.version ?? "1.0.0") == .orderedAscending {
+                var features: [QMFeatureModel] = []
+                defaultConfig?.feature.forEach({ feature in
+                    if let f = currentConfig?.feature.first(where: { $0.id == feature.id }) {
+                        features.append(f)
+                    } else {
+                        features.append(feature)
+                    }
+                })
+                defaultConfig?.feature = features
+                var launchs: [QMLaunchModel] = []
+                defaultConfig?.launch.forEach({ launch in
+                    if let l = currentConfig?.launch.first(where: { $0.id == launch.id }) {
+                        launchs.append(l)
+                    } else {
+                        launchs.append(launch)
+                    }
+                })
+                defaultConfig?.launch = launchs
+                var directorys: [QMDirectoryModel] = []
+                defaultConfig?.directory.forEach({ directory in
+                    if let dir = currentConfig?.directory.first(where: { $0.id == directory.id }) {
+                        directorys.append(dir)
+                    } else {
+                        directorys.append(directory)
+                    }
+                })
+                defaultConfig?.directory = directorys
+                var files: [QMFileModel] = []
+                defaultConfig?.file.forEach({ file in
+                    if let fi = currentConfig?.file.first(where: { $0.id == file.id }) {
+                        files.append(fi)
+                    } else {
+                        files.append(file)
+                    }
+                })
+                defaultConfig?.file = files
+                defaultConfig?.autoOpen = currentConfig?.autoOpen ?? true
+                defaultConfig?.showDirectory = currentConfig?.showDirectory ?? true
+                return defaultConfig
+            }
+            return currentConfig
         } else {
             return defaultConfig()
         }
@@ -306,6 +350,21 @@ extension QMDataManager {
             return
         }
         cg.showDirectory = state == .on ? true : false
+        save(with: cg)
+    }
+        
+    /// 更新默认配置，版本/版权信息
+    func updateDefaultConfig() {
+        guard let cg = defaultConfig() else {
+            return
+        }
+        cg.version = QMUtiles.App.version
+        let currenYear = Date.year
+        var year: String = "2021"
+        if currenYear.compare(year) == .orderedDescending {
+            year = "\(year) - \(currenYear)"
+        }
+        cg.copyright = "Copyright ©\(year)年 liyb. All rights reserved."
         save(with: cg)
     }
 }

@@ -99,6 +99,7 @@
 		8C95B7C826E0B4C9008DA2FD /* QMAboutController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C95B7C626E0B4C9008DA2FD /* QMAboutController.xib */; };
 		8C95B7CB26E0BCF5008DA2FD /* QMMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C95B7C926E0BCF5008DA2FD /* QMMenuItem.swift */; };
 		8C95B7CC26E0BCF5008DA2FD /* QMMenuItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C95B7CA26E0BCF5008DA2FD /* QMMenuItem.xib */; };
+		8C9E25E827868C0000F11D25 /* QMUtiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C65E39A27756976005453DE /* QMUtiles.swift */; };
 		8CA7DCDD26F0849B005CE296 /* QMTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA7DCDC26F0849B005CE296 /* QMTableView.swift */; };
 		8CC019D3498782985BFA107C /* Pods_QMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F49E0BC9CE58856B1D850B06 /* Pods_QMenu.framework */; };
 		E661DE1AC7669CC2EEEF7608 /* Pods_QMenuTarget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 866BC2E8B41FE5EFBCA3E07F /* Pods_QMenuTarget.framework */; };
@@ -732,6 +733,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C9E25E827868C0000F11D25 /* QMUtiles.swift in Sources */,
 				8C86FCFB26DCAA3800E71F72 /* QMFinderSync.swift in Sources */,
 				8C4049CC26E7664300AF764F /* QMDataManager.swift in Sources */,
 				8C8370C726E608D600683BCF /* QMConfigModel.swift in Sources */,
@@ -904,6 +906,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.liyb.QMenu;
 				PRODUCT_NAME = "右键菜单";
 				SWIFT_VERSION = 5.0;
@@ -932,6 +935,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.liyb.QMenu;
 				PRODUCT_NAME = "右键菜单";
 				SWIFT_VERSION = 5.0;
@@ -958,6 +962,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.liyb.QMenu.QMenuTarget;
 				PRODUCT_NAME = "右键菜单扩展";
 				SKIP_INSTALL = YES;
@@ -985,6 +990,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.liyb.QMenu.QMenuTarget;
 				PRODUCT_NAME = "右键菜单扩展";
 				SKIP_INSTALL = YES;
