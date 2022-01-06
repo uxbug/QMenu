@@ -100,6 +100,8 @@
 		8C95B7CB26E0BCF5008DA2FD /* QMMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C95B7C926E0BCF5008DA2FD /* QMMenuItem.swift */; };
 		8C95B7CC26E0BCF5008DA2FD /* QMMenuItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C95B7CA26E0BCF5008DA2FD /* QMMenuItem.xib */; };
 		8C9E25E827868C0000F11D25 /* QMUtiles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C65E39A27756976005453DE /* QMUtiles.swift */; };
+		8C9E25EB278691E600F11D25 /* QMSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C9E25E9278691E600F11D25 /* QMSettingController.swift */; };
+		8C9E25EC278691E600F11D25 /* QMSettingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C9E25EA278691E600F11D25 /* QMSettingController.xib */; };
 		8CA7DCDD26F0849B005CE296 /* QMTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CA7DCDC26F0849B005CE296 /* QMTableView.swift */; };
 		8CC019D3498782985BFA107C /* Pods_QMenu.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F49E0BC9CE58856B1D850B06 /* Pods_QMenu.framework */; };
 		E661DE1AC7669CC2EEEF7608 /* Pods_QMenuTarget.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 866BC2E8B41FE5EFBCA3E07F /* Pods_QMenuTarget.framework */; };
@@ -216,6 +218,8 @@
 		8C95B7C626E0B4C9008DA2FD /* QMAboutController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QMAboutController.xib; sourceTree = "<group>"; };
 		8C95B7C926E0BCF5008DA2FD /* QMMenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMMenuItem.swift; sourceTree = "<group>"; };
 		8C95B7CA26E0BCF5008DA2FD /* QMMenuItem.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QMMenuItem.xib; sourceTree = "<group>"; };
+		8C9E25E9278691E600F11D25 /* QMSettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMSettingController.swift; sourceTree = "<group>"; };
+		8C9E25EA278691E600F11D25 /* QMSettingController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QMSettingController.xib; sourceTree = "<group>"; };
 		8CA7DCDC26F0849B005CE296 /* QMTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMTableView.swift; sourceTree = "<group>"; };
 		9C55F730B1BDB0564FC4388F /* Pods-QMenuTarget.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QMenuTarget.release.xcconfig"; path = "Target Support Files/Pods-QMenuTarget/Pods-QMenuTarget.release.xcconfig"; sourceTree = "<group>"; };
 		D0E50D4A0296B50C83E57AED /* Pods-QMenu.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QMenu.release.xcconfig"; path = "Target Support Files/Pods-QMenu/Pods-QMenu.release.xcconfig"; sourceTree = "<group>"; };
@@ -314,6 +318,8 @@
 				8C95B7BE26E0B49C008DA2FD /* QMDirectoryController.xib */,
 				8C95B7C126E0B4B5008DA2FD /* QMNewFileController.swift */,
 				8C95B7C226E0B4B5008DA2FD /* QMNewFileController.xib */,
+				8C9E25E9278691E600F11D25 /* QMSettingController.swift */,
+				8C9E25EA278691E600F11D25 /* QMSettingController.xib */,
 				8C8370A626E5ACFD00683BCF /* QMDescController.swift */,
 				8C8370A726E5ACFD00683BCF /* QMDescController.xib */,
 				8C95B7C526E0B4C9008DA2FD /* QMAboutController.swift */,
@@ -567,6 +573,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C9E25EC278691E600F11D25 /* QMSettingController.xib in Resources */,
 				8C74C6132772FFCB003933E2 /* QMSkipController.xib in Resources */,
 				8C8370BD26E6045600683BCF /* doc.docx in Resources */,
 				8C82A43826CE29EA00C83E1D /* Assets.xcassets in Resources */,
@@ -692,6 +699,7 @@
 				8C31A81A2771D1B80004570F /* ThemeColor.swift in Sources */,
 				8C7602F026E20E4E009A9864 /* NSView.swift in Sources */,
 				8C8370AC26E5B8CB00683BCF /* QMLogController.swift in Sources */,
+				8C9E25EB278691E600F11D25 /* QMSettingController.swift in Sources */,
 				8C878E2D26EB249300DD32FE /* QMBaseModel.swift in Sources */,
 				8C7602DF26E1C53E009A9864 /* QMOpenCellView.swift in Sources */,
 				8C74C6122772FFCB003933E2 /* QMSkipController.swift in Sources */,

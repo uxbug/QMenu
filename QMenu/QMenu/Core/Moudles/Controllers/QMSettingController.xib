@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19529"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="QMSettingController" customModule="右键菜单" customModuleProvider="target">
+            <connections>
+                <outlet property="logButton" destination="AlE-Oc-tfn" id="PvX-Xb-HpB"/>
+                <outlet property="themeButton" destination="hy4-04-iAw" id="719-36-vwe"/>
+                <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="Hz6-mo-xeY">
+            <rect key="frame" x="0.0" y="0.0" width="500" height="90"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="k58-zC-vk4" customClass="QMColorView" customModule="右键菜单" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="500" height="90"/>
+                </customView>
+                <gridView xPlacement="center" yPlacement="bottom" rowAlignment="none" rowSpacing="10" columnSpacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5zQ-69-uPA">
+                    <rect key="frame" x="0.0" y="0.0" width="500" height="90"/>
+                    <rows>
+                        <gridRow height="20" id="TA5-gc-bi0"/>
+                        <gridRow yPlacement="center" height="20" id="Yee-kG-Q1d"/>
+                        <gridRow yPlacement="center" height="20" id="weD-u2-C0B"/>
+                        <gridRow id="OeC-Vs-76f"/>
+                    </rows>
+                    <columns>
+                        <gridColumn xPlacement="trailing" width="200" id="HbC-2X-LVI"/>
+                        <gridColumn id="zQQ-Su-Uid"/>
+                    </columns>
+                    <gridCells>
+                        <gridCell row="TA5-gc-bi0" column="HbC-2X-LVI" id="Sfa-Uf-I6O"/>
+                        <gridCell row="TA5-gc-bi0" column="zQQ-Su-Uid" id="LuB-hp-fcX"/>
+                        <gridCell row="Yee-kG-Q1d" column="HbC-2X-LVI" yPlacement="center" id="jmi-ts-nzh">
+                            <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mfN-bH-bex">
+                                <rect key="frame" x="144" y="42" width="58" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="主题样式" id="KAF-rk-PIg">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </gridCell>
+                        <gridCell row="Yee-kG-Q1d" column="zQQ-Su-Uid" xPlacement="leading" yPlacement="center" id="n6Z-SS-jQq">
+                            <popUpButton key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hy4-04-iAw">
+                                <rect key="frame" x="207" y="36" width="93" height="25"/>
+                                <popUpButtonCell key="cell" type="push" title="跟随系统" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="x0J-lf-fxb" id="0gm-ZZ-CnB">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="IlK-EK-sD8">
+                                        <items>
+                                            <menuItem title="跟随系统" state="on" id="x0J-lf-fxb"/>
+                                            <menuItem title="日间模式" id="cgC-1b-HJC"/>
+                                            <menuItem title="夜间模式" id="VGT-fA-0Og"/>
+                                        </items>
+                                    </menu>
+                                    <connections>
+                                        <action selector="didThemeChange:" target="-2" id="ZAn-ES-EgO"/>
+                                    </connections>
+                                </popUpButtonCell>
+                            </popUpButton>
+                        </gridCell>
+                        <gridCell row="weD-u2-C0B" column="HbC-2X-LVI" id="P5P-cx-Ehz">
+                            <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Wq0-Ru-DMx">
+                                <rect key="frame" x="144" y="12" width="58" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="日志清理" id="HjF-Lr-xmT">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </gridCell>
+                        <gridCell row="weD-u2-C0B" column="zQQ-Su-Uid" xPlacement="leading" id="dKP-Dk-sCR">
+                            <popUpButton key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="AlE-Oc-tfn">
+                                <rect key="frame" x="207" y="6" width="93" height="25"/>
+                                <popUpButtonCell key="cell" type="push" title="手动清理" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="FLT-4F-juM" id="IN5-L3-msv">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="Xyw-Cw-yJ8">
+                                        <items>
+                                            <menuItem title="7天" id="y6o-Sg-pig"/>
+                                            <menuItem title="1月" id="CLL-BY-myE"/>
+                                            <menuItem title="手动清理" state="on" id="FLT-4F-juM"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                                <connections>
+                                    <action selector="didLogChange:" target="-2" id="Uyf-9V-3TM"/>
+                                </connections>
+                            </popUpButton>
+                        </gridCell>
+                        <gridCell row="OeC-Vs-76f" column="HbC-2X-LVI" id="10v-90-qsK"/>
+                        <gridCell row="OeC-Vs-76f" column="zQQ-Su-Uid" id="Zl3-QV-O98"/>
+                    </gridCells>
+                </gridView>
+            </subviews>
+            <constraints>
+                <constraint firstItem="k58-zC-vk4" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="0p5-Ry-38W"/>
+                <constraint firstAttribute="trailing" secondItem="k58-zC-vk4" secondAttribute="trailing" id="4vt-c9-9PY"/>
+                <constraint firstItem="5zQ-69-uPA" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="A39-hb-xoR"/>
+                <constraint firstAttribute="bottom" secondItem="5zQ-69-uPA" secondAttribute="bottom" id="JOB-9Z-kj6"/>
+                <constraint firstItem="k58-zC-vk4" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" id="W27-Mr-c0V"/>
+                <constraint firstAttribute="bottom" secondItem="k58-zC-vk4" secondAttribute="bottom" id="X2l-jA-kOU"/>
+                <constraint firstItem="5zQ-69-uPA" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="XCP-td-XTm"/>
+                <constraint firstAttribute="trailing" secondItem="5zQ-69-uPA" secondAttribute="trailing" id="wpW-nK-bnd"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="135"/>
+        </customView>
+    </objects>
+</document>

@@ -53,7 +53,18 @@ fileprivate extension QMAppDelegate {
             }
         }
         let rootController = NSApp.mainWindow?.contentViewController as? QMRootController
-        rootController?.selectIndex = 5
+        rootController?.selectIndex = 6
+    }
+    
+    @IBAction func onClickSetting(_ sender: Any) {
+        let isVisible = NSApp.mainWindow?.isVisible
+        if isVisible == nil || isVisible == false {
+            NSApp.windows.forEach { window in
+                window.makeKeyAndOrderFront(self)
+            }
+        }
+        let rootController = NSApp.mainWindow?.contentViewController as? QMRootController
+        rootController?.selectIndex = 4
     }
     
     @IBAction func onClickDesc(_ sender: Any) {
@@ -64,6 +75,6 @@ fileprivate extension QMAppDelegate {
             }
         }
         let rootController = NSApp.mainWindow?.contentViewController as? QMRootController
-        rootController?.selectIndex = 4
+        rootController?.selectIndex = 5
     }
 }

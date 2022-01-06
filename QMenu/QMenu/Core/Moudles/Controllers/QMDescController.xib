@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19162" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19162"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19529"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="QMDescController" customModule="QMenu" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="QMDescController" customModule="右键菜单" customModuleProvider="target">
             <connections>
                 <outlet property="textView" destination="dd2-wf-kNf" id="xAR-2h-rPa"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
@@ -49,7 +49,7 @@ Cg
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
                                         </attributes>
                                     </fragment>
-                                    <fragment content="设置-&gt;扩展-&gt;Finder扩展-&gt;勾选QMenuTarget">
+                                    <fragment content="『设置』-&gt;『扩展』-&gt;『Finder扩展』-&gt;勾选『右键菜单扩展』">
                                         <attributes>
                                             <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                             <font key="NSFont" size="13" name="PingFangSC-Regular"/>
@@ -134,7 +134,7 @@ Cg
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>
-                <customView translatesAutoresizingMaskIntoConstraints="NO" id="nsi-3S-CK1" customClass="QMColorView" customModule="QMenu" customModuleProvider="target">
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="nsi-3S-CK1" customClass="QMColorView" customModule="右键菜单" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="265" width="480" height="40"/>
                 </customView>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cFz-jC-yeW">

@@ -24,7 +24,7 @@ fileprivate extension QMDescController {
         view.backgroundColor = .white
         // 配置超链接
         let att = NSMutableAttributedString.init(attributedString: textView.attributedString())
-        let launch = "勾选QMenuTarget"
+        let launch = "右键菜单扩展"
         let launchRange = (textView.string as NSString).range(of: launch)
         att.addAttributes([NSAttributedString.Key.link: "preferences://"], range: launchRange)
         let path = "~/Library/Application Scripts/com.liyb.QMenu.QMenuTarget"
