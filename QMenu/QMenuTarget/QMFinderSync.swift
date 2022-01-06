@@ -104,9 +104,6 @@ fileprivate extension QMFinderSync {
                     if feature.type == .copy {   // 拷贝至常用目录
                         configCopyDirectoryMenuItem(config, feature: feature, menu: menu)
                     }
-                    if feature.type == .assets { // 解包Assets.car
-                        configUnpackAssetMenuItem(config, feature: feature, menu: menu)
-                    }
                     if feature.type == .copyPath {   // 拷贝路径
                         configCopyPathMenuItem(config, feature: feature, menu: menu)
                     }
@@ -218,25 +215,6 @@ fileprivate extension QMFinderSync {
         }
     }
     
-    /// 配置解包Assets菜单
-    func configUnpackAssetMenuItem(_ config: QMConfigModel, feature: QMFeatureModel, menu: NSMenu) {
-        if FIFinderSyncController.default().selectedItemURLs()?.first(where: { $0.path.hasSuffix(".car") }) != nil {
-            let item = NSMenuItem.init(title: feature.title, action: #selector(unPackAssetCarFile), keyEquivalent: "")
-            item.tag = feature.id
-            var image: NSImage?
-            if feature.iconPath.count > 0 {
-                image = NSImage.init(contentsOfFile: feature.iconPath)
-            } else {
-                image = NSImage.init(named: feature.icon)
-            }
-            if image?.size.width ?? 0 > 60, image?.size.height ?? 0 > 60 {
-                image = image?.resize(for: CGSize.init(width: 60, height: 60))
-            }
-            item.image = image
-            menu.addItem(item)
-        }
-    }
-    
     /// 配置拷贝路径菜单
     func configCopyPathMenuItem(_ config: QMConfigModel, feature: QMFeatureModel, menu: NSMenu) {
         let item = NSMenuItem.init(title: feature.title, action: #selector(copyPath), keyEquivalent: "")
@@ -307,31 +285,6 @@ fileprivate extension QMFinderSync {
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString(paths, forType: .string)
         QMLoger.addLog("拷贝路径成功")
-    }
-    
-    // 解包Assets.car
-    @objc func unPackAssetCarFile() {
-        guard let items = FIFinderSyncController.default().selectedItemURLs()?.filter({ $0.path.hasSuffix(".car") }) else {
-            QMLoger.addLog("解包AssetCar失败，未获取到选中路径")
-            return
-        }
-        guard let target = FIFinderSyncController.default().targetedURL() else {
-            QMLoger.addLog("解包AssetCar失败，未获取到选中路径")
-            return
-        }
-        guard let carToolPath = Bundle.main.path(forResource: "cartool", ofType: "") else {
-            QMLoger.addLog("解包AssetCar失败，未获取到cartool路径")
-            return
-        }
-        for item in items {
-            let dir = createPath(isFile: false, path: target.path, name: "Assets")
-            if !FileManager.default.fileExists(atPath: dir) {
-                try? FileManager.default.createDirectory(atPath: dir, withIntermediateDirectories: true, attributes: nil)
-            }
-            QMShell.execmd(carToolPath, arguments: [item.path, dir]) { value in
-                QMLoger.addLog("解包AssetCar成功")
-            }
-        }
     }
     
     // 移动至

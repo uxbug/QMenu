@@ -38,29 +38,20 @@
         },
         {
             "id": 103023094,
-            "title": "解包Assets.car文件",
+            "title": "拷贝路径",
             "state": true,
-            "icon": "feature_unpack",
-            "desc": "解包Assets.car文件",
+            "icon": "feature_copyPath",
+            "desc": "拷贝当前选择路径至剪切板",
             "type": 4,
             "iconPath": "",
         },
         {
             "id": 103023095,
-            "title": "拷贝路径",
-            "state": true,
-            "icon": "feature_copyPath",
-            "desc": "拷贝当前选择路径至剪切板",
-            "type": 5,
-            "iconPath": "",
-        },
-        {
-            "id": 103023096,
             "title": "直接删除",
             "state": true,
             "icon": "feature_delete",
             "desc": "慎用！直接删除文件，无法恢复。",
-            "type": 6,
+            "type": 5,
             "iconPath": "",
         }
     ],
@@ -388,5 +379,9 @@
             "iconPath": "",
         }
     ],
-    "autoOpen": true
+    "autoOpen": true,
+    "showDirectory": true,
+    "version": "1.0.0",
+    "author": "liyb",
+    "copyright": "Copyright © 2021-2022年 liyb. All rights reserved."
 }

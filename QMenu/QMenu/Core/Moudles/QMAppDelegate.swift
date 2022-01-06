@@ -12,14 +12,8 @@ import macOSThemeKit
 class QMAppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        switch QMDataManager.shared.currentSkip {
-        case .system:
-            ThemeManager.systemTheme.apply()
-        case .light:
-            ThemeManager.lightTheme.apply()
-        case .dark:
-            ThemeManager.darkTheme.apply()
-        }
+        setupTheme()
+        QMDataManager.shared.updateDefaultConfig()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
@@ -35,6 +29,20 @@ class QMAppDelegate: NSObject, NSApplicationDelegate {
             }
         }
         return true
+    }
+    
+}
+ 
+fileprivate extension QMAppDelegate {
+    func setupTheme() {
+        switch QMDataManager.shared.currentSkip {
+        case .system:
+            ThemeManager.systemTheme.apply()
+        case .light:
+            ThemeManager.lightTheme.apply()
+        case .dark:
+            ThemeManager.darkTheme.apply()
+        }
     }
     
     @IBAction func onClickAbout(_ sender: Any) {
@@ -59,4 +67,3 @@ class QMAppDelegate: NSObject, NSApplicationDelegate {
         rootController?.selectIndex = 4
     }
 }
-
