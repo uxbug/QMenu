@@ -30,7 +30,7 @@ jobs:
     - uses: actions/cache@v2
       id: pods-cache
       with:
-        path: Pods
+        path: QMenu/Pods
         key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
         restore-keys: |
           ${{ runner.os }}-pods-
