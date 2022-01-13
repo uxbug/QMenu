@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19162" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19162"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19529"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="QMLogController" customModule="QMenu" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="QMLogController" customModule="右键菜单" customModuleProvider="target">
             <connections>
+                <outlet property="cleanButton" destination="4t6-Gp-ajx" id="Kgg-Ee-oy3"/>
                 <outlet property="lineView" destination="4Mz-vL-n1P" id="FVa-kC-X81"/>
                 <outlet property="listView" destination="tmS-Qn-lhK" id="Q6w-SL-bfl"/>
                 <outlet property="splitView" destination="xvr-rB-Enc" id="r1L-aT-SzQ"/>
@@ -21,8 +22,27 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="272"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <customView translatesAutoresizingMaskIntoConstraints="NO" id="BMx-6f-Ru2" customClass="QMColorView" customModule="QMenu" customModuleProvider="target">
+                <customView translatesAutoresizingMaskIntoConstraints="NO" id="BMx-6f-Ru2" customClass="QMColorView" customModule="右键菜单" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="232" width="480" height="40"/>
+                    <subviews>
+                        <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4t6-Gp-ajx">
+                            <rect key="frame" x="450" y="10" width="20" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="20" id="Kym-bU-kn4"/>
+                                <constraint firstAttribute="height" constant="20" id="p92-TM-CDM"/>
+                            </constraints>
+                            <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="log_clean" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="hkf-3s-MEu">
+                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="onClickClean:" target="-2" id="C58-ek-xaZ"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="4t6-Gp-ajx" secondAttribute="trailing" constant="10" id="atS-8I-MoE"/>
+                    </constraints>
                 </customView>
                 <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SPm-jC-RKP">
                     <rect key="frame" x="10" y="240" width="20" height="25"/>
@@ -30,7 +50,7 @@
                         <constraint firstAttribute="height" constant="20" id="DNQ-4q-lc9"/>
                         <constraint firstAttribute="width" constant="20" id="b2a-d5-G90"/>
                     </constraints>
-                    <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="chevron.backward" catalog="system" imagePosition="only" alignment="center" imageScaling="proportionallyDown" inset="2" id="Jnw-LL-ecX">
+                    <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="chevron.backward" catalog="system" imagePosition="only" imageScaling="proportionallyDown" inset="2" id="Jnw-LL-ecX">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -150,6 +170,7 @@
                 <constraint firstAttribute="bottom" secondItem="xvr-rB-Enc" secondAttribute="bottom" id="dAk-bd-Luo"/>
                 <constraint firstItem="4Mz-vL-n1P" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="dFH-lc-Fv0"/>
                 <constraint firstItem="xvr-rB-Enc" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="dpA-5R-Zu9"/>
+                <constraint firstItem="4t6-Gp-ajx" firstAttribute="centerY" secondItem="ExF-QZ-rj1" secondAttribute="centerY" id="e31-aF-ASs"/>
                 <constraint firstItem="xvr-rB-Enc" firstAttribute="top" secondItem="4Mz-vL-n1P" secondAttribute="bottom" id="h1o-SJ-sOX"/>
                 <constraint firstItem="BMx-6f-Ru2" firstAttribute="leading" secondItem="Hz6-mo-xeY" secondAttribute="leading" id="p8w-T2-Gh1"/>
                 <constraint firstItem="4Mz-vL-n1P" firstAttribute="top" secondItem="ExF-QZ-rj1" secondAttribute="bottom" constant="10" id="rGC-iK-QWD"/>
@@ -160,5 +181,6 @@
     </objects>
     <resources>
         <image name="chevron.backward" catalog="system" width="10" height="14"/>
+        <image name="log_clean" width="20" height="20"/>
     </resources>
 </document>

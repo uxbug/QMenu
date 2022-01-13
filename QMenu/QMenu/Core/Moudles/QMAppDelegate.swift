@@ -14,6 +14,7 @@ class QMAppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         setupTheme()
         QMDataManager.shared.updateDefaultConfig()
+        QMLoger.cleanOverdueLogs()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

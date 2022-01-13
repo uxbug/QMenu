@@ -84,7 +84,7 @@ extension QMDirectoryController: NSTableViewDelegate, NSTableViewDataSource {
             let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "feature.name.identifier"), owner: nil) as? QMTextCellView
             var path = model.path
             if path.contains("{{username}}") {
-                path = model.path.replacingOccurrences(of: "{{username}}", with: QMDataManager.shared.userName)
+                path = model.path.replacingOccurrences(of: "{{username}}", with: QMUtiles.User.userName)
             }
             cell?.textLabel.stringValue = model.title
             cell?.textLabel.isEditable = true
@@ -94,7 +94,7 @@ extension QMDirectoryController: NSTableViewDelegate, NSTableViewDataSource {
             let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "feature.desc.identifier"), owner: nil) as? QMTextCellView
             var path = model.path
             if path.contains("{{username}}") {
-                path = model.path.replacingOccurrences(of: "{{username}}", with: QMDataManager.shared.userName)
+                path = model.path.replacingOccurrences(of: "{{username}}", with: QMUtiles.User.userName)
             }
             cell?.textLabel.stringValue = path
             cell?.textLabel.toolTip = path

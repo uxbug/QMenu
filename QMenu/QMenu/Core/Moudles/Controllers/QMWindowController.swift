@@ -36,10 +36,13 @@ class QMWindowController: NSWindowController {
         switch QMDataManager.shared.currentSkip {
         case .system:
             skipView.image = ThemeImage.skipAutoImage
+            self.skipItem.label = "自动"
         case .light:
             skipView.image = ThemeImage.skipLightImage
+            self.skipItem.label = "日模"
         case .dark:
             skipView.image = ThemeImage.skipDarkImage
+            self.skipItem.label = "夜模"
         }
         skipItem.view = skipView
         skipItem.minSize = skipView.frame.size
@@ -50,12 +53,15 @@ class QMWindowController: NSWindowController {
             case .system:
                 ThemeManager.systemTheme.apply()
                 self?.skipView.image = ThemeImage.skipAutoImage
+                self?.skipItem.label = "自动"
             case .light:
                 ThemeManager.lightTheme.apply()
                 self?.skipView.image = ThemeImage.skipLightImage
+                self?.skipItem.label = "日模"
             case .dark:
                 ThemeManager.darkTheme.apply()
                 self?.skipView.image = ThemeImage.skipDarkImage
+                self?.skipItem.label = "夜模"
             }
             QMDataManager.shared.currentSkip = skip
             self?.popover.close()

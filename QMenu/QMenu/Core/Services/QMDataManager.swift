@@ -17,19 +17,6 @@ class QMDataManager: NSObject {
     
     static let shared: QMDataManager = QMDataManager.init()
     
-    /// 用户电脑名
-    var userName: String {
-        let home = NSHomeDirectory()
-        let paths = (home as NSString).pathComponents
-        guard paths.count > 3 else {
-            return ""
-        }
-        if paths[0] == "/" {
-            return paths[2]
-        }
-        return paths[1]
-    }
-    
     /// 配置
     var config: QMConfigModel? {
         if FileManager.default.fileExists(atPath: configPath()) {
@@ -96,13 +83,13 @@ class QMDataManager: NSObject {
         }
     }
     
-    var logMode: QMLogMode {
+    var logMode: QMLogCleanMode {
         get {
-            let value = UserDefaults.standard.integer(forKey: "QMenu.logMode")
-            return QMLogMode.init(rawValue: value) ?? .weak
+            let value = UserDefaults.standard.integer(forKey: "QMenu.logCleanMode")
+            return QMLogCleanMode.init(rawValue: value) ?? .weak
         }
         set {
-            UserDefaults.standard.set(newValue.rawValue, forKey: "QMenu.logMode")
+            UserDefaults.standard.set(newValue.rawValue, forKey: "QMenu.logCleanMode")
         }
     }
 }
@@ -111,7 +98,7 @@ extension QMDataManager {
     
     /// 配置文件路径
     func configPath() -> String {
-        let path = "/Users/\(userName)" + "/.QMenu/config.json"
+        let path = "/Users/\(QMUtiles.User.userName)" + "/.QMenu/config.json"
         return path
     }
     
@@ -389,7 +376,7 @@ fileprivate extension QMDataManager {
     }
     
     func fileTempletePath() -> String {
-        let path = "/Users/\(userName)" + "/.QMenu/template"
+        let path = "/Users/\(QMUtiles.User.userName)" + "/.QMenu/template"
         if !FileManager.default.fileExists(atPath: path) {
             try? FileManager.default.createDirectory(atPath: path, withIntermediateDirectories: true, attributes: nil)
         }
@@ -397,7 +384,7 @@ fileprivate extension QMDataManager {
     }
     
     func iconsPath() -> String {
-        let path = "/Users/\(userName)" + "/.QMenu/icon"
+        let path = "/Users/\(QMUtiles.User.userName)" + "/.QMenu/icon"
         if !FileManager.default.fileExists(atPath: path) {
             try? FileManager.default.createDirectory(atPath: path, withIntermediateDirectories: true, attributes: nil)
         }

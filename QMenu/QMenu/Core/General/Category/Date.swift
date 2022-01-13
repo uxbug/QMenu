@@ -18,6 +18,12 @@ extension Date {
         return Int(CLongLong(round(timeInterval*1000)))
     }
     
+    static func toDate(with string: String, format: String) -> Date? {
+        let formatter = DateFormatter.init()
+        formatter.dateFormat = format
+        return formatter.date(from: string)
+    }
+    
     func toString(with format: String) -> String {
         let formatter = DateFormatter.init()
         formatter.dateFormat = format

@@ -284,7 +284,7 @@ fileprivate extension QMFinderSync {
         }
         NSPasteboard.general.clearContents()
         NSPasteboard.general.setString(paths, forType: .string)
-        QMLoger.addLog("拷贝路径成功")
+        QMLoger.addLog("拷贝路径成功: \(paths)")
     }
     
     // 移动至
@@ -299,7 +299,7 @@ fileprivate extension QMFinderSync {
         }
         var basePath = model.path
         if basePath.contains("{{username}}") {
-            basePath = model.path.replacingOccurrences(of: "{{username}}", with: QMDataManager.shared.userName)
+            basePath = model.path.replacingOccurrences(of: "{{username}}", with: QMUtiles.User.userName)
         }
         for item in items {
             let lastPath = item.path.lastPathComponent
@@ -310,6 +310,7 @@ fileprivate extension QMFinderSync {
             }
             do {
                 try FileManager.default.moveItem(atPath: item.path, toPath: toPath)
+                QMLoger.addLog("已移动至: \(toPath)")
             } catch {
                 QMLoger.addLog("移动至常用目录失败，\(error.localizedDescription)")
             }
@@ -328,19 +329,18 @@ fileprivate extension QMFinderSync {
         }
         var basePath = model.path
         if basePath.contains("{{username}}") {
-            basePath = model.path.replacingOccurrences(of: "{{username}}", with: QMDataManager.shared.userName)
+            basePath = model.path.replacingOccurrences(of: "{{username}}", with: QMUtiles.User.userName)
         }
         for item in items {
-            QMLoger.addLog("begin: \(item.path)")
             let lastPath = item.path.lastPathComponent
             var isDirectory: ObjCBool = false
             var toPath = basePath
             if FileManager.default.fileExists(atPath: item.path, isDirectory: &isDirectory) {
                 toPath = createPath(isFile: !isDirectory.boolValue, path: toPath, name: lastPath)
             }
-            QMLoger.addLog("end: \(toPath)")
             do {
                 try FileManager.default.copyItem(atPath: item.path, toPath: toPath)
+                QMLoger.addLog("已拷贝至: \(toPath)")
             } catch {
                 QMLoger.addLog("拷贝至常用目录失败，\(error.localizedDescription)")
             }
@@ -355,7 +355,7 @@ fileprivate extension QMFinderSync {
         }
         var path = model.path
         if path.contains("{{username}}") {
-            path = model.path.replacingOccurrences(of: "{{username}}", with: QMDataManager.shared.userName)
+            path = model.path.replacingOccurrences(of: "{{username}}", with: QMUtiles.User.userName)
         }
         guard let url = URL.init(string: path) else {
             QMLoger.addLog("获取常用目录路径错误: \(item.title)")
@@ -384,6 +384,7 @@ fileprivate extension QMFinderSync {
             try FileManager.default.copyItem(atPath: path, toPath: toPath)
             if QMDataManager.shared.config?.autoOpen ?? true {
                 NSWorkspace.shared.open(URL.init(fileURLWithPath: toPath))
+                QMLoger.addLog("已打开文件: \(toPath)")
             }
         } catch {
             QMLoger.addLog("创建文件失败，\(error.localizedDescription)")
@@ -411,7 +412,13 @@ fileprivate extension QMFinderSync {
         }
         items.forEach { url in
             if FileManager.default.fileExists(atPath: url.path) {
-                try? FileManager.default.removeItem(at: url)
+                do {
+                    try FileManager.default.removeItem(at: url)
+                } catch {
+                    QMLoger.addLog("删除文件失败: \(error.localizedDescription)")
+                }
+            } else {
+                QMLoger.addLog("删除文件失败, 文件不存在: \(url.path)")
             }
         }
     }

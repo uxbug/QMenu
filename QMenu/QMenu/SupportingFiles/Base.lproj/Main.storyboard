@@ -111,9 +111,9 @@
                             <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                             <autoresizingMask key="autoresizingMask"/>
                         </view>
-                        <toolbar key="toolbar" implicitIdentifier="49EB24F2-7B0E-418D-A3CF-E82C1524A413" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconOnly" sizeMode="regular" id="0pQ-eL-tNZ">
+                        <toolbar key="toolbar" implicitIdentifier="49EB24F2-7B0E-418D-A3CF-E82C1524A413" autosavesConfiguration="NO" allowsUserCustomization="NO" displayMode="iconAndLabel" sizeMode="regular" id="0pQ-eL-tNZ">
                             <allowedToolbarItems>
-                                <toolbarItem implicitItemIdentifier="E2479FF7-296D-4E7E-B56F-F65C30F82224" explicitItemIdentifier="QMSkipIdentifier" label="主题" paletteLabel="主题" tag="-1" image="skip_auto_light" bordered="YES" autovalidates="NO" id="Aon-VE-JRk">
+                                <toolbarItem implicitItemIdentifier="E2479FF7-296D-4E7E-B56F-F65C30F82224" explicitItemIdentifier="QMSkipIdentifier" label="皮肤" paletteLabel="皮肤" tag="-1" image="skip_auto_light" bordered="YES" autovalidates="NO" id="Aon-VE-JRk">
                                     <size key="minSize" width="32" height="25"/>
                                     <size key="maxSize" width="32" height="25"/>
                                     <connections>

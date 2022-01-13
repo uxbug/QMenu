@@ -47,6 +47,8 @@ struct QMRunner {
             script.execute(withAppleEvent: event) { (appleEvent, error) in
                 if let error = error {
                     QMLoger.addLog("打开\(appName)失败: \(error.localizedDescription)")
+                } else {
+                    QMLoger.addLog("已打开: \(appName) \(selectURLs.map({ $0.path }).joined(separator: "\n"))")
                 }
             }
         case .terminal:
@@ -80,6 +82,8 @@ struct QMRunner {
             script.execute(withAppleEvent: event) { (appleEvent, error) in
                 if let error = error {
                     QMLoger.addLog("打开\(appName)失败: \(error.localizedDescription)")
+                } else {
+                    QMLoger.addLog("已打开: \(appName) \(selectURLs.map({ $0.path }).joined(separator: "\n"))")
                 }
             }
         }
@@ -96,6 +100,7 @@ fileprivate extension QMRunner {
         if !FileManager.default.fileExists(atPath: toPath) {
             do {
                 try FileManager.default.copyItem(atPath: path, toPath: toPath)
+                QMLoger.addLog("脚本已拷贝至: \(toPath)")
             } catch {
                 QMLoger.addLog("脚本拷贝失败")
             }
@@ -106,7 +111,7 @@ fileprivate extension QMRunner {
                 do {
                     try FileManager.default.removeItem(atPath: toPath)
                     try FileManager.default.copyItem(atPath: path, toPath: toPath)
-                    QMLoger.addLog("脚本已更新")
+                    QMLoger.addLog("脚本已更新: \(toPath)")
                 } catch {
                     QMLoger.addLog("脚本更新失败: \(error.localizedDescription)")
                 }
