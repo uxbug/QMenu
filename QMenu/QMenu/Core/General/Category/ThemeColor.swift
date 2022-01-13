@@ -24,6 +24,10 @@ extension ThemeColor {
     static var skipBackgroundColor: ThemeColor {
         return ThemeColor.color(with: #function)
     }
+    
+    static var skipSelectBackgroundColor: ThemeColor {
+        return ThemeColor.color(with: #function)
+    }
 }
 
 extension LightTheme {
@@ -40,7 +44,11 @@ extension LightTheme {
     }
     
     @objc var skipBackgroundColor: NSColor {
-        return NSColor.init(hex: 0xf6f6f6)
+        return NSColor.clear
+    }
+    
+    @objc var skipSelectBackgroundColor: NSColor {
+        return NSColor.init(hex: 0xF5F4F4)
     }
 }
 
@@ -58,6 +66,10 @@ extension DarkTheme {
     }
     
     @objc var skipBackgroundColor: NSColor {
-        return NSColor.init(hex: 0x282928)
+        return NSColor.clear
+    }
+    
+    @objc var skipSelectBackgroundColor: NSColor {
+        return NSColor.init(hex: 0xF3F1F5)
     }
 }

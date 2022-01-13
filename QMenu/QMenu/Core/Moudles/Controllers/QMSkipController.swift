@@ -42,20 +42,20 @@ fileprivate extension QMSkipController {
         lightLabel.textColor = ThemeColor.skipTextColor
         darkLabel.textColor = ThemeColor.skipTextColor
         
-        autoImageView.wantsLayer = true
-        autoImageView.layer?.cornerRadius = 15.0
-        autoImageView.layer?.masksToBounds = true
-        autoImageView.backgroundColor = ThemeColor.skipBackgroundColor
+        autoView.wantsLayer = true
+        autoView.layer?.cornerRadius = 5.0
+        autoView.layer?.masksToBounds = true
+        autoView.backgroundColor = ThemeColor.skipBackgroundColor
         
-        lightImageView.wantsLayer = true
-        lightImageView.layer?.cornerRadius = 15.0
-        lightImageView.layer?.masksToBounds = true
-        lightImageView.backgroundColor = ThemeColor.skipBackgroundColor
+        lightView.wantsLayer = true
+        lightView.layer?.cornerRadius = 5.0
+        lightView.layer?.masksToBounds = true
+        lightView.backgroundColor = ThemeColor.skipBackgroundColor
         
-        darkImageView.wantsLayer = true
-        darkImageView.layer?.cornerRadius = 15.0
-        darkImageView.layer?.masksToBounds = true
-        darkImageView.backgroundColor = ThemeColor.skipBackgroundColor
+        darkView.wantsLayer = true
+        darkView.layer?.cornerRadius = 15.0
+        darkView.layer?.masksToBounds = true
+        darkView.backgroundColor = ThemeColor.skipBackgroundColor
         
         updateImageBackgroundColor()
     }
@@ -64,17 +64,23 @@ fileprivate extension QMSkipController {
         // 设置选中背景
         switch QMDataManager.shared.currentSkip {
         case .system:
-            autoImageView.backgroundColor = NSColor.init(hex: 0x38A3A5)
-            lightImageView.backgroundColor = ThemeColor.skipBackgroundColor
-            darkImageView.backgroundColor = ThemeColor.skipBackgroundColor
+            autoView.backgroundColor = NSColor.init(hex: 0xF5F4F4)
+            autoLabel.textColor = NSColor.init(hex: 0x000000)
+            autoImageView.image = NSImage.init(named: "skip_auto_light")
+            lightView.backgroundColor = ThemeColor.skipBackgroundColor
+            darkView.backgroundColor = ThemeColor.skipBackgroundColor
         case .light:
-            autoImageView.backgroundColor = ThemeColor.skipBackgroundColor
-            lightImageView.backgroundColor = NSColor.init(hex: 0x38A3A5)
-            darkImageView.backgroundColor = ThemeColor.skipBackgroundColor
+            autoView.backgroundColor = ThemeColor.skipBackgroundColor
+            lightView.backgroundColor = NSColor.init(hex: 0xF5F4F4)
+            lightLabel.textColor = NSColor.init(hex: 0x000000)
+            lightImageView.image = NSImage.init(named: "skip_light_light")
+            darkView.backgroundColor = ThemeColor.skipBackgroundColor
         case .dark:
-            autoImageView.backgroundColor = ThemeColor.skipBackgroundColor
-            lightImageView.backgroundColor = ThemeColor.skipBackgroundColor
-            darkImageView.backgroundColor = NSColor.init(hex: 0x38A3A5)
+            autoView.backgroundColor = ThemeColor.skipBackgroundColor
+            lightView.backgroundColor = ThemeColor.skipBackgroundColor
+            darkView.backgroundColor = NSColor.init(hex: 0xF5F4F4)
+            darkLabel.textColor = NSColor.init(hex: 0x000000)
+            darkImageView.image = NSImage.init(named: "skip_dark_light")
         }
     }
     

@@ -16,7 +16,14 @@ class QMSettingController: QMBaseController {
     override func viewDidLoad() {
         super.viewDidLoad()
         themeButton.selectItem(at: QMDataManager.shared.currentSkip.rawValue)
-        logButton.selectItem(at: QMDataManager.shared.logMode.rawValue)
+        switch QMDataManager.shared.logMode {
+        case .weak:
+            logButton.selectItem(at: 0)
+        case .month:
+            logButton.selectItem(at: 1)
+        case .manual:
+            logButton.selectItem(at: 2)
+        }
     }
     
     @IBAction func didThemeChange(_ sender: NSPopUpButton) {
@@ -34,7 +41,12 @@ class QMSettingController: QMBaseController {
     
     @IBAction func didLogChange(_ sender: NSPopUpButton) {
         let index = sender.indexOfSelectedItem
-        let mode = QMLogMode.init(rawValue: index) ?? .weak
-        QMDataManager.shared.logMode = mode
+        if index == 0 {
+            QMDataManager.shared.logMode = .weak
+        } else if index == 1 {
+            QMDataManager.shared.logMode = .month
+        } else if index == 2 {
+            QMDataManager.shared.logMode = .manual
+        }
     }
 }

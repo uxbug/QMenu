@@ -13,9 +13,10 @@ class QMLogController: QMBaseController {
     @IBOutlet weak var splitView: NSSplitView!
     @IBOutlet weak var listView: NSCollectionView!
     @IBOutlet var textView: NSTextView!
+    @IBOutlet weak var cleanButton: NSButton!
     
-    fileprivate var items: [String] = []
-    fileprivate var path: String = ""
+    fileprivate var logs: [String] = []
+    fileprivate var selectIndex: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,42 +34,46 @@ fileprivate extension QMLogController {
         listView.delegate = self
         listView.dataSource = self
         textView.textContainerInset = NSSize.init(width: 10, height: 10)
-        
-        guard let bundleId = Bundle.main.bundleIdentifier else {
-            return
-        }
-        let pluginBundleId = "com.liyb.QMenu.QMenuTarget"
-        path = QMLoger.logPath().replacingOccurrences(of: bundleId, with: pluginBundleId)
-        getLogFiles()
+        logs = QMLoger.logs
         let indexPath = IndexPath.init(item: 0, section: 0)
-        if items.count > 0, let first = listView.item(at: indexPath) as? QMLogItem {
+        if logs.count > 0, let first = listView.item(at: indexPath) as? QMLogItem {
             listView.selectItems(at: [indexPath], scrollPosition: .bottom)
             logItem(first, didSelectAt: true)
-        }
-    }
-    
-    func getLogFiles() {
-        do {
-            items = try FileManager.default.contentsOfDirectory(atPath: path).filter({ $0.hasSuffix("log") }).sorted(by: { $0.compare($1) == .orderedDescending })
-            listView.reloadData()
-        } catch {
-            print(error.localizedDescription)
+            cleanButton.isEnabled = true
+        } else {
+            cleanButton.isEnabled = false
         }
     }
     
     @IBAction func onClickBack(_ sender: Any) {
         dismiss(nil)
     }
+    
+    @IBAction func onClickClean(_ sender: Any) {
+        let log = logs[selectIndex]
+        QMLoger.cleanLog(with: log)
+        logs = QMLoger.logs
+        listView.reloadData()
+        selectIndex = 0
+        textView.string = ""
+        if logs.count > 0 {
+            listView.selectItems(at: [IndexPath.init(item: 0, section: 0)], scrollPosition: .bottom)
+            cleanButton.isEnabled = true
+        } else {
+            cleanButton.isEnabled = false
+        }
+    }
+    
 }
 
 extension QMLogController: NSCollectionViewDelegateFlowLayout, NSCollectionViewDataSource {
     func collectionView(_ collectionView: NSCollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items.count
+        return logs.count
     }
     
     func collectionView(_ collectionView: NSCollectionView, itemForRepresentedObjectAt indexPath: IndexPath) -> NSCollectionViewItem {
         let item = collectionView.makeItem(withIdentifier: .init("QMLogItem"), for: indexPath) as! QMLogItem
-        item.textLabel.stringValue = items[indexPath.item]
+        item.textLabel.stringValue = logs[indexPath.item]
         item.delegate = self
         return item
     }
@@ -95,10 +100,7 @@ extension QMLogController: QMLogItemDelegate {
         listView.visibleItems().forEach { i in
             i.isSelected = item == i
         }
-        let filePath = path + "/" + item.textLabel.stringValue
-        if FileManager.default.fileExists(atPath: filePath) {
-            let value = try? String.init(contentsOfFile: filePath, encoding: .utf8)
-            textView.string = value ?? ""
-        }
+        selectIndex = listView.indexPath(for: item)?.item ?? 0
+        textView.string = QMLoger.getLog(with: item.textLabel.stringValue) ?? ""
     }
 }
