@@ -156,7 +156,18 @@ fileprivate extension QMFinderSync {
         item.tag = feature.id
         item.image = NSImage.init(named: feature.icon)
         item.submenu = NSMenu.init(title: feature.title)
-        let launchs = config.launch.filter({ $0.state == .on && LSCopyApplicationURLsForBundleIdentifier($0.bundleId as CFString, nil) != nil })
+//        var launchs = config.launch.filter({ $0.state == .on})  //  && LSCopyApplicationURLsForBundleIdentifier($0.bundleId as CFString, nil) != nil
+        var launchs: [QMLaunchModel] = []
+        for launch in config.launch {
+            if launch.state == .on {
+                let bundleIds = launch.bundleId.components(separatedBy: "{{&}}")
+                for bundleId in bundleIds {
+                    if LSCopyApplicationURLsForBundleIdentifier(bundleId as CFString, nil) != nil {
+                        launchs.append(launch)
+                    }
+                }
+            }
+        }
         if launchs.count > 0 {
             launchs.forEach { model in
                 let it = NSMenuItem.init(title: model.title, action: #selector(openItem(_:)), keyEquivalent: "")
