@@ -82,7 +82,7 @@
             "state": true,
             "icon": "",
             "desc": "使用Sublime Text打开文件或项目",
-            "bundleId": "com.sublimetext.4",
+            "bundleId": "com.sublimetext.3{{&}}com.sublimetext.4",
             "mode": 0,
             "iconPath": "",
         },
@@ -381,7 +381,7 @@
     ],
     "autoOpen": true,
     "showDirectory": true,
-    "version": "1.0.0",
+    "version": "1.0.1",
     "author": "liyb",
     "copyright": "Copyright © 2021-2022年 liyb. All rights reserved."
 }
