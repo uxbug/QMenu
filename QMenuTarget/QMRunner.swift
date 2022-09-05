@@ -7,6 +7,7 @@
 
 import Foundation
 import Carbon
+import AppKit
 
 struct QMRunner {
     var scriptURL: URL? {
@@ -85,6 +86,29 @@ struct QMRunner {
                 } else {
                     QMLoger.addLog("已打开: \(appName) \(selectURLs.map({ $0.path }).joined(separator: "\n"))")
                 }
+            }
+        }
+    }
+    
+    func kill(app: NSRunningApplication) {
+        guard let scriptURL = runnerScriptURL else {
+            QMLoger.addLog("杀死进程\(app.processIdentifier)失败: 未能获取脚本文件")
+            return
+        }
+        guard FileManager.default.fileExists(atPath: scriptURL.path) else {
+            QMLoger.addLog("杀死进程\(app.processIdentifier)失败: 未能获取脚本文件")
+            return
+        }
+        guard let script = try? NSUserAppleScriptTask(url: scriptURL) else {
+            QMLoger.addLog("杀死进程\(app.processIdentifier)失败: 未能获取脚本文件")
+            return
+        }
+        let event = getScriptEvent(functionName: "openApp", "kill -9 \(app.processIdentifier)")
+        script.execute(withAppleEvent: event) { (appleEvent, error) in
+            if let error = error {
+                QMLoger.addLog("杀死进程\(app.processIdentifier)失败: \(error.localizedDescription)")
+            } else {
+                QMLoger.addLog("已杀死进程\(app.processIdentifier)")
             }
         }
     }

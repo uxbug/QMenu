@@ -29,6 +29,8 @@ class QMFinderSync: FIFinderSync {
             }
         }
         runner = QMRunner.init()
+        
+        managerPid()
     }
     
     // MARK: - Menu and toolbar item support
@@ -51,6 +53,17 @@ class QMFinderSync: FIFinderSync {
 
 // MARK: 工具方法
 fileprivate extension QMFinderSync {
+    
+    /// 检测是否已启动此进程
+    /// - Returns: 检测结果
+    func managerPid() {
+        let apps = NSWorkspace.shared.runningApplications
+        for app in apps {
+            if app != NSRunningApplication.current, app.bundleIdentifier == QMUtiles.App.targetAppBundleId {
+                runner.kill(app: app)
+            }
+        }
+    }
     
     /// 创建新路径
     /// - Parameters:
