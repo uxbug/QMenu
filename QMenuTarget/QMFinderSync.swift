@@ -29,8 +29,6 @@ class QMFinderSync: FIFinderSync {
             }
         }
         runner = QMRunner.init()
-        
-        managerPid()
     }
     
     // MARK: - Menu and toolbar item support
@@ -53,18 +51,7 @@ class QMFinderSync: FIFinderSync {
 
 // MARK: 工具方法
 fileprivate extension QMFinderSync {
-    
-    /// 检测是否已启动此进程
-    /// - Returns: 检测结果
-    func managerPid() {
-        let apps = NSWorkspace.shared.runningApplications
-        for app in apps {
-            if app != NSRunningApplication.current, app.bundleIdentifier == QMUtiles.App.targetAppBundleId {
-                runner.kill(app: app)
-            }
-        }
-    }
-    
+
     /// 创建新路径
     /// - Parameters:
     ///   - isFile: 是否是文件
@@ -122,6 +109,9 @@ fileprivate extension QMFinderSync {
                     }
                     if feature.type == .delete { // 直接删除文件
                         configDeleteFileMenuItem(config, feature: feature, menu: menu)
+                    }
+                    if feature.type == .trash { // 废纸篓
+                        configTrashMenuItem(config, feature: feature, menu: menu)
                     }
                 }
             } else if config.showDirectory {
@@ -259,6 +249,23 @@ fileprivate extension QMFinderSync {
     /// 配置直接删除菜单
     func configDeleteFileMenuItem(_ config: QMConfigModel, feature: QMFeatureModel, menu: NSMenu) {
         let item = NSMenuItem.init(title: feature.title, action: #selector(deleteItem), keyEquivalent: "")
+        item.tag = feature.id
+        var image: NSImage?
+        if feature.iconPath.count > 0 {
+            image = NSImage.init(contentsOfFile: feature.iconPath)
+        } else {
+            image = NSImage.init(named: feature.icon)
+        }
+        if image?.size.width ?? 0 > 60, image?.size.height ?? 0 > 60 {
+            image = image?.resize(for: CGSize.init(width: 60, height: 60))
+        }
+        item.image = image
+        menu.addItem(item)
+    }
+    
+    // 配置清理垃圾篓菜单
+    func configTrashMenuItem(_ config: QMConfigModel, feature: QMFeatureModel, menu: NSMenu) {
+        let item = NSMenuItem.init(title: feature.title, action: #selector(cleanTrash), keyEquivalent: "")
         item.tag = feature.id
         var image: NSImage?
         if feature.iconPath.count > 0 {
@@ -443,6 +450,28 @@ fileprivate extension QMFinderSync {
                 }
             } else {
                 QMLoger.addLog("删除文件失败, 文件不存在: \(url.path)")
+            }
+        }
+    }
+    
+    // 清理废纸篓
+    @objc func cleanTrash() {
+        let path = "~/.Trash"
+        var isDirectory: ObjCBool = false
+        guard FileManager.default.fileExists(atPath: path, isDirectory: &isDirectory), isDirectory.boolValue else {
+            QMLoger.addLog("清理废纸篓失败: 文件路径不存在")
+            return
+        }
+        guard let contents = try? FileManager.default.contentsOfDirectory(atPath: path) else {
+            QMLoger.addLog("清理废纸篓无文件")
+            return
+        }
+        for item in contents {
+            let filePath = path.appending("/\(item)")
+            do {
+                try FileManager.default.removeItem(atPath: filePath)
+            } catch {
+                QMLoger.addLog("清理废纸篓文件失败: \(filePath) \(error.localizedDescription)")
             }
         }
     }

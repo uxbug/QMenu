@@ -75,7 +75,7 @@
 		8C8370C726E608D600683BCF /* QMConfigModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C8370C526E608D600683BCF /* QMConfigModel.swift */; };
 		8C8370CB26E617E900683BCF /* QMFeatureModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C7602E926E1C899009A9864 /* QMFeatureModel.swift */; };
 		8C86FCFB26DCAA3800E71F72 /* QMFinderSync.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C86FCFA26DCAA3800E71F72 /* QMFinderSync.swift */; };
-		8C86FD0026DCAA3800E71F72 /* 右键菜单扩展.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 8C86FCF826DCAA3800E71F72 /* 右键菜单扩展.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8C86FD0026DCAA3800E71F72 /* 右键菜单扩展.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 8C86FCF826DCAA3800E71F72 /* 右键菜单扩展.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		8C86FD1D26DCAD9E00E71F72 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C86FD1A26DCAD9E00E71F72 /* Date.swift */; };
 		8C86FD1E26DCAD9E00E71F72 /* QMLoger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C86FD1C26DCAD9E00E71F72 /* QMLoger.swift */; };
 		8C86FD1F26DCADA400E71F72 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C86FD1A26DCAD9E00E71F72 /* Date.swift */; };
@@ -126,15 +126,15 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8C86FD0126DCAA3800E71F72 /* Embed App Extensions */ = {
+		8C86FD0126DCAA3800E71F72 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				8C86FD0026DCAA3800E71F72 /* 右键菜单扩展.appex in Embed App Extensions */,
+				8C86FD0026DCAA3800E71F72 /* 右键菜单扩展.appex in Embed Foundation Extensions */,
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -495,7 +495,7 @@
 				8C82A42C26CE29E700C83E1D /* Sources */,
 				8C82A42D26CE29E700C83E1D /* Frameworks */,
 				8C82A42E26CE29E700C83E1D /* Resources */,
-				8C86FD0126DCAA3800E71F72 /* Embed App Extensions */,
+				8C86FD0126DCAA3800E71F72 /* Embed Foundation Extensions */,
 				AC792CDDD4C624B457EC2575 /* [CP] Embed Pods Frameworks */,
 				8C735AA426F1EB2500BF6C80 /* Embed Frameworks */,
 			);
@@ -535,7 +535,7 @@
 			attributes = {
 				CLASSPREFIX = QM;
 				LastSwiftUpdateCheck = 1250;
-				LastUpgradeCheck = 1250;
+				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					8C82A42F26CE29E700C83E1D = {
 						CreatedOnToolsVersion = 12.5;
@@ -810,6 +810,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -871,6 +872,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -902,6 +904,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = QMenu/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -909,7 +912,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.liyb.QMenu;
 				PRODUCT_NAME = "右键菜单";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -932,6 +935,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = QMenu/SupportingFiles/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -939,7 +943,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.liyb.QMenu;
 				PRODUCT_NAME = "右键菜单";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
@@ -960,6 +964,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = QMenuTarget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -968,7 +973,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.liyb.QMenu.QMenuTarget;
 				PRODUCT_NAME = "右键菜单扩展";
 				SKIP_INSTALL = YES;
@@ -991,6 +996,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = QMenuTarget/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -999,7 +1005,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.liyb.QMenu.QMenuTarget;
 				PRODUCT_NAME = "右键菜单扩展";
 				SKIP_INSTALL = YES;

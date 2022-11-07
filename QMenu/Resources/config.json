@@ -53,6 +53,15 @@
             "desc": "慎用！直接删除文件，无法恢复。",
             "type": 5,
             "iconPath": "",
+        },
+        {
+            "id": 103023096,
+            "title": "清理废纸篓",
+            "state": true,
+            "icon": "feature_delete",
+            "desc": "慎用！直接删除文件，无法恢复。",
+            "type": 6,
+            "iconPath": "",
         }
     ],
     "directory": [
@@ -381,7 +390,7 @@
     ],
     "autoOpen": true,
     "showDirectory": true,
-    "version": "1.0.1",
+    "version": "1.0.2",
     "author": "liyb",
     "copyright": "Copyright © 2021-2022年 liyb. All rights reserved."
 }

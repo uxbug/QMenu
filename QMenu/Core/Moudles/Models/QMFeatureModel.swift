@@ -15,6 +15,7 @@ enum FeatureType: Int {
     case copy = 3  // 拷贝至常用目录
     case copyPath = 4  // 拷贝路径
     case delete = 5  // 直接删除
+    case trash = 6  // 清理废纸篓
 }
 
 class QMFeatureModel: QMBaseModel {
