@@ -28,7 +28,8 @@ class QMFeatureModel: QMBaseModel {
     override func mapping(mapper: HelpingMapper) {
         super.mapping(mapper: mapper)
         mapper <<< type <-- TransformOf<FeatureType, Int> (fromJSON: { value in
-            return FeatureType.init(rawValue: value ?? 0)
+            let type = FeatureType.init(rawValue: value ?? 0)
+            return type
         }, toJSON: { value in
             return value?.rawValue ?? 0
         })

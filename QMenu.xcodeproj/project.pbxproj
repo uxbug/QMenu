@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04E34968291A3F58002C5832 /* desc.html in Resources */ = {isa = PBXBuildFile; fileRef = 04E34967291A3F58002C5832 /* desc.html */; };
 		8C31A81A2771D1B80004570F /* ThemeColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C31A8192771D1B80004570F /* ThemeColor.swift */; };
 		8C4049C026E6ED4900AF764F /* pages.pages in Resources */ = {isa = PBXBuildFile; fileRef = 8C4049BD26E6ED4900AF764F /* pages.pages */; };
 		8C4049C126E6ED4900AF764F /* keynote.key in Resources */ = {isa = PBXBuildFile; fileRef = 8C4049BE26E6ED4900AF764F /* keynote.key */; };
@@ -88,7 +89,6 @@
 		8C878E2B26EB239900DD32FE /* QMFileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C878E2926EB239900DD32FE /* QMFileModel.swift */; };
 		8C878E2D26EB249300DD32FE /* QMBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C878E2C26EB249300DD32FE /* QMBaseModel.swift */; };
 		8C878E2E26EB249300DD32FE /* QMBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C878E2C26EB249300DD32FE /* QMBaseModel.swift */; };
-		8C95B7BA26E0A234008DA2FD /* cartool in Resources */ = {isa = PBXBuildFile; fileRef = 8C95B7B926E0A234008DA2FD /* cartool */; };
 		8C95B7BF26E0B49C008DA2FD /* QMDirectoryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C95B7BD26E0B49C008DA2FD /* QMDirectoryController.swift */; };
 		8C95B7C026E0B49C008DA2FD /* QMDirectoryController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C95B7BE26E0B49C008DA2FD /* QMDirectoryController.xib */; };
 		8C95B7C326E0B4B5008DA2FD /* QMNewFileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C95B7C126E0B4B5008DA2FD /* QMNewFileController.swift */; };
@@ -140,6 +140,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		04E34967291A3F58002C5832 /* desc.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = desc.html; sourceTree = "<group>"; };
 		69A2304B61675EB88C53E974 /* Pods-QMenu.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QMenu.debug.xcconfig"; path = "Target Support Files/Pods-QMenu/Pods-QMenu.debug.xcconfig"; sourceTree = "<group>"; };
 		866BC2E8B41FE5EFBCA3E07F /* Pods_QMenuTarget.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_QMenuTarget.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8C2C6D2426EEEB6700AC4734 /* CoreUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreUI.framework; path = ../../../../../../System/Library/PrivateFrameworks/CoreUI.framework; sourceTree = "<group>"; };
@@ -206,7 +207,6 @@
 		8C878E2626EB238E00DD32FE /* QMDirectoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMDirectoryModel.swift; sourceTree = "<group>"; };
 		8C878E2926EB239900DD32FE /* QMFileModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMFileModel.swift; sourceTree = "<group>"; };
 		8C878E2C26EB249300DD32FE /* QMBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMBaseModel.swift; sourceTree = "<group>"; };
-		8C95B7B926E0A234008DA2FD /* cartool */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = cartool; sourceTree = "<group>"; };
 		8C95B7BD26E0B49C008DA2FD /* QMDirectoryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMDirectoryController.swift; sourceTree = "<group>"; };
 		8C95B7BE26E0B49C008DA2FD /* QMDirectoryController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QMDirectoryController.xib; sourceTree = "<group>"; };
 		8C95B7C126E0B4B5008DA2FD /* QMNewFileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QMNewFileController.swift; sourceTree = "<group>"; };
@@ -430,9 +430,9 @@
 				8C8370B826E6045500683BCF /* markdown.md */,
 				8C8370BA26E6045600683BCF /* ppt.pptx */,
 				8C8370B626E6045500683BCF /* text.txt */,
-				8C95B7B926E0A234008DA2FD /* cartool */,
 				8C4049C926E7491300AF764F /* config.json */,
 				8C8005AA26E9CDEC00370FD9 /* runner.scpt */,
+				04E34967291A3F58002C5832 /* desc.html */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -593,6 +593,7 @@
 				8C95B7C826E0B4C9008DA2FD /* QMAboutController.xib in Resources */,
 				8C8005AD26E9CDEC00370FD9 /* runner.scpt in Resources */,
 				8C95B7CC26E0BCF5008DA2FD /* QMMenuItem.xib in Resources */,
+				04E34968291A3F58002C5832 /* desc.html in Resources */,
 				8C4049C726E6EE1B00AF764F /* xmind.xmind in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -611,7 +612,6 @@
 				8C4049C826E6EE1B00AF764F /* xmind.xmind in Resources */,
 				8C8005AE26E9CDEC00370FD9 /* runner.scpt in Resources */,
 				8C4049C126E6ED4900AF764F /* keynote.key in Resources */,
-				8C95B7BA26E0A234008DA2FD /* cartool in Resources */,
 				8C8370C026E6045600683BCF /* markdown.md in Resources */,
 				8C4049CB26E7491300AF764F /* config.json in Resources */,
 			);

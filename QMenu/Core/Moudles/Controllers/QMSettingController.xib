@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21225" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21225"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="QMSettingController" customModule="右键菜单" customModuleProvider="target">
             <connections>
+                <outlet property="extensionButton" destination="0Vy-cs-KPa" id="MfB-z8-d8H"/>
+                <outlet property="fullDiskButton" destination="0O0-ZZ-1eE" id="h21-ah-ckp"/>
                 <outlet property="logButton" destination="AlE-Oc-tfn" id="PvX-Xb-HpB"/>
                 <outlet property="themeButton" destination="hy4-04-iAw" id="719-36-vwe"/>
                 <outlet property="view" destination="Hz6-mo-xeY" id="0bl-1N-x8E"/>
@@ -28,7 +30,10 @@
                         <gridRow height="20" id="TA5-gc-bi0"/>
                         <gridRow yPlacement="center" height="20" id="Yee-kG-Q1d"/>
                         <gridRow yPlacement="center" height="20" id="weD-u2-C0B"/>
-                        <gridRow height="410" id="OeC-Vs-76f"/>
+                        <gridRow height="20" id="OeC-Vs-76f"/>
+                        <gridRow height="20" id="9hQ-2l-Yon"/>
+                        <gridRow height="20" id="h5J-OP-TQH"/>
+                        <gridRow height="320" id="YNX-Uq-yIm"/>
                     </rows>
                     <columns>
                         <gridColumn xPlacement="trailing" width="200" id="HbC-2X-LVI"/>
@@ -96,7 +101,67 @@
                             </popUpButton>
                         </gridCell>
                         <gridCell row="OeC-Vs-76f" column="HbC-2X-LVI" id="10v-90-qsK"/>
-                        <gridCell row="OeC-Vs-76f" column="zQQ-Su-Uid" id="Zl3-QV-O98"/>
+                        <gridCell row="OeC-Vs-76f" column="zQQ-Su-Uid" xPlacement="leading" id="Zl3-QV-O98"/>
+                        <gridCell row="9hQ-2l-Yon" column="HbC-2X-LVI" id="cGO-eO-o4v">
+                            <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XYc-qq-9o1">
+                                <rect key="frame" x="118" y="360" width="84" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="扩展启用状态" id="ce7-bE-U3W">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </gridCell>
+                        <gridCell row="9hQ-2l-Yon" column="zQQ-Su-Uid" xPlacement="leading" id="xOF-0u-Q0q">
+                            <popUpButton key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="NvY-en-Kqt">
+                                <rect key="frame" x="207" y="356" width="78" height="25"/>
+                                <popUpButtonCell key="cell" type="push" title="关闭" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="nde-In-W1i" id="0Vy-cs-KPa">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="E3z-0L-N3i">
+                                        <items>
+                                            <menuItem title="开启" id="aif-0P-dBl"/>
+                                            <menuItem title="关闭" state="on" id="nde-In-W1i"/>
+                                            <menuItem title="Item 3" id="kN4-dZ-f9w"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                                <connections>
+                                    <action selector="didExtensionChange:" target="-2" id="Djq-Cf-4js"/>
+                                </connections>
+                            </popUpButton>
+                        </gridCell>
+                        <gridCell row="h5J-OP-TQH" column="HbC-2X-LVI" id="R9L-XS-DyK">
+                            <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6m9-BI-9Xw">
+                                <rect key="frame" x="91" y="330" width="111" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="完全访问磁盘权限" id="kvd-b2-XcT">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </gridCell>
+                        <gridCell row="h5J-OP-TQH" column="zQQ-Su-Uid" xPlacement="leading" id="Rds-v9-obd">
+                            <popUpButton key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0O0-ZZ-1eE">
+                                <rect key="frame" x="207" y="326" width="78" height="25"/>
+                                <popUpButtonCell key="cell" type="push" title="关闭" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="jLv-8d-9Qi" id="Dht-wY-0qn">
+                                    <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="menu"/>
+                                    <menu key="menu" id="lQb-6x-Vhk">
+                                        <items>
+                                            <menuItem title="开启" id="seU-xd-Geu"/>
+                                            <menuItem title="关闭" state="on" id="jLv-8d-9Qi"/>
+                                            <menuItem title="Item 3" id="GDX-f0-0zi"/>
+                                        </items>
+                                    </menu>
+                                </popUpButtonCell>
+                                <connections>
+                                    <action selector="didFullDiskChange:" target="-2" id="ExW-2Q-Anr"/>
+                                </connections>
+                            </popUpButton>
+                        </gridCell>
+                        <gridCell row="YNX-Uq-yIm" column="HbC-2X-LVI" id="MGs-s1-pHL"/>
+                        <gridCell row="YNX-Uq-yIm" column="zQQ-Su-Uid" id="eS6-cc-8L5"/>
                     </gridCells>
                 </gridView>
             </subviews>

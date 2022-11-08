@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21225" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21225"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -50,7 +50,7 @@
                         <constraint firstAttribute="height" constant="20" id="DNQ-4q-lc9"/>
                         <constraint firstAttribute="width" constant="20" id="b2a-d5-G90"/>
                     </constraints>
-                    <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="chevron.backward" catalog="system" imagePosition="only" imageScaling="proportionallyDown" inset="2" id="Jnw-LL-ecX">
+                    <buttonCell key="cell" type="bevel" bezelStyle="rounded" image="NSGoBackTemplate" imagePosition="only" imageScaling="proportionallyDown" inset="2" id="Jnw-LL-ecX">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
@@ -180,7 +180,7 @@
         </customView>
     </objects>
     <resources>
-        <image name="chevron.backward" catalog="system" width="10" height="14"/>
+        <image name="NSGoBackTemplate" width="12" height="17"/>
         <image name="log_clean" width="20" height="20"/>
     </resources>
 </document>

@@ -56,11 +56,12 @@ class QMRootController: QMBaseController {
     
     override func viewWillAppear() {
         super.viewWillAppear()
-        view.window?.title = dataSource.first?.0 ?? ""
+        view.window?.title = dataSource[selectIndex].0
+        checkAuthorationStatus()
     }
 }
 
-extension QMRootController {
+private extension QMRootController {
     func makeUI() {
         addChild(tabController)
         view.addSubview(tabController.view)
@@ -74,9 +75,6 @@ extension QMRootController {
         collectionView.register(QMMenuItem.self, forItemWithIdentifier: .init("QMMenuItem"))
         collectionView.delegate = self
         collectionView.dataSource = self
-        // 检测扩展启用状态，未启用默认选择说明页
-        tabController.selectedIndex = isExtensionEnabled ? 0 : 4
-        collectionView.selectItems(at: [IndexPath(item: tabController.selectedIndex, section: 0)], scrollPosition: .bottom)
         
         let text = "\(QMUtiles.App.name) v\(QMUtiles.App.version)"
         let paragraph = NSMutableParagraphStyle.init()
@@ -89,6 +87,14 @@ extension QMRootController {
         let range = (text as NSString).range(of: "v\(QMUtiles.App.version)")
         attributedString.addAttributes([NSAttributedString.Key.font: NSFont.systemFont(ofSize: 12)], range: range)
         nameLabel.attributedStringValue = attributedString
+    }
+    
+    func checkAuthorationStatus() {
+        // 检测扩展启用状态和完全磁盘访问权限
+        if (!isExtensionEnabled || QMUtiles.Authoration.fullDiskStatus != .authorized), selectIndex != 4 {
+            selectIndex = 4
+            collectionView.selectItems(at: [IndexPath(item: selectIndex, section: 0)], scrollPosition: .bottom)
+        }
     }
 }
 

@@ -8,9 +8,6 @@
 import Cocoa
 import FinderSync
 
-/// 常用目录menu tag
-fileprivate let useDirectoryTag: Int = 203023093
-
 class QMFinderSync: FIFinderSync {
 
     var runner: QMRunner!
@@ -52,6 +49,12 @@ class QMFinderSync: FIFinderSync {
 // MARK: 工具方法
 fileprivate extension QMFinderSync {
 
+    /// 常用目录menu tag
+    struct Tag {
+        static let useDirectory: Int = 203023093
+        static let addDirectory: Int = 203023094
+    }
+    
     /// 创建新路径
     /// - Parameters:
     ///   - isFile: 是否是文件
@@ -90,27 +93,20 @@ fileprivate extension QMFinderSync {
                 for feature in features {
                     if feature.type == .newFile {   // 文件模板
                         configNewFileMenuItem(config, feature: feature, menu: menu)
-                    }
-                    if feature.type == .launch {   // 打开方式
+                    } else if feature.type == .launch {   // 打开方式
                         configLaunchMenuItem(config, feature: feature, menu: menu)
-                    }
-                    if config.showDirectory && !hasAddDirectory { // 常用目录
+                    } else if config.showDirectory && !hasAddDirectory { // 常用目录
                         configDirectoryMenuItem(config, menu: menu)
                         hasAddDirectory = true
-                    }
-                    if feature.type == .move {   // 移动至常用目录
+                    } else if feature.type == .move {   // 移动至常用目录
                         configMoveDirectoryMenuItem(config, feature: feature, menu: menu)
-                    }
-                    if feature.type == .copy {   // 拷贝至常用目录
+                    } else if feature.type == .copy {   // 拷贝至常用目录
                         configCopyDirectoryMenuItem(config, feature: feature, menu: menu)
-                    }
-                    if feature.type == .copyPath {   // 拷贝路径
+                    } else if feature.type == .copyPath {   // 拷贝路径
                         configCopyPathMenuItem(config, feature: feature, menu: menu)
-                    }
-                    if feature.type == .delete { // 直接删除文件
+                    } else if feature.type == .delete { // 直接删除文件
                         configDeleteFileMenuItem(config, feature: feature, menu: menu)
-                    }
-                    if feature.type == .trash { // 废纸篓
+                    } else if feature.type == .trash { // 废纸篓
                         configTrashMenuItem(config, feature: feature, menu: menu)
                     }
                 }
@@ -193,104 +189,78 @@ fileprivate extension QMFinderSync {
     
     /// 配置移动至菜单
     func configMoveDirectoryMenuItem(_ config: QMConfigModel, feature: QMFeatureModel, menu: NSMenu) {
-        let item = NSMenuItem.init()
-        item.title = feature.title
-        item.tag = feature.id
-        item.image = NSImage.init(named: feature.icon)
-        item.submenu = NSMenu.init(title: feature.title)
-        let directorys = config.directory.filter({ $0.state == .on })
-        if directorys.count > 0 {
-            directorys.forEach { model in
-                let it = NSMenuItem.init(title: model.title, action: #selector(moveToDirectory(_:)), keyEquivalent: "")
-                it.image = NSImage.init(named: "directory")
-                it.tag = model.id
-                item.submenu?.addItem(it)
-            }
-            menu.addItem(item)
-        }
+        configSubMenuItem(config, feature: feature, menu: menu, action: #selector(moveToDirectory(_:)))
     }
     
     /// 配置拷贝至菜单
     func configCopyDirectoryMenuItem(_ config: QMConfigModel, feature: QMFeatureModel, menu: NSMenu) {
-        let item = NSMenuItem.init()
-        item.title = feature.title
-        item.tag = feature.id
-        item.image = NSImage.init(named: feature.icon)
-        item.submenu = NSMenu.init(title: feature.title)
-        let directorys = config.directory.filter({ $0.state == .on })
-        if directorys.count > 0 {
-            directorys.forEach { model in
-                let it = NSMenuItem.init(title: model.title, action: #selector(copyToDirectory(_:)), keyEquivalent: "")
-                it.tag = model.id
-                it.image = NSImage.init(named: "directory")
-                item.submenu?.addItem(it)
-            }
-            menu.addItem(item)
-        }
+        configSubMenuItem(config, feature: feature, menu: menu, action: #selector(copyToDirectory(_:)))
     }
     
     /// 配置拷贝路径菜单
     func configCopyPathMenuItem(_ config: QMConfigModel, feature: QMFeatureModel, menu: NSMenu) {
-        let item = NSMenuItem.init(title: feature.title, action: #selector(copyPath), keyEquivalent: "")
-        item.tag = feature.id
-        var image: NSImage?
-        if feature.iconPath.count > 0 {
-            image = NSImage.init(contentsOfFile: feature.iconPath)
-        } else {
-            image = NSImage.init(named: feature.icon)
-        }
-        if image?.size.width ?? 0 > 60, image?.size.height ?? 0 > 60 {
-            image = image?.resize(for: CGSize.init(width: 60, height: 60))
-        }
-        item.image = image
-        menu.addItem(item)
+        configMenuItem(config, feature: feature, menu: menu, action: #selector(copyPath))
     }
     
     /// 配置直接删除菜单
     func configDeleteFileMenuItem(_ config: QMConfigModel, feature: QMFeatureModel, menu: NSMenu) {
-        let item = NSMenuItem.init(title: feature.title, action: #selector(deleteItem), keyEquivalent: "")
-        item.tag = feature.id
-        var image: NSImage?
-        if feature.iconPath.count > 0 {
-            image = NSImage.init(contentsOfFile: feature.iconPath)
-        } else {
-            image = NSImage.init(named: feature.icon)
-        }
-        if image?.size.width ?? 0 > 60, image?.size.height ?? 0 > 60 {
-            image = image?.resize(for: CGSize.init(width: 60, height: 60))
-        }
-        item.image = image
-        menu.addItem(item)
+        configMenuItem(config, feature: feature, menu: menu, action: #selector(deleteItem))
     }
     
     // 配置清理垃圾篓菜单
     func configTrashMenuItem(_ config: QMConfigModel, feature: QMFeatureModel, menu: NSMenu) {
-        let item = NSMenuItem.init(title: feature.title, action: #selector(cleanTrash), keyEquivalent: "")
-        item.tag = feature.id
-        var image: NSImage?
-        if feature.iconPath.count > 0 {
-            image = NSImage.init(contentsOfFile: feature.iconPath)
-        } else {
-            image = NSImage.init(named: feature.icon)
-        }
-        if image?.size.width ?? 0 > 60, image?.size.height ?? 0 > 60 {
-            image = image?.resize(for: CGSize.init(width: 60, height: 60))
-        }
-        item.image = image
-        menu.addItem(item)
+        configMenuItem(config, feature: feature, menu: menu, action: #selector(cleanTrash))
     }
     
     /// 配置常用目录菜单
     func configDirectoryMenuItem(_ config: QMConfigModel, menu: NSMenu) {
         let item = NSMenuItem.init()
         item.title = "常用目录"
-        item.tag = useDirectoryTag
+        item.tag = Tag.useDirectory
         item.image = NSImage.init(named: "tab_directory_select")
         item.submenu = NSMenu.init(title: "常用目录")
         let directorys = config.directory.filter({ $0.state == .on })
         if directorys.count > 0 {
             directorys.forEach { model in
                 let it = NSMenuItem.init(title: model.title, action: #selector(openDirectory(_:)), keyEquivalent: "")
+                it.tag = model.id
+                it.image = NSImage.init(named: "directory")
+                item.submenu?.addItem(it)
+            }
+            let it = NSMenuItem(title: "添加目录", action: #selector(addNewDirectory(_:)), keyEquivalent: "")
+            it.tag = Tag.addDirectory
+            it.image = NSImage(named: "directory")
+            item.submenu?.addItem(it)
+            menu.addItem(item)
+        }
+    }
+    
+    private func configMenuItem(_ config: QMConfigModel, feature: QMFeatureModel, menu: NSMenu, action: Selector) {
+        let item = NSMenuItem.init(title: feature.title, action: action, keyEquivalent: "")
+        item.tag = feature.id
+        var image: NSImage?
+        if feature.iconPath.count > 0 {
+            image = NSImage.init(contentsOfFile: feature.iconPath)
+        } else {
+            image = NSImage.init(named: feature.icon)
+        }
+        if image?.size.width ?? 0 > 60, image?.size.height ?? 0 > 60 {
+            image = image?.resize(for: CGSize.init(width: 60, height: 60))
+        }
+        item.image = image
+        menu.addItem(item)
+    }
+    
+    private func configSubMenuItem(_ config: QMConfigModel, feature: QMFeatureModel, menu: NSMenu, action: Selector) {
+        let item = NSMenuItem.init()
+        item.title = feature.title
+        item.tag = feature.id
+        item.image = NSImage.init(named: feature.icon)
+        item.submenu = NSMenu.init(title: feature.title)
+        let directorys = config.directory.filter({ $0.state == .on })
+        if directorys.count > 0 {
+            directorys.forEach { model in
+                let it = NSMenuItem.init(title: model.title, action: action, keyEquivalent: "")
                 it.tag = model.id
                 it.image = NSImage.init(named: "directory")
                 item.submenu?.addItem(it)
@@ -456,10 +426,11 @@ fileprivate extension QMFinderSync {
     
     // 清理废纸篓
     @objc func cleanTrash() {
-        let path = "~/.Trash"
+        let userName = QMUtiles.User.userName
+        let path = "/Users/\(userName)/.Trash"
         var isDirectory: ObjCBool = false
         guard FileManager.default.fileExists(atPath: path, isDirectory: &isDirectory), isDirectory.boolValue else {
-            QMLoger.addLog("清理废纸篓失败: 文件路径不存在")
+            QMLoger.addLog("清理废纸篓失败: 文件路径不存在 \(path)")
             return
         }
         guard let contents = try? FileManager.default.contentsOfDirectory(atPath: path) else {
@@ -473,6 +444,17 @@ fileprivate extension QMFinderSync {
             } catch {
                 QMLoger.addLog("清理废纸篓文件失败: \(filePath) \(error.localizedDescription)")
             }
+        }
+    }
+    
+    @objc func addNewDirectory(_ item: NSMenuItem) {
+        guard let url = URL(string: "qmenu://adddirectory") else {
+            return
+        }
+        if #available(macOSApplicationExtension 10.15, *) {
+            NSWorkspace.shared.openApplication(at: url, configuration: .init())
+        } else {
+            NSWorkspace.shared.open(url)
         }
     }
 }

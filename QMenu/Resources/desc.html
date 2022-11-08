@@ -1,0 +1,35 @@
+<html>
+    <title>使用说明</title>
+    <head></head>
+    <style type="text/css">
+    	body {
+    		background-color: #282928;
+    	}
+    	p {
+    		color: white;
+            font-size: 14px;
+    	}
+    	h3 {
+    		color: white;
+    	}
+    	a {
+    		color: #FF0000;
+    	}
+    </style>
+    <script type="text/javascript">
+    	
+    </script>
+    <body>
+    	<div class="content">
+    		<h3>配置:</h3>
+	    	<p>『系统设置』->『扩展』->『Finder扩展』->勾选『<a href="qmenu://extensionPreferences">右键菜单扩展</a>』</p>
+	    	<h3>常见问题:</h3>
+	    	<p>1.右键菜单未显示?</p>
+	    	<p>按住option并双击Finder,选择重新启动Finder.</p>
+	    	<p>2.不能打开选中文件或项目?</p>
+	    	<p>检查『<a href="qmenu://extensionScript">~/Library/Application Scripts/com.liyb.QMenu.QMenuTarget</a>』文件夹内是否存在后缀为.scpt的文件，如果不存在点击导出脚本按钮把文件导出到上述路径。</p>
+            <p>3.点击清理废纸篓无响应?</p>
+            <p>检查『偏好设置』->『完全访问磁盘权限』是否开启，若未开启，请开启权限; 若显示已开启，请打开『系统设置』->『隐私与安全性』->『<a href="qmenu://fulldiskPreferences">完全磁盘访问权限</a>』，找到右键菜单，开启对应权限。</p>
+    	</div>
+    </body>
+</html>

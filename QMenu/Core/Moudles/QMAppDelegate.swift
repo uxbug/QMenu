@@ -32,6 +32,12 @@ class QMAppDelegate: NSObject, NSApplicationDelegate {
         return true
     }
     
+    func application(_ application: NSApplication, open urls: [URL]) {
+        guard let first = urls.first else {
+            return
+        }
+        let param = first
+    }
 }
  
 fileprivate extension QMAppDelegate {

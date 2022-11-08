@@ -24,6 +24,27 @@ extension String {
         return self.replacingOccurrences(of: lastPathComponent, with: "")
     }
     
+    var expandingTildeInPath: String {
+        return (self as NSString).expandingTildeInPath
+    }
+    
+    static var userHome: String {
+        var homePath: String = ""
+        if #available(macOS 10.12, *) {
+            let url = FileManager.default.homeDirectoryForCurrentUser
+            let path = url.path
+            homePath = path
+        } else {
+            homePath = NSHomeDirectory()
+        }
+        let sepArr = homePath.components(separatedBy: "/")
+        if sepArr.count <= 2 {
+            return "/Users/\(NSUserName())"
+        } else {
+            return "/Users/\(sepArr[2])"
+        }
+    }
+    
     /// 处理空格
     /// `count`: number of escape characters.
     func nameSpaceEscaped(_ count: Int = 1) -> String {

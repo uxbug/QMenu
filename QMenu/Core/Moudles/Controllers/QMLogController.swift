@@ -28,7 +28,7 @@ fileprivate extension QMLogController {
     func makeUI() {
         listView.enclosingScrollView?.borderType = .noBorder
         view.backgroundColor = .white
-        lineView.backgroundColor = NSColor.init(hex: 0xF5F4F4)
+        lineView.backgroundColor = NSColor.init(hex: 0xF5F4F4).withAlphaComponent(0.4)
         splitView.setHoldingPriority(.windowSizeStayPut, forSubviewAt: 0)
         listView.register(QMLogItem.self, forItemWithIdentifier: .init("QMLogItem"))
         listView.delegate = self
