@@ -48,6 +48,20 @@ struct QMUtiles {
         static var targetAppBundleId: String {
             return "com.liyb.QMenu.QMenuTarget"
         }
+        
+        static var isDarkMode: Bool {
+            let apperance = NSApp.effectiveAppearance;
+            if #available(macOS 10.14, *) {
+                if apperance.bestMatch(from: [NSAppearance.Name.darkAqua, NSAppearance.Name.aqua]) == NSAppearance.Name.darkAqua {
+                    return true  //'深色'模式
+                }
+            }
+            return false  //'浅色'模式
+        }
+    }
+    
+    struct Notification {
+        static let skipChange = NSNotification.Name.init("skipChange")
     }
     
     struct Authoration {

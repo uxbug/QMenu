@@ -58,7 +58,7 @@
             "id": 103023096,
             "title": "清理废纸篓",
             "state": true,
-            "icon": "feature_delete",
+            "icon": "feature_clean",
             "desc": "慎用！直接删除文件，无法恢复。",
             "type": 6,
             "iconPath": "",

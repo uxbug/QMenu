@@ -28,6 +28,16 @@ extension String {
         return (self as NSString).expandingTildeInPath
     }
     
+    var base64EncodedString: String? {
+        let data = data(using: .utf8)
+        return data?.base64EncodedString()
+    }
+    
+    var base64DecodingString: String? {
+        guard let data = data(using: .utf8), let baseData = Data(base64Encoded: data) else { return nil }
+        return String(data: baseData, encoding: .utf8)
+    }
+    
     static var userHome: String {
         var homePath: String = ""
         if #available(macOS 10.12, *) {
@@ -84,5 +94,21 @@ extension String {
             }
         }
         return result
+    }
+    
+    func substring(to index: Int) -> String {
+        return (self as NSString).substring(to: index)
+    }
+    
+    func substring(from index: Int) -> String {
+        return (self as NSString).substring(from: index)
+    }
+    
+    func substring(with range: NSRange) -> String {
+        return (self as NSString).substring(with: range)
+    }
+    
+    func range(of string: String) -> NSRange {
+        return (self as NSString).range(of: string)
     }
 }

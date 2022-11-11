@@ -33,10 +33,10 @@ class QMAppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func application(_ application: NSApplication, open urls: [URL]) {
-        guard let first = urls.first else {
+        guard let url = urls.first else {
             return
         }
-        let param = first
+        QMJumpHelper.parser(url)
     }
 }
  

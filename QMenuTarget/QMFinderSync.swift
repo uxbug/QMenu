@@ -53,6 +53,7 @@ fileprivate extension QMFinderSync {
     struct Tag {
         static let useDirectory: Int = 203023093
         static let addDirectory: Int = 203023094
+        static let addFile: Int = 203023095
     }
     
     /// 创建新路径
@@ -144,8 +145,12 @@ fileprivate extension QMFinderSync {
                 it.image = image
                 item.submenu?.addItem(it)
             }
-            menu.addItem(item)
         }
+        let it = NSMenuItem(title: "添加模板", action: #selector(addNewFile(_:)), keyEquivalent: "")
+        it.tag = Tag.addFile
+        it.image = NSImage(named: "feature_add")
+        item.submenu?.addItem(it)
+        menu.addItem(item)
     }
     
     /// 配置打开...菜单
@@ -227,12 +232,12 @@ fileprivate extension QMFinderSync {
                 it.image = NSImage.init(named: "directory")
                 item.submenu?.addItem(it)
             }
-            let it = NSMenuItem(title: "添加目录", action: #selector(addNewDirectory(_:)), keyEquivalent: "")
-            it.tag = Tag.addDirectory
-            it.image = NSImage(named: "directory")
-            item.submenu?.addItem(it)
-            menu.addItem(item)
         }
+        let it = NSMenuItem(title: "添加目录", action: #selector(addNewDirectory(_:)), keyEquivalent: "")
+        it.tag = Tag.addDirectory
+        it.image = NSImage(named: "feature_add")
+        item.submenu?.addItem(it)
+        menu.addItem(item)
     }
     
     private func configMenuItem(_ config: QMConfigModel, feature: QMFeatureModel, menu: NSMenu, action: Selector) {
@@ -448,7 +453,22 @@ fileprivate extension QMFinderSync {
     }
     
     @objc func addNewDirectory(_ item: NSMenuItem) {
-        guard let url = URL(string: "qmenu://adddirectory") else {
+        let param = "{\"open\":\"addDirectory\", \"param\":\"\"}".base64EncodedString
+        let urlStr = "qmenu://jumpTo?param=\(param ?? "")"
+        guard let url = URL(string: urlStr) else {
+            return
+        }
+        if #available(macOSApplicationExtension 10.15, *) {
+            NSWorkspace.shared.openApplication(at: url, configuration: .init())
+        } else {
+            NSWorkspace.shared.open(url)
+        }
+    }
+    
+    @objc func addNewFile(_ item: NSMenuItem) {
+        let param = "{\"open\":\"newFile\", \"param\":\"\"}".base64EncodedString
+        let urlStr = "qmenu://jumpTo?param=\(param ?? "")"
+        guard let url = URL(string: urlStr) else {
             return
         }
         if #available(macOSApplicationExtension 10.15, *) {

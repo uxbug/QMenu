@@ -94,5 +94,6 @@ fileprivate extension QMSkipController {
             didSelectSkip?(.dark)
         }
         updateImageBackgroundColor()
+        NotificationCenter.default.post(name: QMUtiles.Notification.skipChange, object: nil)
     }
 }

@@ -11,21 +11,30 @@ import WebKit
 class QMDescController: QMBaseController {
 
     @IBOutlet weak var webView: WKWebView!
+    private var loadFinished: Bool = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         makeUI()
+        makeEvent()
     }
     
 }
 
 fileprivate extension QMDescController {
     func makeUI() {
+        webView.configuration.userContentController = WKUserContentController()
+        webView.configuration.userContentController.add(QMJSMessageHandler(), name: QMJSMessageHandler.Event.currentTheme)
         webView.navigationDelegate = self
         webView.uiDelegate = self
         guard let path = Bundle.main.path(forResource: "desc", ofType: "html"), let html = try? String.init(contentsOfFile: path) else {
             return
         }
         webView.loadHTMLString(html, baseURL: nil)
+    }
+    
+    func makeEvent() {
+        NotificationCenter.default.addObserver(self, selector: #selector(skipChange), name: QMUtiles.Notification.skipChange, object: nil)
     }
     
     @IBAction func exportScriptFile(_ sender: Any) {
@@ -52,11 +61,25 @@ fileprivate extension QMDescController {
         let log = QMLogController.init()
         presentAsSheet(log)
     }
+    
+    @objc func skipChange() {
+        guard loadFinished else {
+            return
+        }
+        var theme: Int = 1
+        if QMDataManager.shared.currentSkip == .system {
+            theme = QMUtiles.App.isDarkMode ? 2 : 1
+        } else {
+            theme = QMDataManager.shared.currentSkip.rawValue
+        }
+        webView.evaluateJavaScript("setTheme(\(theme));")
+    }
 }
 
 extension QMDescController: WKNavigationDelegate, WKUIDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        
+        loadFinished = true
+        skipChange()
     }
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
@@ -68,7 +91,6 @@ extension QMDescController: WKNavigationDelegate, WKUIDelegate {
     }
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        print(navigationAction.request.url)
         decisionHandler(.allow)
     }
     

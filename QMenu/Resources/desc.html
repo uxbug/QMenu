@@ -2,14 +2,24 @@
     <title>使用说明</title>
     <head></head>
     <style type="text/css">
-    	body {
-    		background-color: #282928;
+    	body.light {
+    		background-color: #ffffff;
     	}
-    	p {
+        body.dark {
+            background-color: #282928;
+        }
+        p.light {
+            color: #112031;
+            font-size: 14px;
+        }
+    	p.dark {
     		color: white;
             font-size: 14px;
     	}
-    	h3 {
+        h3.light {
+            color: #112031;
+        }
+    	h3.dark {
     		color: white;
     	}
     	a {
@@ -18,18 +28,50 @@
     </style>
     <script type="text/javascript">
     	
+        function getCurrentTheme() {
+            window.webkit.messageHandlers.getCurrentTheme.postMessage();
+        }
+        // 设置主题
+        function setTheme(mode) {
+            if (mode == 1) {
+                document.body.className = "light";
+            } else {
+                document.body.className = "dark";
+            }
+            let h3s = document.getElementsByTagName("h3");
+            let ps = document.getElementsByTagName("p");
+            for (let h3 of h3s) {
+                if (mode == 1) {
+                    h3.className = "light";
+                } else {
+                    h3.className = "dark";
+                }
+            }
+            for (let p of ps) {
+                if (mode == 1) {
+                    p.className = "light";
+                } else {
+                    p.className = "dark";
+                }
+            }
+        }
+
+        window.onload = function() {
+            getCurrentTheme();
+        }
+        
     </script>
-    <body>
+    <body class="dark">
     	<div class="content">
-    		<h3>配置:</h3>
-	    	<p>『系统设置』->『扩展』->『Finder扩展』->勾选『<a href="qmenu://extensionPreferences">右键菜单扩展</a>』</p>
-	    	<h3>常见问题:</h3>
-	    	<p>1.右键菜单未显示?</p>
-	    	<p>按住option并双击Finder,选择重新启动Finder.</p>
-	    	<p>2.不能打开选中文件或项目?</p>
-	    	<p>检查『<a href="qmenu://extensionScript">~/Library/Application Scripts/com.liyb.QMenu.QMenuTarget</a>』文件夹内是否存在后缀为.scpt的文件，如果不存在点击导出脚本按钮把文件导出到上述路径。</p>
-            <p>3.点击清理废纸篓无响应?</p>
-            <p>检查『偏好设置』->『完全访问磁盘权限』是否开启，若未开启，请开启权限; 若显示已开启，请打开『系统设置』->『隐私与安全性』->『<a href="qmenu://fulldiskPreferences">完全磁盘访问权限</a>』，找到右键菜单，开启对应权限。</p>
+    		<h3 class="dark">配置:</h3>
+	    	<p class="dark">『系统设置』->『扩展』->『Finder扩展』->勾选『<a href="qmenu://extensionPreferences">右键菜单扩展</a>』</p>
+	    	<h3 class="dark">常见问题:</h3>
+	    	<p class="dark">1.右键菜单未显示?</p>
+	    	<p class="dark">按住option并双击Finder,选择重新启动Finder.</p>
+	    	<p class="dark">2.不能打开选中文件或项目?</p>
+	    	<p class="dark">检查『<a href="qmenu://extensionScript">~/Library/Application Scripts/com.liyb.QMenu.QMenuTarget</a>』文件夹内是否存在后缀为.scpt的文件，如果不存在点击导出脚本按钮把文件导出到上述路径。</p>
+            <p class="dark">3.点击清理废纸篓无响应?</p>
+            <p class="dark">检查『偏好设置』->『完全访问磁盘权限』是否开启，若未开启，请开启权限; 若显示已开启，请打开『系统设置』->『隐私与安全性』->『<a href="qmenu://fulldiskPreferences">完全磁盘访问权限</a>』，找到右键菜单，开启对应权限。</p>
     	</div>
     </body>
 </html>
