@@ -240,7 +240,7 @@ fileprivate extension QMFinderSync {
         menu.addItem(item)
     }
     
-    private func configMenuItem(_ config: QMConfigModel, feature: QMFeatureModel, menu: NSMenu, action: Selector) {
+    func configMenuItem(_ config: QMConfigModel, feature: QMFeatureModel, menu: NSMenu, action: Selector) {
         let item = NSMenuItem.init(title: feature.title, action: action, keyEquivalent: "")
         item.tag = feature.id
         var image: NSImage?
@@ -256,7 +256,7 @@ fileprivate extension QMFinderSync {
         menu.addItem(item)
     }
     
-    private func configSubMenuItem(_ config: QMConfigModel, feature: QMFeatureModel, menu: NSMenu, action: Selector) {
+    func configSubMenuItem(_ config: QMConfigModel, feature: QMFeatureModel, menu: NSMenu, action: Selector) {
         let item = NSMenuItem.init()
         item.title = feature.title
         item.tag = feature.id
@@ -271,6 +271,22 @@ fileprivate extension QMFinderSync {
                 item.submenu?.addItem(it)
             }
             menu.addItem(item)
+        }
+    }
+    
+    /// 跳转主程序
+    /// - Parameter open: 跳转地址
+    /// - Parameter param: 跳转参数
+    func jumpToMainApp(with open: Open, param: String) {
+        let param = "{\"open\":\"\(open.rawValue)\", \"param\":\"\(param)\"}".base64EncodedString
+        let urlStr = "qmenu://jumpTo?param=\(param ?? "")"
+        guard let url = URL(string: urlStr) else {
+            return
+        }
+        if #available(macOSApplicationExtension 10.15, *) {
+            NSWorkspace.shared.openApplication(at: url, configuration: .init())
+        } else {
+            NSWorkspace.shared.open(url)
         }
     }
 }
@@ -436,6 +452,7 @@ fileprivate extension QMFinderSync {
         var isDirectory: ObjCBool = false
         guard FileManager.default.fileExists(atPath: path, isDirectory: &isDirectory), isDirectory.boolValue else {
             QMLoger.addLog("清理废纸篓失败: 文件路径不存在 \(path)")
+            jumpToMainApp(with: .auth(1), param: "{\"type\":\"\"}")
             return
         }
         guard let contents = try? FileManager.default.contentsOfDirectory(atPath: path) else {
@@ -453,28 +470,10 @@ fileprivate extension QMFinderSync {
     }
     
     @objc func addNewDirectory(_ item: NSMenuItem) {
-        let param = "{\"open\":\"addDirectory\", \"param\":\"\"}".base64EncodedString
-        let urlStr = "qmenu://jumpTo?param=\(param ?? "")"
-        guard let url = URL(string: urlStr) else {
-            return
-        }
-        if #available(macOSApplicationExtension 10.15, *) {
-            NSWorkspace.shared.openApplication(at: url, configuration: .init())
-        } else {
-            NSWorkspace.shared.open(url)
-        }
+        jumpToMainApp(with: .directory, param: "")
     }
     
     @objc func addNewFile(_ item: NSMenuItem) {
-        let param = "{\"open\":\"newFile\", \"param\":\"\"}".base64EncodedString
-        let urlStr = "qmenu://jumpTo?param=\(param ?? "")"
-        guard let url = URL(string: urlStr) else {
-            return
-        }
-        if #available(macOSApplicationExtension 10.15, *) {
-            NSWorkspace.shared.openApplication(at: url, configuration: .init())
-        } else {
-            NSWorkspace.shared.open(url)
-        }
+        jumpToMainApp(with: .file, param: "")
     }
 }

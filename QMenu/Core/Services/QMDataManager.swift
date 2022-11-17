@@ -13,6 +13,31 @@ enum SkipStyle: Int {
     case dark = 2
 }
 
+enum Open {
+    case file
+    case directory
+    case auth(Int)
+    
+    var rawValue: Int {
+        switch self {
+        case .file: return 0
+        case .directory: return 1
+        case .auth(let value): return 2*value
+        }
+    }
+    
+    static func `init`(rawValue: Int) -> Open {
+        if rawValue == 0 {
+            return .file
+        } else if rawValue == 1 {
+            return .directory
+        } else {
+            let value = rawValue / 2
+            return .auth(value)
+        }
+    }
+}
+
 class QMDataManager: NSObject {
     
     static let shared: QMDataManager = QMDataManager.init()
